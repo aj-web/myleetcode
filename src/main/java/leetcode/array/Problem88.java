@@ -11,9 +11,9 @@ import java.util.Arrays;
 public class Problem88 {
 
     public static void main(String[] args) {
-        int[] a1 = new int[]{1,2,3,0,0,0};
-        int[] a2 = new int[]{2,5,6};
-        merger2(a1,3,a2,3);
+        int[] a1 = new int[]{1, 2, 3, 0, 0, 0};
+        int[] a2 = new int[]{2, 5, 6};
+        merger2(a1, 3, a2, 3);
     }
 
 
@@ -57,27 +57,22 @@ public class Problem88 {
      * @Date 2021/8/10
      **/
     public static void merger2(int[] nums1, int m, int[] nums2, int n) {
-        if (nums1.length == 0 && nums2.length > 0) {
-            for (int i = 0; i != n; ++i) {
-                nums1[m + i] = nums2[i];
-            }
-        } else if (nums2.length == 0 && nums1.length > 0) {
-
-        } else if (nums1.length == 0 && nums2.length == 0) {
-
-        } else {
             int p1 = m - 1;
             int p2 = n - 1;
+            int tail = m + n -1;
             int current;
-            while (p1 > 0 || p2 > 0) {
-                if (nums1[p1] > nums2[p2]){
-                    current = nums1[p1];
-                }else {
+            while (p1 >= 0 || p2 >= 0) {
+                if (p1 == -1){
                     current = nums2[p2--];
+                }else if (p2 == -1){
+                    current = nums1[p1--];
+                }else if (nums1[p1] < nums2[p2]){
+                    current = nums2[p2--];
+                }else {
+                    current = nums1[p1--];
                 }
-                    nums1[p1--] = current;
+                nums1[tail--] = current;
             }
-        }
 
     }
 }
