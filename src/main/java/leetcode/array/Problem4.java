@@ -2,7 +2,6 @@ package leetcode.array;
 
 import java.util.*;
 
-import static leetcode.array.Solution4.findMedianSortedArrays;
 
 /**
  * @Author ninan
@@ -15,34 +14,89 @@ public class Problem4 {
 
 
     public static void main(String[] args) {
-        int[] a = new int[]{1, 3};
-        int[] b = new int[]{2};
-        System.out.println(findMedianSortedArrays(a, b));
+        int[] a = new int[]{1, 2};
+        int[] b = new int[]{3, 4};
+        System.out.println(finefindMedianSortedArrays1(a, b));
     }
-}
 
-class Solution4 {
-    public static double findMedianSortedArrays(int[] nums1, int[] nums2) {
-        Map<Integer, Integer> map = new TreeMap<>();
-
-        if (nums1.length == 0 && nums2.length == 0) {
-            return 0;
-        }
+    public static double finefindMedianSortedArrays1(int[] nums1, int[] nums2) {
+        int[] target = new int[nums1.length + nums2.length];
 
         for (int i = 0; i < nums1.length; i++) {
-            map.put(i, nums1[i]);
+            target[i] = nums1[i];
         }
+        System.arraycopy(nums2, 0, target, nums1.length, nums2.length);
+        Arrays.sort(target);
 
-        for (int i = 0; i < nums2.length; i++) {
-            map.put(i+nums1.length, nums2[i]);
-        }
 
-        if (map.size() % 2 == 0) {
+        if (target.length % 2 == 0) {
 
-            return  ((double) map.get((0 + map.size() - 1) / 2) + (double) map.get((0 + map.size() - 1) / 2 + 1)) / 2;
+            return ((double) target[(target.length) / 2] + (double) target[(target.length - 1) / 2]) / 2;
         } else {
-            return  (double) map.get((0 + map.size()) / 2);
+            return target[target.length / 2];
+        }
+    }
+
+    /**
+     * @Author ninan
+     * @Description 双指针合并两个有序数组，然后求出中位数,合并的时候用一个新数组，来保存两个旧数组
+     * @Date 21:40
+     **/
+    public static double finefindMedianSortedArrays2(int[] nums1, int[] nums2) {
+        int p1 = 0;
+        int p2 = 0;
+        int cur;
+        int[] tar = new int[nums1.length + nums2.length];
+        while (p1 < nums1.length || p2 < nums2.length) {
+            if (nums1.length == p1) {
+                cur = nums2[p2++];
+            } else if (nums2.length == p2) {
+                cur = nums1[p1++];
+            } else if (nums1[p1] < nums2[p2]) {
+                cur = nums1[p1++];
+            } else {
+                cur = nums2[p2++];
+            }
+            tar[p1 + p2 - 1] = cur;
+        }
+        if (tar.length % 2 == 0) {
+
+            return ((double) tar[(tar.length) / 2] + (double) tar[(tar.length - 1) / 2]) / 2;
+        } else {
+            return tar[tar.length / 2];
+        }
+    }
+
+
+    /**
+     * @Author ninan
+     * @Description 如果第一个数组能够放下两个数据，那么倒序，把两个数组存入第一个数组，对比上面可以节约空间
+     * @Date 21:54
+     **/
+    public static double finefindMedianSortedArrays3(int[] nums1, int[] nums2) {
+        int p1 = nums1.length - 1;
+        int p2 = nums2.length - 1;
+        int cur;
+        int[] tar = new int[nums1.length + nums2.length];
+        while (p1 >= 0 || p2 >= 0) {
+            if (p1 == -1) {
+                cur = nums2[p2--];
+            } else if (p2 == -1) {
+                cur = nums1[p1--];
+            } else if (nums1[p1] > nums2[p2]) {
+                cur = nums1[p1--];
+            } else {
+                cur = nums2[p2--];
+            }
+
+            tar[p1 + p2 -1] =cur;
         }
 
+
+        return 0;
     }
 }
+
+
+
+

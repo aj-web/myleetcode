@@ -13,12 +13,12 @@ public class Problem88 {
     public static void main(String[] args) {
         int[] a1 = new int[]{1, 2, 3, 0, 0, 0};
         int[] a2 = new int[]{2, 5, 6};
-        merger2(a1, 3, a2, 3);
+        merge(a1, 3, a2, 3);
     }
 
 
     public static void merge(int[] nums1, int m, int[] nums2, int n) {
-        System.arraycopy(nums1, 0, nums2, n, m);
+        System.arraycopy(nums2, 0, nums1, m, n);
         Arrays.sort(nums2);
     }
 
