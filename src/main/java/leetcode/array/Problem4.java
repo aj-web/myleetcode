@@ -1,8 +1,6 @@
 package leetcode.array;
 
-import sun.tools.tree.DoubleExpression;
-
-import java.util.*;
+import java.util.Arrays;
 
 
 /**
