@@ -1,5 +1,7 @@
 package leetcode.array;
 
+import sun.tools.tree.DoubleExpression;
+
 import java.util.*;
 
 
@@ -93,6 +95,11 @@ public class Problem4 {
         }
 
 
+        return 0;
+    }
+
+
+    public static double finefindMedianSortedArrays4(int[] nums1, int[] nums2) {
         return 0;
     }
 }
