@@ -1,7 +1,5 @@
 package leetcode.array;
 
-import com.sun.org.apache.xpath.internal.WhitespaceStrippingElementMatcher;
-
 import java.util.Arrays;
 
 /**
