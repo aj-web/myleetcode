@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 /**
  * @author chezhijun
- * @descririon
+ * @descririon 寻找最接近的三数之和
  * @date 2021/8/18
  */
 public class Problem16 {
@@ -13,6 +13,11 @@ public class Problem16 {
         System.out.println(threeSumClosest(t1, 1));
     }
 
+    /**
+     * @Author ninan
+     * @Description 采用于三数之后类似的逻辑，只不过需要判断接近这一条件
+     * @Date  2021/8/19
+     **/
     public static int threeSumClosest(int[] nums, int target) {
         Arrays.sort(nums);
 

@@ -28,6 +28,11 @@ public class Problem15 {
         }
     }
 
+    /**
+     * @Author ninan
+     * @Description 思路如上，但是其中有些许优化能让循环提前返回,例如不重复
+     * @Date  2021/8/19
+     **/
     public static List<List<Integer>> threeSum(int[] nums) {
 
         List<List<Integer>> ls = new ArrayList<>();
