@@ -7,7 +7,7 @@ package leetcode.array;
  */
 public class Problem977 {
     public static void main(String[] args) {
-        int[] a = new int[]{-7, -3, 2, 3, 11};
+        int[] a = new int[]{-7, 2, 3, 4, 11};
         int[] squares = sortedSquares4(a);
         System.out.println(squares);
     }
@@ -189,6 +189,11 @@ public class Problem977 {
     }
 
 
+    /**
+     * @param nums
+     * @return
+     * @description 找到正数和负数的分界线
+     */
     public static int[] sortedSquares4(int[] nums) {
 
         int[] result = new int[nums.length];
@@ -214,30 +219,60 @@ public class Problem977 {
         int left = 0;
         int right = nums.length - 1;
 
-        //有正有负 以0为目标，找0的数组下标位置，不存在0，就返回0的位置
-        while (left<right){
-            int mid = left + (right-left)/2;
-            if (nums[mid]<0){
-                left = mid+1;
-            }else if (nums[mid]>0){
-                right =mid;
-            }else if (nums[mid]==0){
+        //有正有负 以0为目标，找0的数组下标位置，不存在0，就返回0的位置,也就是nums[flag]永远大于等于0
+        while (left < right) {
+            int mid = left + (right - left) / 2;
+            if (nums[mid] < 0) {
+                left = mid + 1;
+            } else if (nums[mid] > 0) {
+                right = mid;
+            } else if (nums[mid] == 0) {
                 flag = mid;
             }
-            if (left == right ){
-                if (nums[left]>0){
-                    flag =  left;
-                }else if(nums[left]<0){
-                    flag = left+1;
+            if (left == right) {
+                if (nums[left] > 0) {
+                    flag = left;
+                } else if (nums[left] < 0) {
+                    flag = left + 1;
                 }
             }
         }
 
+        //以返回0的位置为分界线，为整个数组排序,0到flag的位置为负数，flag+1到nums.lengths为正数
+        //双指针开始遍历
+        int i = flag - 1;
+        int j = flag;
+        int index = 0;
+        while (i >= 0 || j < nums.length) {
 
-        //以返回0的位置为分界线，为整个数组排序,0到flag的位置为负数，
+
+        }
 
 
-            return nums;
+        return nums;
+    }
 
+    /**
+     * 从两端往中间遍历
+     *
+     * @param nums
+     * @return
+     */
+    public static int[] sortedSquares6(int[] nums) {
+        int[] result = new int[nums.length];
+        int left = 0;
+        int right = nums.length - 1;
+        int write = nums.length - 1;
+        while (left<=right){
+            if (nums[left]*nums[left] > nums[right]*nums[right]){
+                result[write] = nums[left]*nums[left];
+                left++;
+            }else {
+                result[write]=nums[right]*nums[right];
+                right--;
+            }
+            write--;
+        }
+        return result;
     }
 }
