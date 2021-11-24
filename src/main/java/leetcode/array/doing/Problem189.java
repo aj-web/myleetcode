@@ -13,8 +13,12 @@ public class Problem189 {
     }
 
     public static void rotate(int[] nums, int k) {
-        reverse(nums, 0, nums.length-1);
 
+        k%=nums.length;
+
+        reverse(nums, 0, nums.length-1);
+        reverse(nums,0,k-1);
+        reverse(nums,k, nums.length-1);
 
     }
 
@@ -31,11 +35,14 @@ public class Problem189 {
 
     /**
      * 实现想法有缺陷 [1,2] 3实现较为麻烦
+     * 看了答案，返现如果k大于数组长度 那么直接取余即可，妙
      *
      * @param nums
      * @param k
      */
     public static void rotate1(int[] nums, int k) {
+
+        k%= nums.length;
 
         int p1 = 0;
         int p2 = nums.length - 1;
