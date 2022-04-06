@@ -21,25 +21,7 @@ public class Offer79 {
         int p1 = 0;
         int p2 = 0;
         while (p1<= nums.length-1){
-            while (p2< nums.length-1){
-                List<Integer> l1 = new ArrayList();
-                List<Integer> l2 = new ArrayList<>();
 
-                if (p1==0){
-                    int num = nums[p2];
-                    l1.add(num);
-                    list.add(l1);
-                }
-
-                if (p2>p1 ){
-                    l2.add(nums[p2]);
-                    l2.add(nums[p1]);
-                    list.add(l2);
-                }
-                p2++;
-            }
-            p1++;
-            p2 =p1;
         }
 
         return list;

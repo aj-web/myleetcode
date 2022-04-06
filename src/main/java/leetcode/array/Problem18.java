@@ -7,175 +7,59 @@ import java.util.List;
 /**
  * @author chezhijun
  * @descririon 寻找四数之和
- * TODO 做到这题的时候差不多一个月写题了，郁闷
  * @date 2021/8/19
  */
 public class Problem18 {
     public static void main(String[] args) {
-        int[] a = new int[]{2,2,2,2,2};
-        fourSum1(a, 8).stream().forEach(x -> {
+        int[] a = new int[]{2, 2, 2, 2, 2};
+        fourSum(a, 8).stream().forEach(x -> {
             System.out.println(x);
         });
     }
 
+
     public static List<List<Integer>> fourSum(int[] nums, int target) {
         List<List<Integer>> result = new ArrayList<>();
-
+        //1.排除特殊情况
         if (nums.length < 4) {
             return result;
         }
-
         if (nums.length == 4) {
             if (nums[0] + nums[1] + nums[2] + nums[3] == target) {
                 result.add(Arrays.asList(nums[0], nums[1], nums[2], nums[3]));
             }
             return result;
         }
-
+        //2.排序
         Arrays.sort(nums);
-        int leftjudge = 0;
-        int righrjudge = 0;
+        //3.循环判断
 
-
-        for (int i = 0; i < nums.length - 1; i++) {
-
-            jump:
-            for (int j = nums.length - 1; j > 0; j--) {
-
-                int p1 = i;
-                int p2 = i + 1;
-                int p3 = j - 1;
-                int p4 = j;
-
-                while (p2 < p3) {
-
-                    leftjudge = nums[p2];
-                    righrjudge = nums[p3];
-
-                    if (nums[p1] + nums[p2] + nums[p3] + nums[p4] == target) {
-                        result.add(Arrays.asList(nums[p1], nums[p2], nums[p3], nums[p4]));
-
-
-                        p2++;
-                        p3--;
-
-                        if (p2 >= p3) {
-                            break;
-                        }
-                        if (leftjudge == nums[p2]) {
-                            if (p2 + 1 < p3) {
-                                p2++;
-                            } else {
-                                break;
-                            }
-                        }
-
-                        if (righrjudge == nums[p3]) {
-                            if (p3 - 1 > p2) {
-                                p3--;
-                            } else {
-                                break;
-                            }
-                        }
-
-                    } else if (nums[p1] + nums[p2] + nums[p3] + nums[p4] > target) {
-                        p3--;
-                        if (p3 == p2) {
-                            break;
-                        }
-                    } else if (nums[p1] + nums[p2] + nums[p3] + nums[p4] < target) {
-                        p2++;
-                        if (p2 == p3) {
-                            break;
-                        }
-                    }
-                }
-
-                if (nums[p1] == nums[p2] && nums[p3] == nums[p4] && nums[p2] == nums[p3]) {
-                    return result;
-                }
-                //这里
-                if (nums[p1] + leftjudge + righrjudge + nums[p4] <= target) {
-                    break jump;
-                } else {
-                    break;
-                }
+        for (int i = 0; i < nums.length; i++) {
+            //去掉左指针重复的情况
+            if (i > 0 && nums[i - 1] == nums[i]) {
+                continue;
             }
-        }
-        return result;
-    }
-
-    public static List<List<Integer>> fourSum1(int[] nums, int target) {
-        List<List<Integer>> result = new ArrayList<>();
-        if (nums.length < 4) {
-            return result;
-        }
-
-        if (nums.length == 4) {
-            if (nums[0] + nums[1] + nums[2] + nums[3] == target) {
-                result.add(Arrays.asList(nums[0], nums[1], nums[2], nums[3]));
-            }
-            return result;
-        }
-
-        Arrays.sort(nums);
-
-
-        for (int i = 0; i < nums.length - 1; i++) {
-            for (int j = i+1; j < nums.length - 2; j++) {
-                int p1 = i;
-                int p2 = j;
-                int p3 = j + 1;
-                int p4 = nums.length - 1;
-
-
-                while (p3 < p4) {
-                    if (nums[p1] + nums[p2] + nums[p3] + nums[p4] == target) {
-                        result.add(Arrays.asList(nums[p1], nums[p2], nums[p3], nums[p4]));
-
-                        p3++;
-                        if (p3 >= p4) {
-                            break;
-                        }
-                        while (nums[p3 - 1] == nums[p3]) {
-                            if (p3 + 1 <= p4) {
-                                p3++;
-                            } else {
-                                break ;
-                            }
-                        }
-
-                    } else if (nums[p1] + nums[p2] + nums[p3] + nums[p4] > target) {
-                        p4--;
-                        while (nums[p4 + 1] == nums[p4]) {
-                            if (p3 < p4 - 1) {
-                                p4--;
-                            } else {
-                                break ;
-                            }
-                        }
+            for (int j = i + 1; j < nums.length; j++) {
+                if (j > (i+1) && nums[j - 1] == nums[j]) {
+                    continue;
+                }
+                int left = j + 1;
+                int right = nums.length - 1;
+                while (left < right) {
+                    if (nums[i] + nums[j] + nums[left] + nums[right] > target) {
+                        right--;
+                    } else if (nums[i] + nums[j] + nums[left] + nums[right] < target) {
+                        left++;
                     } else {
-                        p3++;
-                        while (nums[p3 - 1] == nums[p3]) {
-                            if (p3 + 1 < p4) {
-                                p3++;
-                            } else {
-                                break ;
-                            }
-                        }
+                        result.add(Arrays.asList(nums[i], nums[j], nums[left], nums[right]));
+                        while (left < right && nums[left] == nums[left + 1]) left++; // 左指针此时指向最后一个重复元素
+                        while (left < right && nums[right] == nums[right - 1]) right--; // 右指针此时指向最后一个重复元素
+                        left++; // 左指针此时指向区间左侧第一个非重复元素
+                        right--; // 右指针此时指向区间右侧第一个非重复元素
                     }
-
-
                 }
-
-                if (nums[p1] == nums[p2] && nums[p3] == nums[p4] && nums[p2] == nums[p3]) {
-                    return result;
-                }
-
-
             }
         }
-
         return result;
     }
 }
