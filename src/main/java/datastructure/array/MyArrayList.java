@@ -1,6 +1,7 @@
 package datastructure.array;
 
 
+import java.util.Arrays;
 
 /**
  * 动态数组
@@ -34,22 +35,28 @@ public class MyArrayList<E> {
 
 
     public void add(int index, E e) {
-        if (index>this.data.length){
+        if (index>data.length){
             throw new IllegalArgumentException("超出数组长度");
         }
-        if (0==this.data.length){
+        if (0==data.length){
             throw new IllegalArgumentException("数组未初始化");
         }
 
 
 //      一种情况：容量为3的数组，已经放了3个值，执行第四次add时
 
-        if (size+1>this.data.length){
+        if (size+1>data.length){
             throw new IllegalArgumentException("需要扩容");
         }
 
 
-        for (int i = this.size-1;i>0;i--){
+        for (int i = size-1;i>0;i--){
+            if (i+1>data.length){
+                throw new IllegalArgumentException("需要扩容");
+                /*int oldCapacity = data.length;
+                int newCapacity = oldCapacity + (oldCapacity >> 1);
+                E[] newArray = Arrays.copyOf(data, newCapacity);*/
+            }
             data[i+1] = data[i];
         }
         data[index]  = e;
@@ -59,8 +66,17 @@ public class MyArrayList<E> {
 
 
     public void remove(int index) {
+        int oldCapacity = data.length;
+        int newCapacity = oldCapacity + (oldCapacity >> 1);
+        data = Arrays.copyOf(data, newCapacity);
 
     }
+
+
+    public void grow(int index) {
+
+    }
+
 
 
     public static void main(String[] args) {
