@@ -85,3 +85,27 @@ public class NEW_ARRAY extends Index8Instruction {
 anewarray  
 创建引用类型的一维数组。其过程和创建基本类型的一维数组是类似的，只不过该数组的元素是引用类型，所以我们要先获取到数组元素的引用类型。由 anewarray 指令后的操作数获取，其操作数为 2 字节，指向运行时常量池的一个类引用，该引用的类型就是引用类型数组中的元素类型。我们在获取到该类引用之后，先将其转换为直接引用(若还为加载过该类，则需要先加载到方法区)。接下来根据类型名，创建其一维数组名，eg：数组元素为 String，那么其一维数组类型名就是：[java/lang/String；接下来创建引用类型的一维数组的过程就和创建基本类型的一维数组过程就一样了。
 
+
+### 3.手写ArrayList
+手写过程中，发现一些不同引发思考
+在数组中，其实是可以间隔添加的，但是在ArrayList中，却不行
+```aidl
+//这种是可以的
+int[] a = new int[10]
+    a[0] = 0;
+    a[5] = 5;
+
+//这种会报错
+ArrayList<String> arrayList = new ArrayList<>(10);
+        arrayList.add(0,"a");
+        arrayList.add(1,"b");
+        arrayList.add(3,"a");
+```
+最终发现ArrayList的添加使用的算法,这个算法局限了只能在连续的数组上进行操作
+```aidl
+//从后往前遍历集合，找到对应位置，插入即可
+        for(int i = size;i>index;i--) {
+            //将元素统一往后面移动，上一个元素为i的值
+            data[i] = data[i-1];
+        }
+```
