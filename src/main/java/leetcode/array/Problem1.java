@@ -8,24 +8,36 @@ import java.util.*;
  */
 public class Problem1 {
     public static void main(String[] args) {
-        int[] a = new int[]{3, 3};
-        Solution s = new Solution();
-        int[] end = s.twoSum(a, 6);
-        for (int i = 0; i < end.length; i++) {
-            System.out.println(i + ":" + end[i]);
-        }
+
+
     }
 
-}
+    /**
+     * 时间复杂度 O的平方
+     * @param nums
+     * @param target
+     * @return
+     */
+    public int[] TwoSum(int[] nums ,int target) {
+        int length = nums.length;
+        for (int i = 0; i < length; i++) {
+            for (int j = i+1 ; j < length; j++) {
+                if (nums[j] == target - nums[i]) {
+                    return new int[]{i, j};
+                }
+            }
+        }
+        return null;
+    }
 
 
-/**
- * @Author ninan
- * @Description 使用hashmap求解
- * @Date 2021/7/16
- **/
-class Solution {
-    public int[] twoSum(int[] nums, int target) {
+    /**
+     * 时间复杂度 O的n
+     * @Author ninan
+     * @Description 使用hashmap求解
+     * @Date 2021/7/16
+     **/
+    public int[] twoSumHashMap(int[] nums, int target) {
         HashMap<Integer, Integer> hashMap = new HashMap(nums.length);
         for (int i = 0; i < nums.length; i++) {
             if (hashMap.containsKey(target - nums[i])) {
@@ -36,16 +48,16 @@ class Solution {
         }
         return null;
     }
-}
+
 
 
 /**
- * @Author ninan
+ * @Author ninan O的n
  * @Description 使用hashset求解，成为leetcode，2ms模板
  * @Date  2021/7/16
  **/
-class Solution1 {
-    public int[] twoSum(int[] nums, int target) {
+
+    public int[] twoSumHashSet(int[] nums, int target) {
         HashSet hashSet = new HashSet(2);
         for (int i = 0; i < nums.length; i++) {
             if (hashSet.contains(target - nums[i])) {
@@ -61,20 +73,6 @@ class Solution1 {
         }
         return null;
     }
-
-
-    public int[] reTwoSum(int[] nums ,int target){
-        for (int i = 0; i < nums.length; i++) {
-            for (int j =i+1; j< nums.length;j++){
-                if (nums[j]==target-nums[i]){
-                    return new int[]{i,j};
-                }
-            }
-        }
-        return null;
-    }
-
-
 
 
 }

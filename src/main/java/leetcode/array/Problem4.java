@@ -14,9 +14,9 @@ public class Problem4 {
 
 
     public static void main(String[] args) {
-        int[] a = new int[]{1, 2};
-        int[] b = new int[]{3, 4};
-        System.out.println(finefindMedianSortedArrays1(a, b));
+        int[] a = new int[]{1, 3};
+        int[] b = new int[]{2};
+        System.out.println(finefindMedianSortedArrays4(a, b));
     }
 
     public static double finefindMedianSortedArrays1(int[] nums1, int[] nums2) {
@@ -98,7 +98,29 @@ public class Problem4 {
 
 
     public static double finefindMedianSortedArrays4(int[] nums1, int[] nums2) {
-        return 0;
+
+        int p1 = 0;
+        int p2 = 0;
+        int cur = 0;
+        int length1 = nums1.length;
+        int length2 = nums2.length;
+        int length3 = length1+length2;
+        int[] target = new int[length3];
+
+        while (p1<length1 || p2< length2){
+
+            if ()
+
+
+
+        }
+
+        if (length3%2==0){
+            return ((double) (target[length3]+target[length3-1])/2);
+        }else {
+            return target[length3/2];
+        }
+
     }
 }
 
