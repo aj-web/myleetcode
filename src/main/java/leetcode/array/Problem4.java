@@ -97,8 +97,13 @@ public class Problem4 {
     }
 
 
+    /**
+     * 采用新思路 不合并数组 直接根据中位数进行判断
+     * @param nums1
+     * @param nums2
+     * @return
+     */
     public static double finefindMedianSortedArrays4(int[] nums1, int[] nums2) {
-
         int p1 = 0;
         int p2 = 0;
         int cur = 0;
@@ -109,7 +114,6 @@ public class Problem4 {
 
         while (p1<length1 || p2< length2){
 
-            if ()
 
 
 
