@@ -7,48 +7,32 @@ package leetcode.array;
  */
 public class Problem27 {
     public static void main(String[] args) {
-        int a[] = new int[]{2, 2, 2};
-        int removeElement = removeElement1(a, 2);
+        int a[] = new int[]{3, 2, 2,3};
+        int removeElement = removeElement(a, 3);
         System.out.println(removeElement);
     }
 
+
+    /**
+     * 使用快慢指针
+     * nums[slow] = nums[fast];slow++;  通过这两行代码的顺序可以控制数组第一个元素是否保留
+     * @param nums
+     * @param val
+     * @return
+     */
     public static int removeElement(int[] nums, int val) {
-
-        if (nums.length == 1 && nums[0] == val) {
+        if (nums.length == 0) {
             return 0;
-        } else if (nums.length == 1) {
-            return 1;
         }
-
         int fast = 0;
         int slow = 0;
-        for (; fast < nums.length ; fast++) {
+        while(fast<nums.length){
             if (nums[fast] != val) {
                 nums[slow] = nums[fast];
                 slow++;
             }
+            fast++;
         }
         return slow;
-    }
-
-    public static int removeElement1(int[] nums, int val) {
-
-        if (nums.length == 1 && nums[0] == val) {
-            return 0;
-        } else if (nums.length == 1) {
-            return 1;
-        }
-
-        int right = nums.length;
-        int left = 0;
-        while (left<right){
-            if (nums[left]==val){
-                nums[left]=nums[right-1];
-                right--;
-            }else {
-                left++;
-            }
-        }
-        return left;
     }
 }

@@ -7,48 +7,31 @@ package leetcode.array;
  */
 public class Problem26 {
     public static void main(String[] args) {
-        int a[] = new int[]{1,1,2,2,3,3};
+        int a[] = new int[]{1, 1, 2};
         int i = removeDuplicates1(a);
         System.out.println(i);
     }
 
-    public static int removeDuplicates(int[] nums) {
-        if (nums.length == 1) {
-            return 1;
-        }
 
-        int c = 0;
-        for (int i = 0; i < nums.length; i++) {
-            int k = i + 1;
-            while (k <= nums.length - 1 && nums[k] <= nums[i]) {
-                k++;
-
-            }
-            if (k <= nums.length - 1) {
-                nums[i + 1] = nums[k];
-            }
-        }
-
-        return c;
-    }
-
+    /**
+     * 快慢指针 直接秒杀
+     * @param nums
+     * @return
+     */
     public static int removeDuplicates1(int[] nums) {
-        if (nums.length == 1) {
-            return 1;
+        if (nums.length == 0) {
+            return 0;
         }
-
-        int fast = 1;
-        int slow = 1;
-
-        while (fast < nums.length){
-            if (nums[fast]!=nums[fast-1]){
-                nums[slow]=nums[fast];
+        int fast = 0;
+        int slow = 0;
+        while (fast < nums.length) {
+            if (nums[fast] != nums[slow]) {
                 slow++;
+                nums[slow] = nums[fast];
             }
             fast++;
         }
-        return slow;
+        return slow+1;
     }
-
 
 }
