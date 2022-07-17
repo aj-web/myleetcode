@@ -5,6 +5,7 @@ import java.util.*;
 /**
  * @author czj
  * @description LeetCode第一题：两数之和
+ * AC
  */
 public class Problem1 {
     public static void main(String[] args) {

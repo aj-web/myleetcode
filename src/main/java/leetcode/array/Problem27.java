@@ -4,6 +4,7 @@ package leetcode.array;
  * @author chezhijun
  * @descririon 移除元素
  * @date 2021/11/7
+ * AC
  */
 public class Problem27 {
     public static void main(String[] args) {

@@ -2,6 +2,7 @@ package leetcode.array;
 
 /**
  * LeetCode283：移动零
+ * AC
  */
 public class Problem283 {
 

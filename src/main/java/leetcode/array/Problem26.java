@@ -4,6 +4,7 @@ package leetcode.array;
  * @author chezhijun
  * @descririon 删除有序数组中的重复项
  * @date 2021/11/6
+ * AC
  */
 public class Problem26 {
     public static void main(String[] args) {
