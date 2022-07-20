@@ -64,6 +64,7 @@ public class Problem11 {
 
     /**
      * 再次优化那么在第一个for循环的时候就反向遍历 直接可以跳过 on2钟情况
+     *
      * @param height
      * @return
      */
@@ -73,7 +74,7 @@ public class Problem11 {
         int x = 0;
 
         for (int i = height.length - 1; i > 0; i--) {
-            if (i != height.length-1 && height[i] < height[i + 1]) {
+            if (i != height.length - 1 && height[i] < height[i + 1]) {
                 continue;
             }
             for (int j = 0; j < i; j++) {
@@ -92,6 +93,7 @@ public class Problem11 {
      * 思想很重要 面积=两个指针指向的数字中较小值∗指针之间的距离
      * 那么我们直接把距离拉到最大，跳过“两个指针指向的数字中较小值”，采用双指针跳过左右中小的，因为水桶效应，
      * 最小的数影响最大，所以跳过，
+     *
      * @param height
      * @return
      */

@@ -263,12 +263,12 @@ public class Problem977 {
         int left = 0;
         int right = nums.length - 1;
         int write = nums.length - 1;
-        while (left<=right){
-            if (nums[left]*nums[left] > nums[right]*nums[right]){
-                result[write] = nums[left]*nums[left];
+        while (left <= right) {
+            if (nums[left] * nums[left] > nums[right] * nums[right]) {
+                result[write] = nums[left] * nums[left];
                 left++;
-            }else {
-                result[write]=nums[right]*nums[right];
+            } else {
+                result[write] = nums[right] * nums[right];
                 right--;
             }
             write--;

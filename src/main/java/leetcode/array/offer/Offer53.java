@@ -8,7 +8,7 @@ package leetcode.array.offer;
 public class Offer53 {
 
     public static void main(String[] args) {
-        int[] a = new int[]{5,7,7,8,8,10};
+        int[] a = new int[]{5, 7, 7, 8, 8, 10};
         System.out.println(search(a, 6));
 
     }
@@ -34,7 +34,7 @@ public class Offer53 {
         }
         int right = findLastTarget3(nums, target);
 
-            return right - left + 1;
+        return right - left + 1;
 
     }
 

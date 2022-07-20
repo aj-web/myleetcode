@@ -14,12 +14,12 @@ public class Problem35 {
 
     public static int searchInsert(int[] nums, int target) {
 
-        if(nums[0]>=target){
+        if (nums[0] >= target) {
             return 0;
         }
 
-        if(nums[nums.length-1]==target){
-            return nums.length-1;
+        if (nums[nums.length - 1] == target) {
+            return nums.length - 1;
         }
 
         if (nums.length == 1) {
@@ -31,22 +31,22 @@ public class Problem35 {
         }
 
         int left = 0;
-        int right = nums.length-1;
+        int right = nums.length - 1;
 
-        while (left<right){
-            int mid = left + (right-left)/2;
-            if (nums[mid]>target){
+        while (left < right) {
+            int mid = left + (right - left) / 2;
+            if (nums[mid] > target) {
                 right = mid;
-            }else if (nums[mid]<target){
-                left = mid +1;
-            }else {
+            } else if (nums[mid] < target) {
+                left = mid + 1;
+            } else {
                 return mid;
             }
-            if (left == right ){
-                if (nums[left]>target){
+            if (left == right) {
+                if (nums[left] > target) {
                     return left;
-                }else if(nums[left]<target){
-                    return left+1;
+                } else if (nums[left] < target) {
+                    return left + 1;
                 }
             }
         }

@@ -133,7 +133,7 @@ public class Problem704 {
     public static int binarySearchRightUnite(int[] nums, int target) {
         if (nums.length == 0) return -1;
         int left = 0;
-        int right = nums.length-1; // 注意
+        int right = nums.length - 1; // 注意
         while (left < right) {
             int mid = left + (right - left) / 2;
             if (nums[mid] == target) {
@@ -142,7 +142,7 @@ public class Problem704 {
                 left = mid + 1;
             } else if (nums[mid] > target) {
                 //这里可以收缩边界
-                right = mid-1;
+                right = mid - 1;
             }
         }
         return left;

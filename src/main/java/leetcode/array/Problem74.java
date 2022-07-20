@@ -8,7 +8,7 @@ package leetcode.array;
 public class Problem74 {
 
     public static void main(String[] args) {
-        int[][] a = new int[][]{{1,3,5,7},{10,11,16,20},{23,30,34,60}};
+        int[][] a = new int[][]{{1, 3, 5, 7}, {10, 11, 16, 20}, {23, 30, 34, 60}};
 //        int[] transNum = transNum(a);
 //        int num = getNum(a, 7);
         boolean b = searchMatrix(a, 3);
@@ -19,6 +19,7 @@ public class Problem74 {
 
     /**
      * 用一维数组下标去访问二维数组
+     *
      * @param matrix
      * @param target
      * @return
@@ -43,12 +44,13 @@ public class Problem74 {
 
     public static int getNum(int[][] matrix, int index) {
         int n = matrix[0].length;
-        return matrix[index/n][index%n];
+        return matrix[index / n][index % n];
     }
 
 
     /**
      * 暴力解法，直接转换一维数组再二分查找
+     *
      * @param matrix
      * @return
      */

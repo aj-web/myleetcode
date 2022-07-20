@@ -57,22 +57,22 @@ public class Problem88 {
      * @Date 2021/8/10
      **/
     public static void merger2(int[] nums1, int m, int[] nums2, int n) {
-            int p1 = m - 1;
-            int p2 = n - 1;
-            int tail = m + n -1;
-            int current;
-            while (p1 >= 0 || p2 >= 0) {
-                if (p1 == -1){
-                    current = nums2[p2--];
-                }else if (p2 == -1){
-                    current = nums1[p1--];
-                }else if (nums1[p1] < nums2[p2]){
-                    current = nums2[p2--];
-                }else {
-                    current = nums1[p1--];
-                }
-                nums1[tail--] = current;
+        int p1 = m - 1;
+        int p2 = n - 1;
+        int tail = m + n - 1;
+        int current;
+        while (p1 >= 0 || p2 >= 0) {
+            if (p1 == -1) {
+                current = nums2[p2--];
+            } else if (p2 == -1) {
+                current = nums1[p1--];
+            } else if (nums1[p1] < nums2[p2]) {
+                current = nums2[p2--];
+            } else {
+                current = nums1[p1--];
             }
+            nums1[tail--] = current;
+        }
 
     }
 }

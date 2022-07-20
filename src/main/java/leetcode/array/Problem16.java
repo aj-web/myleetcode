@@ -17,7 +17,7 @@ public class Problem16 {
     /**
      * @Author ninan
      * @Description 采用于三数之后类似的逻辑，只不过需要判断接近这一条件
-     * @Date  2021/8/19
+     * @Date 2021/8/19
      **/
     public static int threeSumClosest(int[] nums, int target) {
         Arrays.sort(nums);
@@ -39,14 +39,14 @@ public class Problem16 {
                     return tar;
                 } else if (tar > target) {
 
-                    if (Math.abs(tar - target) < abs){
+                    if (Math.abs(tar - target) < abs) {
                         abs = Math.abs(tar - target);
                         result = nums[i] + nums[p1] + nums[p2];
                     }
 
                     p2--;
                 } else {
-                    if (Math.abs(tar - target) < abs){
+                    if (Math.abs(tar - target) < abs) {
                         abs = Math.abs(tar - target);
                         result = nums[i] + nums[p1] + nums[p2];
                     }

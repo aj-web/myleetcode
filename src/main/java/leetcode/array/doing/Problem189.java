@@ -14,11 +14,11 @@ public class Problem189 {
 
     public static void rotate(int[] nums, int k) {
 
-        k%=nums.length;
+        k %= nums.length;
 
-        reverse(nums, 0, nums.length-1);
-        reverse(nums,0,k-1);
-        reverse(nums,k, nums.length-1);
+        reverse(nums, 0, nums.length - 1);
+        reverse(nums, 0, k - 1);
+        reverse(nums, k, nums.length - 1);
 
     }
 
@@ -42,7 +42,7 @@ public class Problem189 {
      */
     public static void rotate1(int[] nums, int k) {
 
-        k%= nums.length;
+        k %= nums.length;
 
         int p1 = 0;
         int p2 = nums.length - 1;

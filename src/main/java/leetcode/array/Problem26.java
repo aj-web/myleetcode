@@ -16,6 +16,7 @@ public class Problem26 {
 
     /**
      * 快慢指针 直接秒杀
+     *
      * @param nums
      * @return
      */
@@ -32,7 +33,7 @@ public class Problem26 {
             }
             fast++;
         }
-        return slow+1;
+        return slow + 1;
     }
 
 }

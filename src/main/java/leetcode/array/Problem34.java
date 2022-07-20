@@ -8,27 +8,27 @@ public class Problem34 {
 
     public static void main(String[] args) {
         int[] a = new int[]{1};
-        searchRange(a,0);
+        searchRange(a, 0);
     }
 
     public static int[] searchRange(int[] nums, int target) {
-        return new int[]{leftBound(nums,target),rightBound(nums,target)};
+        return new int[]{leftBound(nums, target), rightBound(nums, target)};
     }
 
     /**
      * 找左边界
      */
-    public static int leftBound(int[] nums, int target){
+    public static int leftBound(int[] nums, int target) {
         int left = 0;
         int right = nums.length - 1;
         while (left <= right) {
-            int mid = left + (right-left)/2;
-            if (nums[mid] < target){
-                left = mid+1;
-            }else if (nums[mid] > target){
-                right = mid-1;
-            }else if (nums[mid] == target){
-                right = mid -1;
+            int mid = left + (right - left) / 2;
+            if (nums[mid] < target) {
+                left = mid + 1;
+            } else if (nums[mid] > target) {
+                right = mid - 1;
+            } else if (nums[mid] == target) {
+                right = mid - 1;
             }
         }
 
@@ -42,17 +42,17 @@ public class Problem34 {
     /**
      * 找右边界
      */
-    public static int rightBound(int[] nums, int target){
+    public static int rightBound(int[] nums, int target) {
         int left = 0;
         int right = nums.length - 1;
         while (left <= right) {
-            int mid = left + (right-left)/2;
-            if (nums[mid] < target){
-                left = mid+1;
-            }else if (nums[mid] > target){
-                right = mid-1;
-            }else if (nums[mid] == target){
-                left = mid +1;
+            int mid = left + (right - left) / 2;
+            if (nums[mid] < target) {
+                left = mid + 1;
+            } else if (nums[mid] > target) {
+                right = mid - 1;
+            } else if (nums[mid] == target) {
+                left = mid + 1;
             }
         }
 
@@ -62,7 +62,6 @@ public class Problem34 {
 
         return right;
     }
-
 
 
 }
