@@ -1,4 +1,4 @@
-package leetcode.array;
+package leetcode.array.Array1_500;
 
 /**
  * LeetCode283：移动零

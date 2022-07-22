@@ -1,4 +1,4 @@
-package leetcode.array.DynamicProgramming;
+package DynamicProgramming;
 
 /**
  * * leetc509 斐波那锲数列

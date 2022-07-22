@@ -1,4 +1,4 @@
-package leetcode.array.DynamicProgramming;
+package DynamicProgramming;
 
 /**
  * leet322 零钱兑换
