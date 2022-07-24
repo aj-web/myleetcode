@@ -42,33 +42,101 @@ public class MyArrayList<E> {
     }
 
 
-    /**
-     * @param index
-     * @param e
-     */
     public void add(int index, E e) {
-        if (index > size) {
-            grow(data.length);
+        checkPositionIndex(5);
+
+
+        int cap = data.length;
+        if (size==cap){
+            resize(2<<cap);
         }
 
-        //从后往前遍历集合，找到对应位置，插入即可
-        for (int i = size; i > index; i--) {
-            //将元素统一往后面移动，上一个元素为i的值
-            data[i] = data[i - 1];
-        }
-        //将要添加的元素添加到指定的索引处
+        // 搬移数据 data[index..] -> data[index+1..]
+        System.arraycopy(data, index,
+                data, index + 1,
+                size - index);
+        // 插入
         data[index] = e;
-        //数组下标+1
         size++;
+    }
 
+
+    public E remove(int index){
+        checkElementIndex(index);
+        E datum = data[index];
+        int cap = data.length;
+        // 可以缩容，节约空间
+        if (size == cap / 4) {
+            resize(cap / 2);
+        }
+        System.arraycopy(data,index+1,data,index,size-index-1);
+        data[size-1] = null;
+
+        return datum;
+    }
+
+
+    // 查
+    public E get(int index) {
+        // 检查索引越界
+        checkElementIndex(index);
+
+        return data[index];
+    }
+
+
+    // 查
+    public E set(int index,E Element) {
+        // 检查索引越界
+        checkElementIndex(index);
+        E temp = data[index];
+        data[index] = Element;
+        return temp;
     }
 
 
 
-    public void remove(int index) {
+    /**
+     * 扩容
+     * @param newCapacity
+     */
+    public void resize(int newCapacity){
+        if (size>newCapacity){
+            return;
+        }
 
+        E[] temp = (E[]) new Object[newCapacity];
+
+        for (int i = 0; i < size; i++) {
+            temp[i] =  data[i];
+        }
+
+        data = temp;
     }
 
+    /**
+     * 检查 index 索引位置是否可以存在元素
+     */
+    private void checkElementIndex(int index) {
+        if (!isElementIndex(index))
+            throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + size);
+    }
+
+    /**
+     * 检查 index 索引位置是否可以添加元素
+     */
+    private void checkPositionIndex(int index) {
+        if (!isPositionIndex(index))
+            throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + size);
+    }
+
+    private boolean isElementIndex(int index) {
+        return index >= 0 && index < size;
+    }
+
+    private boolean isPositionIndex(int index) {
+        return index >= 0 && index <= size;
+    }
 
     public void grow(int nowCapacity) {
         int oldCapacity = data.length;
