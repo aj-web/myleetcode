@@ -39,9 +39,6 @@ public class Problem66 {
         } else {
             int[] ints = new int[digits.length + 1];
             ints[0] = 1;
-            /*for (int i = 1; i < ints.length; i++) {
-                ints[i] = 0;
-            }*/
             return ints;
         }
 
