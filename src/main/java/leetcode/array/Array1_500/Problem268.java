@@ -2,12 +2,16 @@ package leetcode.array.Array1_500;
 
 import java.util.HashSet;
 
+/**
+ *
+ * ：异或运算，0-n的每个数 异或 nums里的每个数 #(因为这些数放在一起，只有缺失的数出现一次，其余数均出现两次)
+ */
 public class Problem268 {
 
     public static void main(String[] args) {
 
         int[] nums = new int[]{0,1,2,3,4,6,7,8,9};
-        System.out.println(missingNumber1(nums));
+        System.out.println(missingNumber2(nums));
     }
 
     public static int missingNumber(int[] nums) {
@@ -45,5 +49,16 @@ public class Problem268 {
             }
         }
         return length;
+    }
+
+    public static int missingNumber2(int[] nums) {
+        int n = nums.length;
+        int res = 0;
+        // 先和新补的索引异或一下
+        res ^= n;
+        // 和其他的元素、索引做异或
+        for (int i = 0; i < n; i++)
+            res ^= i ^ nums[i];
+        return res;
     }
 }
