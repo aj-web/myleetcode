@@ -3,8 +3,9 @@ package leetcode.array.Array1_500;
 import java.util.HashSet;
 
 /**
- *
+ *  LeetCode268：丢失的数字
  * ：异或运算，0-n的每个数 异或 nums里的每个数 #(因为这些数放在一起，只有缺失的数出现一次，其余数均出现两次)
+ * 因此，如果有多个数异或，其中由重复的数，不论这些重复的数是否相邻，如果这些数重复了偶数次，则异或后会全部消去；如果重复出现了奇数次，则会保留一个。这就是理论基础
  */
 public class Problem268 {
 
@@ -51,14 +52,18 @@ public class Problem268 {
         return length;
     }
 
+    /**
+     * 采用异或的方法处理
+     * @param nums
+     * @return
+     */
     public static int missingNumber2(int[] nums) {
-        int n = nums.length;
-        int res = 0;
-        // 先和新补的索引异或一下
-        res ^= n;
-        // 和其他的元素、索引做异或
-        for (int i = 0; i < n; i++)
-            res ^= i ^ nums[i];
+        int res = nums.length;
+        for (int i = 0; i < nums.length; i++) {
+            res^= nums[i] ^ i;
+        }
         return res;
     }
+
+
 }
