@@ -27,8 +27,59 @@
 2. 通过快指针对特定某个target进行判断，可以进行数组target去重(只能去除重复target)
 
 
+#### 1.2前后指针之滑动窗口
+- 什么时候应该移动 right 扩大窗口？窗口加入字符时，应该更新哪些数据？
+- 什么时候窗口应该暂停扩大，开始移动 left 缩小窗口？从窗口移出字符时，应该更新哪些数据？
+- 我们要的结果应该在扩大窗口时还是缩小窗口时进行更新？
+```
 
-### 1.2左右指针
+public static String minWindow(String s, String t) {
+        Map<Character, Integer> window = new HashMap<>();
+        Map<Character, Integer> need = new HashMap<>();
+        int left = 0, right = 0;
+        int valid = 0;
+        // 记录最小覆盖子串的起始索引及长度
+        int start = 0, len = Integer.MAX_VALUE;
+        for (int i = 0; i < t.length(); i++) {
+            need.put(t.charAt(i), need.getOrDefault(t.charAt(i), 0) + 1);
+        }
+
+        while (right < s.length()) {
+            char c = s.charAt(right);
+            right++;
+            if (need.containsKey(c)) {
+                window.put(c, window.getOrDefault(c, 0) + 1);
+                if (window.get(c).equals(need.get(c))) {
+                    valid++;
+                }
+            }
+
+            //判断左侧窗口是否需要收缩
+            while (valid == need.size()) {
+                if (right - left < len) {
+                    start = left;
+                    len = right - left;
+                }
+
+                char d = s.charAt(left);
+                left++;
+                if (need.containsKey(d)) {
+                    if (window.get(d).equals(need.get(d))) {
+                        valid--;
+                    }
+                    window.put(d, window.get(d) - 1);
+                }
+
+            }
+        }
+        return len == Integer.MAX_VALUE ? "" : s.substring(start, start + len);
+    }
+
+```
+
+
+
+### 1.3左右指针
 
 
 
@@ -187,36 +238,30 @@
 4. 明确base case
 
 
-1. 设计状态
-2. 写出状态转移方程
-3. 设定初始状态
-4. 执行状态转移
-5.返回最终的解
-
-函数的参数，或者数组的索引都是会变的一个状态
-利用递归函数进行一个计算，最终做出最优选择
-
-最简单的情况
 
 
 
-
-
-
-
-
-
-## 4.动态规划
-
-#### 4.1**动态规划特点**
+### 4.1**动态规划特点**
 1. 重叠子问题
 2. 状态转移方程
 3. 最优子结构
    题型：求最值
    核心：穷举
-
+   
+   
 ### 4.2解题套路
 1. 明确状态
 2. 明确选择
 3. 明确DP函数或者DP数组的定义
 4. 确定base case
+
+- 设计状态
+- 写出状态转移方程
+- 设定初始状态
+- 执行状态转移
+- 返回最终的解
+
+函数的参数，或者数组的索引都是会变的一个状态
+利用递归函数进行一个计算，最终做出最优选择
+
+最简单的情况
