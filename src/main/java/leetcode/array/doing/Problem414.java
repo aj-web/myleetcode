@@ -1,10 +1,6 @@
 package leetcode.array.doing;
 
-import org.apache.commons.lang3.ArrayUtils;
-
 import java.util.Arrays;
-
-import static org.apache.commons.lang3.ArrayUtils.reverse;
 
 public class Problem414 {
     public static void main(String[] args) {

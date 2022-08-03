@@ -1,5 +1,8 @@
-package leetcode.array.doing;
+package leetcode.array.Array1_500;
 
+/**
+ * 前缀和问题
+ */
 public class Problem303 {
 
 
