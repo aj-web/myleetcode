@@ -1,8 +1,10 @@
 package leetcode.array.Array1_500;
 
 
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 /**
  * leetcode349：两个数组的交集
@@ -45,5 +47,10 @@ public class Problem349 {
         }
 
         return  nums;
+    }
+
+    public int[] intersection1(int[] nums1, int[] nums2) {
+        Set<Integer> collect = Arrays.stream(nums1).boxed().collect(Collectors.toSet());
+        return Arrays.stream(nums2).filter(collect::contains).distinct().toArray();
     }
 }
