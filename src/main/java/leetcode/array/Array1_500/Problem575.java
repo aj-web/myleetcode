@@ -1,8 +1,11 @@
-package leetcode.array.doing;
+package leetcode.array.Array1_500;
 
 import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * leetcode分糖果
+ */
 public class Problem575 {
 
     public static void main(String[] args) {

@@ -1,5 +1,8 @@
-package leetcode.array.doing;
+package leetcode.array.Array1_500;
 
+/**
+ * leetcode重塑矩阵
+ */
 public class Problem566 {
 
 
