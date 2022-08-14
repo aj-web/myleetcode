@@ -222,6 +222,10 @@ public static String minWindow(String s, String t) {
     }
         
 ```
+### 2.1数组中重复的元素
+利用数组下标加上正负判断来操作
+
+
 
 ## 3.二维数组处理
 
