@@ -1,4 +1,4 @@
-package leetcode.array.doing;
+package leetcode.array.Array1_500;
 
 /**
  * 范围求和

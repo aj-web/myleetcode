@@ -1,4 +1,4 @@
-package leetcode.array.doing;
+package leetcode.array.Array1_500;
 
 import java.util.ArrayList;
 import java.util.List;
