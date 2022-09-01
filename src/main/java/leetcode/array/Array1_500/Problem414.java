@@ -1,7 +1,10 @@
-package leetcode.array.doing;
+package leetcode.array.Array1_500;
 
 import java.util.Arrays;
 
+/**
+ * 第三大的数
+ */
 public class Problem414 {
     public static void main(String[] args) {
         int[] a= new int[]{2,2,3,1};

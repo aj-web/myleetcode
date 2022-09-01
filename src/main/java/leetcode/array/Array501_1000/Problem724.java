@@ -1,6 +1,6 @@
-package leetcode.array.doing;
+package leetcode.array.Array501_1000;
 
-/**
+/**寻找数组的中心下标
  * @author : chezj
  * @date : 2022/8/19 16:27
  */

@@ -1,34 +1,35 @@
 package leetcode.array.doing;
 
-import java.util.HashMap;
-import java.util.Map;
-
-/**
+/**卡牌分组
  * @author : chezj
  * @date : 2022/8/31 17:42
  */
 public class Problem914 {
     
     public boolean hasGroupsSizeX(int[] deck) {
-        if (deck.length == 0) {
-            return true;
-        }
-        Map<Integer, Integer> map = new HashMap<>();
+        int[] cursor = new int[10000];
         
         for (int i : deck) {
-            map.put(i, map.getOrDefault(i, 0) + 1);
+            cursor[i]++;
         }
         
-        Integer tag = map.get(deck[0]);
-        for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
-            if (entry.getValue() < 2) {
-                return false;
-            }
-            if (!(entry.getValue() % tag == 0) && !(tag % entry.getValue() == 0)) {
-                return false;
+        int g = -1;
+        for (int i = 0; i < 10000; ++i) {
+            if (cursor[i] > 0) {
+                if (g == -1) {
+                    g = cursor[i];
+                } else {
+                    g = gcd(g, cursor[i]);
+                }
             }
         }
-        return true;
+        return g >= 2;
     }
+    
+    
+    public int gcd(int x, int y) {
+        return x == 0 ? y : gcd(y % x, x);
+    }
+    
     
 }

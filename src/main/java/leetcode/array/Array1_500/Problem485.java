@@ -1,8 +1,11 @@
-package leetcode.array.doing;
+package leetcode.array.Array1_500;
 
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 最大连续1的数
+ */
 public class Problem485 {
     public static void main(String[] args) {
         int[] nums =new int[]{1,1,0,1,1,1};

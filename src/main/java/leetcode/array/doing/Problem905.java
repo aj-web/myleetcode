@@ -3,7 +3,7 @@ package leetcode.array.doing;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
+/**按奇偶排列数组
  * @author : chezj
  * @date : 2022/8/31 17:06
  */

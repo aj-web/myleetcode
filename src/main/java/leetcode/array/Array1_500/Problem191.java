@@ -1,6 +1,7 @@
-package leetcode.array.doing;
+package leetcode.array.Array1_500;
 
 /**
+ * 位1的数
  * @author : chezj
  * @date : 2022/8/16 23:50
  */

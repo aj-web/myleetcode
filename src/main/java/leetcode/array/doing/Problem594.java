@@ -8,8 +8,6 @@ import java.util.Map;
  * leetcode最长和谐子序列
  */
 public class Problem594 {
-
-
     /**
      * 排序+滑动窗口
      * @param nums
