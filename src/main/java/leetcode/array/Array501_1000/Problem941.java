@@ -1,6 +1,6 @@
-package leetcode.array.doing;
+package leetcode.array.Array501_1000;
 
-/**
+/**有效的山脉数组
  * @author : chezj
  * @date : 2022/9/4 16:45
  */

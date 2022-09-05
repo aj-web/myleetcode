@@ -1,4 +1,4 @@
-package leetcode.array.doing;
+package leetcode.array.Array501_1000;
 
 import java.util.ArrayDeque;
 import java.util.Arrays;

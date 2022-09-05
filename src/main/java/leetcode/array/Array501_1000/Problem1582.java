@@ -1,6 +1,6 @@
-package leetcode.array.doing;
+package leetcode.array.Array501_1000;
 
-/**
+/** 二进制矩阵中的特殊位置
  * @author : chezj
  * @date : 2022/9/4 14:33
  */

@@ -1,9 +1,9 @@
-package leetcode.array.doing;
+package leetcode.array.Array501_1000;
 
 import java.util.HashSet;
 import java.util.Set;
 
-/**
+/**独特的电子邮件地址
  * @author : chezj
  * @date : 2022/9/1 17:57
  */

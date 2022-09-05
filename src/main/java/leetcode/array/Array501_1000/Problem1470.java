@@ -1,8 +1,8 @@
-package leetcode.array.doing;
+package leetcode.array.Array501_1000;
 
 import java.util.Arrays;
 
-/**
+/**重新排列数组
  * @author : chezj
  * @date : 2022/8/29 15:24
  */

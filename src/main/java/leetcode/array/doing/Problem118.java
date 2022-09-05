@@ -7,7 +7,7 @@ import java.util.List;
 
 /**
  * 杨辉三角
- *  TOOD
+ *  @TODO
  */
 public class Problem118 {
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package leetcode.array.doing;
+package leetcode.array.Array501_1000;
 
 /**
  * 寻找比目标字母大的最小字母
