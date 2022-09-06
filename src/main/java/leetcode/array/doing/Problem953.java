@@ -2,7 +2,8 @@ package leetcode.array.doing;
 
 import org.apache.commons.lang3.time.StopWatch;
 
-import java.util.concurrent.TimeUnit;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * @author : chezj
@@ -15,29 +16,29 @@ public class Problem953 {
         stopWatch.start();
         System.out.println(isAlienSorted(new String[] {"hello", "leetcode"}, "hlabcdefgijkmnopqrstuvwxyz"));
         stopWatch.stop();
-        System.out.println(stopWatch.getTime(TimeUnit.MICROSECONDS) + "毫秒");
+        System.out.println(stopWatch.getTime() + "毫秒");
     }
     
     
     public static boolean isAlienSorted(String[] words, String order) {
-        for (int i = 1; i < words.length; i++) {
-            String w1 = words[i];
-            String w0 = words[i - 1];
-            if (w1.length() < w0.length()) {
-                return false;
-            }
-            for (int j = 0; j < w1.length(); j++) {
-                if (j > w0.length() - 1) {
-                    break;
-                }
-                if ((order.indexOf(w1.charAt(j)) < order.indexOf(w0.charAt(j)))) {
+        Map<Character, Integer> map = new HashMap<>();
+        for(int i = 0; i < order.length(); i++) {
+            map.put(order.charAt(i), i);
+        }
+        for(int i = 0; i < words.length - 1; i++) {
+            for(int j = 0; j < words[i].length(); j++) {
+                if(j == words[i + 1].length()) {
                     return false;
                 }
-                
+                int a = map.get(words[i].charAt(j)), b = map.get(words[i + 1].charAt(j));
+                if(a > b) {
+                    return false;
+                } else if(a < b) {
+                    break;
+                }
             }
         }
         return true;
-        
     }
     
 }
