@@ -18,7 +18,7 @@ public class Problem828 {
 
 
     public int uniqueLetterString(String s) {
-        Map<Character, List<Integer>> index = new HashMap<Character, List<Integer>>();
+        Map<Character, List<Integer>> index = new HashMap<>();
         for (int i = 0; i < s.length(); i++) {
             char c = s.charAt(i);
             if (!index.containsKey(c)) {
