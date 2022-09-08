@@ -2,10 +2,7 @@ package DynamicProgramming;
 
 import org.apache.commons.lang3.time.StopWatch;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 /**
  * @author : chezj
@@ -21,9 +18,13 @@ public class Problem828 {
         stopWatch.stop();
         System.out.println(stopWatch.getTime() + "毫秒");
     }
-    
-    
-    
+
+
+    /**
+     * DP求解超时
+     * @param s
+     * @return
+     */
     public int uniqueLetterString(String s) {
         
         if (s.length() <= 1) {
@@ -38,7 +39,6 @@ public class Problem828 {
         for (char c : s.toCharArray()) {
             memo.put(String.valueOf(c), 1);
         }
-        
         for (int i = 1; i < s.length(); i++) {
             int temp = 0;
             for (int j = 0; j < i + 1; j++) {
@@ -78,5 +78,32 @@ public class Problem828 {
             }
         }
         return set2.size();
+    }
+
+
+    /**
+     *
+     * @param s
+     * @return
+     */
+    public int uniqueLetterString2(String s) {
+        Map<Character, List<Integer>> index = new HashMap<Character, List<Integer>>();
+        for (int i = 0; i < s.length(); i++) {
+            char c = s.charAt(i);
+            if (!index.containsKey(c)) {
+                index.put(c, new ArrayList<Integer>());
+                index.get(c).add(-1);
+            }
+            index.get(c).add(i);
+        }
+        int res = 0;
+        for (Map.Entry<Character, List<Integer>> entry : index.entrySet()) {
+            List<Integer> arr = entry.getValue();
+            arr.add(s.length());
+            for (int i = 1; i < arr.size() - 1; i++) {
+                res += (arr.get(i) - arr.get(i - 1)) * (arr.get(i + 1) - arr.get(i));
+            }
+        }
+        return res;
     }
 }
