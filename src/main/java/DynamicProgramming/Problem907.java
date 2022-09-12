@@ -5,10 +5,11 @@ import org.apache.commons.lang3.time.StopWatch;
 import java.util.ArrayDeque;
 import java.util.Arrays;
 import java.util.Deque;
+import java.util.Stack;
 
-/**子数组的最小值之和
- * 单调栈
- *  TODO
+/**
+ * 子数组的最小值之和 单调栈
+ *
  * @author : chezj
  * @date : 2022/9/6 16:02
  */
@@ -18,7 +19,7 @@ public class Problem907 {
         StopWatch stopWatch = new StopWatch();
         stopWatch.start();
         Problem907 problem907 = new Problem907();
-        System.out.println(problem907.sumSubarrayMins2(new int[] {80, 75, 30, 45,78,35}));
+        System.out.println(problem907.mySumSubarrayMins(new int[] {80, 75, 30, 45, 78, 35}));
         stopWatch.stop();
         System.out.println(stopWatch.getTime() + "毫秒");
     }
@@ -89,6 +90,7 @@ public class Problem907 {
     
     /**
      * 80, 75, 30, 45,78,35
+     *
      * @param arr
      * @return
      */
@@ -127,6 +129,38 @@ public class Problem907 {
         }
         return (int) ans;
     }
-
+    
+    
+    public int mySumSubarrayMins(int[] arr) {
+        int n = arr.length;
+        int res = 0;
+        
+        int[] l = new int[n];
+        int[] r = new int[n];
+        Stack<Integer> stack = new Stack<>();
+        
+        for (int i = 0; i < n; i++) {
+            while (!stack.isEmpty() && arr[stack.peek()] >= arr[i]) {
+                stack.pop();
+            }
+            r[i] = stack.isEmpty() ? -1 : stack.peek();
+            stack.push(i);
+        }
+        
+        stack.clear();
+    
+        for (int i = n-1; i >= 0; i--) {
+            while (!stack.isEmpty() && arr[stack.peek()] > arr[i]) {
+                stack.pop();
+            }
+            l[i] = stack.isEmpty() ? n : stack.peek();
+            stack.push(i);
+        }
+        
+        
+        
+    
+        return res;
+    }
     
 }
