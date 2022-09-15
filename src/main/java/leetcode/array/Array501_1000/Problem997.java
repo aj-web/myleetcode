@@ -1,4 +1,4 @@
-package leetcode.array.doing;
+package leetcode.array.Array501_1000;
 
 /**找到小镇的法官
  * @author : chezj
