@@ -7,6 +7,9 @@ import java.util.Stack;
 /**
  * 最大交换
  *
+ * TIPS
+ * char转int类型可以通过char-'0'转成int
+ *
  * @author : chezj
  * @date : 2022/9/13 17:49
  */
