@@ -35,7 +35,7 @@ public class Problem989 {
             ans[c] = chars[c];
         }
         
-        return ans;
+        return null;
     }
     
 }
