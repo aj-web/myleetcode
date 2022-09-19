@@ -7,7 +7,6 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
-import java.util.TreeMap;
 
 /**
  * @author : chezj
@@ -26,10 +25,10 @@ public class Problem1636 {
     
     
     public int[] frequencySort(int[] nums) {
-    
+        
         List<Integer> list = new ArrayList<>();
         HashMap<Integer, Integer> map = new HashMap<>();
-    
+        
         for (int i : nums) {
             list.add(i);
             map.put(i, map.getOrDefault(i, 0) + 1);
@@ -38,21 +37,17 @@ public class Problem1636 {
         list.sort(new Comparator<Integer>() {
             @Override
             public int compare(Integer o1, Integer o2) {
-                
-                return 0;
+                int i1 = map.get(o1);
+                int i2 = map.get(o2);
+                if (i1 == i2) {
+                    return o2 - o1;
+                }
+                return o1 - o2;
             }
         });
-    
-    
         
+        return list.stream().mapToInt(Integer::intValue).toArray();
         
-        
-        TreeMap<Integer, Integer> treeMap = new TreeMap<>();
-        
-        
-        
-        
-        return ints;
     }
     
     
