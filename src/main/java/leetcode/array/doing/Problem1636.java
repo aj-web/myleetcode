@@ -8,7 +8,7 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 
-/**
+/**按照频率将数组升序排序
  * @author : chezj
  * @date : 2022/9/19 17:43
  */
@@ -18,7 +18,7 @@ public class Problem1636 {
         StopWatch stopWatch = new StopWatch();
         stopWatch.start();
         Problem1636 p = new Problem1636();
-        System.out.println(Arrays.toString(p.frequencySort(new int[] {1, 1, 2, 2, 2, 3})));
+        System.out.println(Arrays.toString(p.frequencySort(new int[] {1, 1, 2, 2, 2, 3,3,3})));
         stopWatch.stop();
         System.out.println(stopWatch.getTime() + "毫秒");
     }
@@ -33,17 +33,15 @@ public class Problem1636 {
             list.add(i);
             map.put(i, map.getOrDefault(i, 0) + 1);
         }
-        
-        list.sort(new Comparator<Integer>() {
-            @Override
-            public int compare(Integer o1, Integer o2) {
-                int i1 = map.get(o1);
-                int i2 = map.get(o2);
-                if (i1 == i2) {
-                    return o2 - o1;
-                }
-                return o1 - o2;
+
+        //重写比较器，比较器结果为0，则不交换，如果为负数则不交换，如果为正数，则需要交换
+        list.sort((o1, o2) -> {
+            int i1 = map.get(o1);
+            int i2 = map.get(o2);
+            if (i1 == i2) {
+                return o2 - o1;
             }
+            return i1 - i2;
         });
         
         return list.stream().mapToInt(Integer::intValue).toArray();

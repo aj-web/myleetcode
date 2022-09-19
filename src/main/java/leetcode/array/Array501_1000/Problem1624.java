@@ -1,8 +1,8 @@
-package leetcode.array.doing;
+package leetcode.array.Array501_1000;
 
 import java.util.*;
 
-/**
+/**两个相同字符之间的最长子字符串
  * @author : chezj
  * @date : 2022/9/17 23:44
  */
@@ -59,17 +59,22 @@ public class Problem1624 {
     }
 
 
+    /**
+     * 思想 直接利用26个字符统计出所有每个字母，继而算出所有字母的最大长度
+     * @param s
+     * @return
+     */
     public int maxLengthBetweenEqualCharacters2(String s) {
-        int[] firstIndex = new int[26];
-        Arrays.fill(firstIndex, -1);
-        int maxLength = -1;
-        for (int i = 0; i < s.length(); i++) {
-            if (firstIndex[s.charAt(i) - 'a'] < 0) {
-                firstIndex[s.charAt(i) - 'a'] = i;
-            } else {
-                maxLength = Math.max(maxLength, i - firstIndex[s.charAt(i) - 'a'] - 1);
+            int[] firstIndex = new int[26];
+            Arrays.fill(firstIndex, -1);
+            int maxLength = -1;
+            for (int i = 0; i < s.length(); i++) {
+                if (firstIndex[s.charAt(i) - 'a'] < 0) {
+                    firstIndex[s.charAt(i) - 'a'] = i;
+                } else {
+                    maxLength = Math.max(maxLength, i - firstIndex[s.charAt(i) - 'a'] - 1);
+                }
             }
-        }
-        return maxLength;
+            return maxLength;
     }
 }
