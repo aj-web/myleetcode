@@ -1,8 +1,8 @@
-package leetcode.array.doing;
+package leetcode.array.Array501_1000;
 
 import java.util.Arrays;
 
-/**
+/**@TODO 数学结论没懂
  * @author : chezj
  * @date : 2022/9/19 22:08
  */

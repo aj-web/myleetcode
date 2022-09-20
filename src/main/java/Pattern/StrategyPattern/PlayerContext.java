@@ -1,7 +1,5 @@
 package Pattern.StrategyPattern;
 
-import javax.annotation.Resource;
-
 /**
  * @Author ninan
  * @Description 环境类(Context):用来操作策略的上下文环境

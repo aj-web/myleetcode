@@ -1,10 +1,9 @@
-package leetcode.array.doing;
+package leetcode.array.Array501_1000;
 
 import org.apache.commons.lang3.time.StopWatch;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 

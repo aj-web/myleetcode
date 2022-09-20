@@ -1,6 +1,5 @@
 package leetcode.array.Array1_500;
 
-import java.beans.IntrospectionException;
 import java.util.HashMap;
 import java.util.Map;
 

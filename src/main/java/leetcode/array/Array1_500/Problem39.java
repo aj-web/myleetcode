@@ -1,8 +1,6 @@
 package leetcode.array.Array1_500;
 
 
-import java.util.List;
-
 /**
  * LeetCode39：组合综合
  */

@@ -1,4 +1,4 @@
-package leetcode.array.doing;
+package leetcode.array.Array501_1000;
 
 import org.apache.commons.lang3.time.StopWatch;
 
@@ -8,7 +8,7 @@ import java.util.List;
 
 /**
  * 数组形式的整数加法
- *
+ * @ TODO
  * @author : chezj
  * @date : 2022/9/15 18:06
  */
