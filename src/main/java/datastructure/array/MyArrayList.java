@@ -1,6 +1,8 @@
 package datastructure.array;
 
 
+import com.sun.xml.internal.bind.v2.model.core.ID;
+
 import java.util.Arrays;
 
 /**
@@ -30,7 +32,6 @@ public class MyArrayList<E> {
         this.size = 0;
     }
 
-
     public int getCapacity() {
         return data.length;
     }
@@ -43,125 +44,111 @@ public class MyArrayList<E> {
 
 
     public void add(int index, E e) {
-        checkPositionIndex(5);
-
-
+        checkPositionIndex(index);
         int cap = data.length;
-        if (size==cap){
-            resize(2<<cap);
+        if (index==cap){
+            resize(cap<<1);
         }
-
         // 搬移数据 data[index..] -> data[index+1..]
-        System.arraycopy(data, index,
-                data, index + 1,
-                size - index);
+//        System.arraycopy(data, index,
+//                data, index + 1,
+//                size - index);
         // 插入
         data[index] = e;
         size++;
     }
 
 
-    public E remove(int index){
+    public E remove(int index) {
         checkElementIndex(index);
-        E datum = data[index];
         int cap = data.length;
-        // 可以缩容，节约空间
         if (size == cap / 4) {
             resize(cap / 2);
         }
-        System.arraycopy(data,index+1,data,index,size-index-1);
-        data[size-1] = null;
-
+        E datum = data[index];
+        data[index] = null;
+        size--;
         return datum;
     }
 
 
     // 查
     public E get(int index) {
-        // 检查索引越界
         checkElementIndex(index);
-
         return data[index];
     }
 
 
     // 查
-    public E set(int index,E Element) {
-        // 检查索引越界
+    public E set(int index, E Element) {
         checkElementIndex(index);
-        E temp = data[index];
+        E datum = data[index];
         data[index] = Element;
-        return temp;
+        return datum;
     }
-
 
 
     /**
      * 扩容
+     *
      * @param newCapacity
      */
-    public void resize(int newCapacity){
+    public void resize(int newCapacity) {
         if (size>newCapacity){
             return;
         }
-
         E[] temp = (E[]) new Object[newCapacity];
-
         for (int i = 0; i < size; i++) {
-            temp[i] =  data[i];
+            temp[i] = data[i];
         }
-
+        // System.arraycopy(data, 0, temp, 0, size);
         data = temp;
+
     }
 
     /**
      * 检查 index 索引位置是否可以存在元素
      */
     private void checkElementIndex(int index) {
-        if (!isElementIndex(index))
+        if (!isElementIndex(index)) {
             throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + size);
+        }
     }
 
     /**
      * 检查 index 索引位置是否可以添加元素
      */
     private void checkPositionIndex(int index) {
-        if (!isPositionIndex(index))
+        if (!isPositionIndex(index)) {
             throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + size);
+        }
     }
+
 
     private boolean isElementIndex(int index) {
         return index >= 0 && index < size;
     }
 
+
+    /**
+     * 仅针对add方法进行判断
+     *
+     * @param index
+     * @return
+     */
     private boolean isPositionIndex(int index) {
         return index >= 0 && index <= size;
     }
 
-    public void grow(int nowCapacity) {
-        int oldCapacity = data.length;
-        int newCapacity = oldCapacity + (oldCapacity >> 1);
-
-        //判断负数情况
-        if (newCapacity - nowCapacity < 0) {
-            newCapacity = nowCapacity;
-        }
-        if (newCapacity - MAX_ARRAY_SIZE > 0) {
-            if ((nowCapacity < 0)) {
-                throw new OutOfMemoryError();
-            }
-            newCapacity = nowCapacity > MAX_ARRAY_SIZE ? Integer.MAX_VALUE : MAX_ARRAY_SIZE;
-        }
-
-        data = Arrays.copyOf(data, newCapacity);
-    }
 
 
     public static void main(String[] args) {
-        MyArrayList<String> myArrayList = new MyArrayList<>(3);
+        MyArrayList<String> myArrayList = new MyArrayList<>(8);
         myArrayList.add(0, "a");
         myArrayList.add(1, "b");
-        myArrayList.add(2, "d");
+//        myArrayList.add(2, "c");
+//        myArrayList.add(3, "d");
+        myArrayList.remove(1);
         System.out.println("end");
     }
 
