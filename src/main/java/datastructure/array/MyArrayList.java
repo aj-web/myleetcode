@@ -1,12 +1,9 @@
 package datastructure.array;
 
 
-import com.sun.xml.internal.bind.v2.model.core.ID;
-
-import java.util.Arrays;
-
 /**
- * 动态数组
+ * 使用数组实现ArrayList
+ * @param <E>
  */
 public class MyArrayList<E> {
     /**
@@ -50,10 +47,9 @@ public class MyArrayList<E> {
             resize(cap<<1);
         }
         // 搬移数据 data[index..] -> data[index+1..]
-//        System.arraycopy(data, index,
-//                data, index + 1,
-//                size - index);
-        // 插入
+        System.arraycopy(data, index,
+                data, index + 1,
+                size - index);
         data[index] = e;
         size++;
     }
@@ -66,6 +62,9 @@ public class MyArrayList<E> {
             resize(cap / 2);
         }
         E datum = data[index];
+        System.arraycopy(data, index + 1,
+                data, index,
+                size - index - 1);
         data[index] = null;
         size--;
         return datum;
