@@ -40,6 +40,11 @@ public class MyArrayList<E> {
     }
 
 
+    /**
+     * 开始不理解 后面发现这个add方法  124  在 add(2,3)后，会变成1234
+     * @param index
+     * @param e
+     */
     public void add(int index, E e) {
         checkPositionIndex(index);
         int cap = data.length;
