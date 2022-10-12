@@ -12,14 +12,14 @@ public class DeptManagerLeaveHandler extends AbstractLeaveHandler {
 
     @Override
     protected void handlerRequest(LeaveRequest request) {
-        if (request.getDays()<= this.MIDDLE){
+        if (request.getDays() <= this.MIDDLE) {
             System.out.println("部门主管:" + handlerName + ",已经处理;流程结束。");
             return;
         }
 
-        if (null != this.nextHandler){
+        if (null != this.nextHandler) {
             this.nextHandler.handlerRequest(request);
-        }else {
+        } else {
             System.out.println("审批拒绝！");
         }
     }

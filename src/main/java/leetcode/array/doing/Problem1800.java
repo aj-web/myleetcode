@@ -14,7 +14,6 @@ public class Problem1800 {
     }
 
 
-
     public int maxAscendingSum(int[] nums) {
         int res = nums[0];
         int total = res;

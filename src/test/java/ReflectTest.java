@@ -15,13 +15,13 @@ public class ReflectTest {
     }
 
 
-    public static void main(String[] args) throws Exception{
-        String[] s = new String[]{"aa","bb"};
+    public static void main(String[] args) throws Exception {
+        String[] s = new String[]{"aa", "bb"};
         Class<ReflectTest> clazz = (Class<ReflectTest>) Class.forName("ReflectTest");
         Method method = clazz.getMethod("test", String[].class);
         Constructor constructor = clazz.getConstructor();
-         ReflectTest rt = (ReflectTest)constructor.newInstance();
+        ReflectTest rt = (ReflectTest) constructor.newInstance();
         // method.invoke(rt,(Object) s);
-        rt.test(new String[]{"1","2","3"});
+        rt.test(new String[]{"1", "2", "3"});
     }
 }

@@ -1,6 +1,8 @@
 package leetcode.array.Array501_1000;
 
-/** 二进制矩阵中的特殊位置
+/**
+ * 二进制矩阵中的特殊位置
+ *
  * @author : chezj
  * @date : 2022/9/4 14:33
  */
@@ -8,10 +10,8 @@ public class Problem1582 {
 
 
     public static void main(String[] args) {
-        System.out.println(numSpecial(new int[][]{{1,0,0}, {0,0,1}, {1,0,0}}));
+        System.out.println(numSpecial(new int[][]{{1, 0, 0}, {0, 0, 1}, {1, 0, 0}}));
     }
-
-
 
 
     public static int numSpecial(int[][] mat) {

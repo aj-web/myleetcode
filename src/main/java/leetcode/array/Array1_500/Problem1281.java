@@ -16,9 +16,9 @@ public class Problem1281 {
         int sum = 0;
         while (n > 0) {
             int dig = n % 10;
-            n/=10;
-            mul *=dig;
-            sum+=dig;
+            n /= 10;
+            mul *= dig;
+            sum += dig;
         }
 
         return mul - sum;

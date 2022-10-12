@@ -15,12 +15,12 @@ public class Problem1523 {
         int i = low % 2;
         int j = high % 2;
 
-        if (i!=0){
-            return (high-low)/2+1;
-        }else if (j == 0){
-            return (high-low)/2;
-        }else{
-            return (high-low)/2+1;
+        if (i != 0) {
+            return (high - low) / 2 + 1;
+        } else if (j == 0) {
+            return (high - low) / 2;
+        } else {
+            return (high - low) / 2 + 1;
         }
     }
 }

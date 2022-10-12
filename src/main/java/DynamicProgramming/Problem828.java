@@ -9,7 +9,7 @@ import java.util.*;
  * @date : 2022/9/6 10:10
  */
 public class Problem828 {
-    
+
     public static void main(String[] args) {
         StopWatch stopWatch = new StopWatch();
         stopWatch.start();
@@ -22,11 +22,12 @@ public class Problem828 {
 
     /**
      * DP求解超时
+     *
      * @param s
      * @return
      */
     public int uniqueLetterString(String s) {
-        
+
         if (s.length() <= 1) {
             return s.length();
         }
@@ -34,7 +35,7 @@ public class Problem828 {
         //base_case
         dp[0] = 1;
         Map<String, Integer> memo = new HashMap<>();
-        
+
         //memo预处理
         for (char c : s.toCharArray()) {
             memo.put(String.valueOf(c), 1);
@@ -55,7 +56,7 @@ public class Problem828 {
         }
         return dp[s.length() - 1];
     }
-    
+
     /**
      * 字符串去重
      *
@@ -65,7 +66,7 @@ public class Problem828 {
     public int countUniqueChars1(String s) {
         Set<Character> set = new HashSet<>();
         Set<Character> set2 = new HashSet<>();
-        
+
         for (char c : s.toCharArray()) {
             if (set2.contains(c)) {
                 set2.remove(c);
@@ -82,7 +83,6 @@ public class Problem828 {
 
 
     /**
-     *
      * @param s
      * @return
      */

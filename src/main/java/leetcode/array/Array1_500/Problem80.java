@@ -9,7 +9,7 @@ public class Problem80 {
 
     public static void main(String[] args) {
         System.out.println("11111");
-        int[] a = new int[]{1, 1, 1,  2,2, 3};
+        int[] a = new int[]{1, 1, 1, 2, 2, 3};
         removeDuplicates3(a);
     }
 
@@ -91,17 +91,17 @@ public class Problem80 {
 
 
         while (fast < nums.length) {
-            if (nums[fast]!=nums[slow]){
+            if (nums[fast] != nums[slow]) {
                 slow++;
-                nums[slow] =nums[fast];
-            }else if (slow<fast && slowCount<2){
+                nums[slow] = nums[fast];
+            } else if (slow < fast && slowCount < 2) {
                 slow++;
-                nums[slow] =nums[fast];
+                nums[slow] = nums[fast];
             }
             fast++;
             slowCount++;
-            if (fast< nums.length && nums[fast] != nums[fast - 1]){
-                slowCount=0;
+            if (fast < nums.length && nums[fast] != nums[fast - 1]) {
+                slowCount = 0;
             }
 
         }

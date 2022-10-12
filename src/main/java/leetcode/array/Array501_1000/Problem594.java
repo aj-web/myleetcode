@@ -10,6 +10,7 @@ import java.util.Map;
 public class Problem594 {
     /**
      * 排序+滑动窗口
+     *
      * @param nums
      * @return
      */
@@ -32,20 +33,21 @@ public class Problem594 {
 
     /**
      * 使用map存储个数
+     *
      * @param nums
      * @return
      */
     public int findLHS1(int[] nums) {
         Arrays.sort(nums);
         int res = 0;
-        Map<Integer,Integer> map = new HashMap<>();
+        Map<Integer, Integer> map = new HashMap<>();
         for (int num : nums) {
-            map.put(num,map.getOrDefault(num,0)+1);
+            map.put(num, map.getOrDefault(num, 0) + 1);
         }
 
         for (int i : map.keySet()) {
-            if (map.containsKey(i+1)){
-                res = Math.max(res,map.get(i)+ map.get(i+1)) ;
+            if (map.containsKey(i + 1)) {
+                res = Math.max(res, map.get(i) + map.get(i + 1));
             }
         }
         return res;

@@ -1,13 +1,15 @@
 package leetcode.array.Array501_1000;
 
-/**有效的山脉数组
+/**
+ * 有效的山脉数组
+ *
  * @author : chezj
  * @date : 2022/9/4 16:45
  */
 public class Problem941 {
     public static void main(String[] args) {
 
-        System.out.println(validMountainArray(new int[]{0,3,2,1}));
+        System.out.println(validMountainArray(new int[]{0, 3, 2, 1}));
     }
 
 
@@ -25,12 +27,12 @@ public class Problem941 {
         }
         //检查单调性
         for (int i = 0; i < index; i++) {
-            if (arr[i+1]<=arr[i]){
+            if (arr[i + 1] <= arr[i]) {
                 return false;
             }
         }
-        for (; index < arr.length-1; index++) {
-            if (arr[index+1]>=arr[index]){
+        for (; index < arr.length - 1; index++) {
+            if (arr[index + 1] >= arr[index]) {
                 return false;
             }
         }

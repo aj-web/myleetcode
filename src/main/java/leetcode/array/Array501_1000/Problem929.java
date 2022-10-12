@@ -3,12 +3,14 @@ package leetcode.array.Array501_1000;
 import java.util.HashSet;
 import java.util.Set;
 
-/**独特的电子邮件地址
+/**
+ * 独特的电子邮件地址
+ *
  * @author : chezj
  * @date : 2022/9/1 17:57
  */
 public class Problem929 {
-    
+
     public int numUniqueEmails(String[] emails) {
         Set<String> emailSet = new HashSet<String>();
         for (String email : emails) {

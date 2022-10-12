@@ -39,7 +39,8 @@ public class Problem643 {
 
     /**
      * 优化版
-     *AC   3ms  但是可以优化
+     * AC   3ms  但是可以优化
+     *
      * @param nums
      * @param k
      * @return
@@ -54,7 +55,7 @@ public class Problem643 {
             right++;
             while (right - left + 1 > k) {
 
-                    res = Math.max(res, count);
+                res = Math.max(res, count);
 
                 count = count - nums[left];
                 left++;

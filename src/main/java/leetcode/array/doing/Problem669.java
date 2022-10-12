@@ -9,7 +9,6 @@ import javax.swing.tree.TreeNode;
 public class Problem669 {
 
 
-
     public TreeNode trimBST(TreeNode root, int low, int high) {
 
 

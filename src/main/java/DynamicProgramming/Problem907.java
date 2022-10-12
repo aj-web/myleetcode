@@ -14,24 +14,24 @@ import java.util.Stack;
  * @date : 2022/9/6 16:02
  */
 public class Problem907 {
-    
+
     public static void main(String[] args) {
         StopWatch stopWatch = new StopWatch();
         stopWatch.start();
         Problem907 problem907 = new Problem907();
-        System.out.println(problem907.mySumSubarrayMins(new int[] {80, 75, 30, 45, 78, 35}));
+        System.out.println(problem907.mySumSubarrayMins(new int[]{80, 75, 30, 45, 78, 35}));
         stopWatch.stop();
         System.out.println(stopWatch.getTime() + "毫秒");
     }
-    
-    
+
+
     public int sumSubarrayMins(int[] arr) {
         int MOD = (int) 1e9 + 7;
-        
+
         int len = arr.length;
         int[] l = new int[len];
         int[] r = new int[len];
-        
+
         Arrays.fill(l, -1);
         Arrays.fill(r, len);
         ArrayDeque<Integer> deque = new ArrayDeque<>();
@@ -42,9 +42,9 @@ public class Problem907 {
             //尾部插入元素
             deque.addLast(i);
         }
-        
+
         deque.clear();
-        
+
         for (int i = len - 1; i >= 0; i--) {
             while (!deque.isEmpty() && arr[deque.peekLast()] > arr[i]) {
                 l[deque.pollLast()] = i;
@@ -58,14 +58,14 @@ public class Problem907 {
             ans %= MOD;
         }
         return (int) ans;
-        
+
     }
-    
-    
+
+
     //暴力 超时
     public int sumSubarrayMins1(int[] arr) {
         final int MOD = 1000000007;
-        
+
         if (arr == null || arr.length == 0) {
             return 0;
         }
@@ -86,8 +86,8 @@ public class Problem907 {
         }
         return (int) ans;
     }
-    
-    
+
+
     /**
      * 80, 75, 30, 45,78,35
      *
@@ -97,7 +97,7 @@ public class Problem907 {
     public int sumSubarrayMins2(int[] arr) {
         int MOD = 1_000_000_007;
         int N = arr.length;
-        
+
         // 第 1 步：计算当前下标 i 的左边第 1 个比 arr[i] 小的元素的下标
         Deque<Integer> stack1 = new ArrayDeque<>();
         int[] prev = new int[N];
@@ -108,7 +108,7 @@ public class Problem907 {
             prev[i] = stack1.isEmpty() ? -1 : stack1.peekLast();
             stack1.addLast(i);
         }
-        
+
         // 第 2 步：计算当前下标 i 的右边第 1 个比 arr[i] 小的元素的下标
         Deque<Integer> stack2 = new ArrayDeque<>();
         int[] next = new int[N];
@@ -119,7 +119,7 @@ public class Problem907 {
             next[i] = stack2.isEmpty() ? N : stack2.peekLast();
             stack2.addLast(i);
         }
-        
+
         // 第 3 步：计算结果
         long ans = 0;
         for (int i = 0; i < N; ++i) {
@@ -129,16 +129,16 @@ public class Problem907 {
         }
         return (int) ans;
     }
-    
-    
+
+
     public int mySumSubarrayMins(int[] arr) {
         int n = arr.length;
         int res = 0;
-        
+
         int[] l = new int[n];
         int[] r = new int[n];
         Stack<Integer> stack = new Stack<>();
-        
+
         for (int i = 0; i < n; i++) {
             while (!stack.isEmpty() && arr[stack.peek()] >= arr[i]) {
                 stack.pop();
@@ -146,21 +146,19 @@ public class Problem907 {
             r[i] = stack.isEmpty() ? -1 : stack.peek();
             stack.push(i);
         }
-        
+
         stack.clear();
-    
-        for (int i = n-1; i >= 0; i--) {
+
+        for (int i = n - 1; i >= 0; i--) {
             while (!stack.isEmpty() && arr[stack.peek()] > arr[i]) {
                 stack.pop();
             }
             l[i] = stack.isEmpty() ? n : stack.peek();
             stack.push(i);
         }
-        
-        
-        
-    
+
+
         return res;
     }
-    
+
 }

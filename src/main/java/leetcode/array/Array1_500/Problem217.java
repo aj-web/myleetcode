@@ -10,20 +10,20 @@ import java.util.HashMap;
  */
 public class Problem217 {
     public static void main(String[] args) {
-        int[] p = new int[]{1,7,8,9,3,4,5,6,2,2};
+        int[] p = new int[]{1, 7, 8, 9, 3, 4, 5, 6, 2, 2};
         System.out.println(containsDuplicate(p));
     }
 
     public static boolean containsDuplicate(int[] nums) {
         int slow = 0;
         int fast = 1;
-        while (fast< nums.length || slow< nums.length-1){
-            if (nums[fast]==nums[slow]){
+        while (fast < nums.length || slow < nums.length - 1) {
+            if (nums[fast] == nums[slow]) {
                 return true;
             }
-            if (fast+1== nums.length){
+            if (fast + 1 == nums.length) {
                 slow++;
-                if (slow== nums.length-1) {
+                if (slow == nums.length - 1) {
                     return false;
                 }
                 fast = slow;
@@ -39,8 +39,8 @@ public class Problem217 {
         for (int num : nums) {
             if (map.containsKey(num)) {
                 return true;
-            }else {
-                map.put(num,null);
+            } else {
+                map.put(num, null);
             }
         }
         return false;

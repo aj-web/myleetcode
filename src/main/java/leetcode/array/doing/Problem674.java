@@ -1,8 +1,10 @@
 package leetcode.array.doing;
 
-/**最长连续递增序列
- * @TODO 贪心求解
+/**
+ * 最长连续递增序列
+ *
  * @author : chezj
+ * @TODO 贪心求解
  * @date : 2022/8/22 17:06
  */
 public class Problem674 {

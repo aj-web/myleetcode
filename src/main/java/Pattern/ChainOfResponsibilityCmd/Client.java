@@ -19,8 +19,8 @@ public class Client {
         Random rand = new Random();
         ArrayList<Women> arrayList = new ArrayList<>();
 
-        for(int i=0;i<5;i++){
-            arrayList.add(new Women(rand.nextInt(4),"我要出去逛街"));
+        for (int i = 0; i < 5; i++) {
+            arrayList.add(new Women(rand.nextInt(4), "我要出去逛街"));
         }
 
         //定义三个请示对象
@@ -33,12 +33,11 @@ public class Client {
         husband.setNext(son);
 
 
-        for(Women women:arrayList) {
+        for (Women women : arrayList) {
             father.HandleMessage(women);
         }
 
     }
-
 
 
 }

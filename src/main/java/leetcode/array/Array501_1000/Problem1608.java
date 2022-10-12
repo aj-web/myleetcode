@@ -14,7 +14,7 @@ public class Problem1608 {
     public static void main(String[] args) {
         Problem1608 p = new Problem1608();
 
-        System.out.println(p.specialArray(new int[]{1, 2,3,5,6}));
+        System.out.println(p.specialArray(new int[]{1, 2, 3, 5, 6}));
     }
 
 

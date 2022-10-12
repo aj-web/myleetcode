@@ -10,13 +10,11 @@ public class Array<E> {
     private E[] data;
 
 
-
     int[] a = new int[]{};
 
     public Array() {
         this.size = 10;
     }
-
 
 
     //数组初始化，注意这里是创建了一个指定大小的:Object[capacity]

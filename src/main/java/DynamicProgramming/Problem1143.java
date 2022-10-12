@@ -2,7 +2,9 @@ package DynamicProgramming;
 
 import java.util.Arrays;
 
-/**leetcode 最长公共子序列
+/**
+ * leetcode 最长公共子序列
+ *
  * @author : chezj
  * @date : 2022/8/27 17:01
  */
@@ -26,7 +28,7 @@ public class Problem1143 {
             for (int j = 1; j <= n; j++) {
                 if (text1.charAt(i - 1) == text2.charAt(j - 1)) {
                     dp[i][j] = 1 + dp[i - 1][j - 1];
-                }else {
+                } else {
                     dp[i][j] = Math.max(dp[i][j - 1], dp[i - 1][j]);
                 }
 

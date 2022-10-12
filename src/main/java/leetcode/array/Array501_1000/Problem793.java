@@ -9,6 +9,7 @@ public class Problem793 {
 
     /**
      * 穷举，超时
+     *
      * @param k
      * @return
      */
@@ -29,11 +30,10 @@ public class Problem793 {
     }
 
 
-
     /* 主函数 */
     public int preimageSizeFZF1(int K) {
         // 左边界和右边界之差 + 1 就是答案
-        return (int)(right_bound(K) - left_bound(K) + 1);
+        return (int) (right_bound(K) - left_bound(K) + 1);
     }
 
     /* 搜索 trailingZeroes(n) == K 的左侧边界 */

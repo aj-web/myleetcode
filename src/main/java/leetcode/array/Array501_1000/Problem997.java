@@ -1,6 +1,8 @@
 package leetcode.array.Array501_1000;
 
-/**找到小镇的法官
+/**
+ * 找到小镇的法官
+ *
  * @author : chezj
  * @date : 2022/9/13 10:02
  */
@@ -21,6 +23,6 @@ public class Problem997 {
         }
         return -1;
     }
-    
-    
+
+
 }

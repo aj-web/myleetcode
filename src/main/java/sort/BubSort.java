@@ -14,7 +14,7 @@ public class BubSort {
         int temp;
         for (int i = 0; i < nums.length; i++) {
             for (int j = 0; j < nums.length - i - 1; j++) {
-                if (nums[j]>nums[j+1]){
+                if (nums[j] > nums[j + 1]) {
                     temp = nums[i];
                     nums[i] = nums[i + 1];
                     nums[i + 1] = temp;

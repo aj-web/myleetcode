@@ -6,7 +6,7 @@ import java.util.Map;
 public class Problem697 {
 
     public static void main(String[] args) {
-        findShortestSubArray(new int[]{2,1});
+        findShortestSubArray(new int[]{2, 1});
     }
 
 

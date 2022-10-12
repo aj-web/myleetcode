@@ -3,7 +3,9 @@ package DynamicProgramming;
 import java.util.Arrays;
 import java.util.Comparator;
 
-/**最长数对链
+/**
+ * 最长数对链
+ *
  * @author : chezj
  * @date : 2022/9/3 15:09
  */

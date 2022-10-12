@@ -7,14 +7,14 @@ package DynamicProgramming;
  * @date : 2022/8/31 23:34
  */
 public class Problem5 {
-    
+
     public static void main(String[] args) {
-        
+
         System.out.println(longestPalindrome1("ba"));
-        
+
     }
-    
-    
+
+
     public static String longestPalindrome(String s) {
         int m = s.length();
         boolean[][] dp = new boolean[m][m];
@@ -45,16 +45,16 @@ public class Problem5 {
         }
         return s.substring(begin, begin + maxLen);
     }
-    
-    
+
+
     public static String longestPalindrome1(String s) {
-        if (s.length()<2){
+        if (s.length() < 2) {
             return s;
         }
-        
+
         String res = "";
         for (int i = 0; i < s.length(); i++) {
-            
+
             if (s.length() % 2 == 0) {
                 String s2 = palindrome(s, i, i + 1);
                 res = res.length() > s2.length() ? res : s2;
@@ -62,15 +62,15 @@ public class Problem5 {
                 String s1 = palindrome(s, i, i);
                 res = res.length() > s1.length() ? res : s1;
             }
-            
-            
+
+
         }
         if ("".equals(res)) {
-            return  s.substring(0,1);
+            return s.substring(0, 1);
         }
         return res;
     }
-    
+
     static String palindrome(String s, int l, int r) {
         // 防止索引越界
         while (l >= 0 && r < s.length() && s.charAt(l) == s.charAt(r)) {
@@ -81,5 +81,5 @@ public class Problem5 {
         // 返回以 s[l] 和 s[r] 为中心的最长回文串
         return s.substring(l + 1, r);
     }
-    
+
 }

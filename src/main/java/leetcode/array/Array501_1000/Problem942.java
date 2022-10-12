@@ -12,7 +12,7 @@ import java.util.concurrent.TimeUnit;
  * @date : 2022/9/5 11:06
  */
 public class Problem942 {
-    
+
     public static void main(String[] args) {
         StopWatch stopWatch = new StopWatch();
         stopWatch.start();
@@ -20,8 +20,8 @@ public class Problem942 {
         stopWatch.stop();
         System.out.println(stopWatch.getTime(TimeUnit.MICROSECONDS) + "毫秒");
     }
-    
-    
+
+
     /**
      * 简单贪心
      *
@@ -39,5 +39,5 @@ public class Problem942 {
         res[len] = lo;
         return res;
     }
-    
+
 }

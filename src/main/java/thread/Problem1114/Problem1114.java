@@ -26,7 +26,7 @@ public class Problem1114 {
                 for (int i = 0; i < 100; i++) {
                     printFirst.run();
                 }
-                firstJob =true;
+                firstJob = true;
                 obj.notifyAll();
             }
 
@@ -36,7 +36,7 @@ public class Problem1114 {
         public void second(Runnable printSecond) throws InterruptedException {
             // printSecond.run() outputs "second". Do not change or remove this line.
             synchronized (obj) {
-                while (!firstJob){
+                while (!firstJob) {
                     obj.wait();
                 }
                 for (int i = 0; i < 100; i++) {

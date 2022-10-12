@@ -8,7 +8,7 @@ import java.util.List;
  */
 public class Problem485 {
     public static void main(String[] args) {
-        int[] nums =new int[]{1,1,0,1,1,1};
+        int[] nums = new int[]{1, 1, 0, 1, 1, 1};
         System.out.println(findMaxConsecutiveOnes(nums));
     }
 
@@ -17,18 +17,18 @@ public class Problem485 {
         List<Integer> list = new ArrayList<>();
         int count = 0;
         for (int i = 0; i < nums.length; i++) {
-            if (i==0){
-                list.add(i,i);
+            if (i == 0) {
+                list.add(i, i);
             }
             if (nums[i] == 0) {
-                list.add(i+1);
+                list.add(i + 1);
             }
-            if (i==nums.length-1){
-                list.add(nums.length+1);
+            if (i == nums.length - 1) {
+                list.add(nums.length + 1);
             }
         }
         for (int i = 1; i < list.size(); i++) {
-            count = Math.max(count,list.get(i)- list.get(i-1)-1);
+            count = Math.max(count, list.get(i) - list.get(i - 1) - 1);
         }
         return count;
     }

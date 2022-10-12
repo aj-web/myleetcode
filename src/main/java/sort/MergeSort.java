@@ -7,7 +7,7 @@ package sort;
  */
 public class MergeSort {
     public static void main(String[] args) {
-        int[] a = new int[]{3, 1,  6, 100, 22, 33, 2, 4, 7, 99, 88, 77};
+        int[] a = new int[]{3, 1, 6, 100, 22, 33, 2, 4, 7, 99, 88, 77};
         mergeSort(a, 0, a.length - 1);
     }
 
@@ -20,8 +20,8 @@ public class MergeSort {
      */
     public static void mergeSort(int[] arr, int start, int end) {
         if (end - start > 0) {
-            mergeSort(arr, start, start + (end - start)/2);
-            mergeSort(arr, start + (end - start)/2 + 1, end);
+            mergeSort(arr, start, start + (end - start) / 2);
+            mergeSort(arr, start + (end - start) / 2 + 1, end);
             int left = start;
             int right = start + (end - start) / 2 + 1;
             int index = 0;

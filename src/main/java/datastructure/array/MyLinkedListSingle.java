@@ -52,12 +52,10 @@ public class MyLinkedListSingle<E> {
         } else {
             temp = head;
         }
-
         // temp -> tail
         x.next = tail;
         temp.next = x;
         // temp -> x -> tail
-
         size++;
     }
 

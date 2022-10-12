@@ -20,9 +20,9 @@ public class Problem349 {
         int index = 0;
         Set<Integer> set1 = new HashSet(nums1.length);
         Set<Integer> result;
-        if (nums1.length> nums2.length){
+        if (nums1.length > nums2.length) {
             result = new HashSet<>(nums1.length);
-        }else {
+        } else {
             result = new HashSet<>(nums2.length);
         }
 
@@ -46,7 +46,7 @@ public class Problem349 {
             nums[i] = integers[i];
         }
 
-        return  nums;
+        return nums;
     }
 
     public int[] intersection1(int[] nums1, int[] nums2) {

@@ -19,15 +19,15 @@ public class Problem888 {
 
         int countA = 0;
         for (int aliceSize : aliceSizes) {
-            countA+=aliceSize;
+            countA += aliceSize;
         }
 
         int countB = 0;
         for (int bobSize : bobSizes) {
-            countB+=bobSize;
+            countB += bobSize;
         }
 
-        int half = (countA-countB)/2;
+        int half = (countA - countB) / 2;
 
         Set<Integer> set = new HashSet<>();
         for (int aliceSize : aliceSizes) {
@@ -35,8 +35,8 @@ public class Problem888 {
         }
 
         for (int bobSize : bobSizes) {
-            if (set.contains(bobSize+half)){
-                return new int[]{bobSize+half,bobSize};
+            if (set.contains(bobSize + half)) {
+                return new int[]{bobSize + half, bobSize};
             }
         }
 

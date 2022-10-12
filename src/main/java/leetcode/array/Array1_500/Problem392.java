@@ -19,17 +19,17 @@ public class Problem392 {
     public static boolean isSubsequenceViolent(String s, String t) {
         int slow = 0;
         int fast = 0;
-        if (s.length()==0){
+        if (s.length() == 0) {
             return true;
         }
 
-        if (t.length()==0){
+        if (t.length() == 0) {
             return false;
         }
-        while (fast<t.length()){
-            if (t.charAt(fast)==s.charAt(slow)){
+        while (fast < t.length()) {
+            if (t.charAt(fast) == s.charAt(slow)) {
                 slow++;
-                if (slow==s.length()){
+                if (slow == s.length()) {
                     return true;
                 }
             }
@@ -38,15 +38,15 @@ public class Problem392 {
         return false;
     }
 
-    public static boolean isSubsequence(String s,String t){
+    public static boolean isSubsequence(String s, String t) {
         int sLength = s.length();
         int tLength = t.length();
 
         //处理数组转化为[a,[1,3,7]]的形式
-        ArrayList<Integer>[]  index = new ArrayList[256];
+        ArrayList<Integer>[] index = new ArrayList[256];
         for (int i = 0; i < tLength; i++) {
             char c = t.charAt(i);
-            if (index[c]==null){
+            if (index[c] == null) {
                 index[c] = new ArrayList<>();
             }
             index[c].add(i);
@@ -55,29 +55,29 @@ public class Problem392 {
         int point = 0;
         for (int i = 0; i < sLength; i++) {
             char j = s.charAt(i);
-            if (index[j]==null){
+            if (index[j] == null) {
                 return false;
             }
             int left_bound = left_bound(index[j], point);
-            if (left_bound == index[j].size()){
+            if (left_bound == index[j].size()) {
                 return false;
             }
-            point = index[j].get(left_bound)+1;
+            point = index[j].get(left_bound) + 1;
         }
         return false;
     }
 
 
-    public static int left_bound(ArrayList<Integer> nums,int j){
+    public static int left_bound(ArrayList<Integer> nums, int j) {
         int left = 0;
         int right = nums.size();
-        while (left< right){
-            int mid = left + (right-left)/2;
-            if (nums.get(mid) <j){
-                left = mid+1;
-            }else if (nums.get(mid)>j){
+        while (left < right) {
+            int mid = left + (right - left) / 2;
+            if (nums.get(mid) < j) {
+                left = mid + 1;
+            } else if (nums.get(mid) > j) {
                 right = mid;
-            }else {
+            } else {
                 right = mid;
             }
         }

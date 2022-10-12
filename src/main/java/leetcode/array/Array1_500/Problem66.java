@@ -6,10 +6,9 @@ package leetcode.array.Array1_500;
 public class Problem66 {
 
     public static void main(String[] args) {
-        int[] ints = {9,9,9,9,9,9,9};
+        int[] ints = {9, 9, 9, 9, 9, 9, 9};
         plusOne(ints);
     }
-
 
 
     public static int[] plusOne(int[] digits) {
@@ -25,14 +24,14 @@ public class Problem66 {
         }
 
 
-        for (; point >=0; point--) {
+        for (; point >= 0; point--) {
             if (digits[point] != 9) {
                 break;
             }
         }
         if (point != -1) {
             digits[point] = digits[point] + 1;
-            for (int i = point+1; i < digits.length; i++) {
+            for (int i = point + 1; i < digits.length; i++) {
                 digits[i] = 0;
             }
             return digits;

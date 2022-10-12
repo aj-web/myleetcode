@@ -7,27 +7,29 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
-/**按照频率将数组升序排序
+/**
+ * 按照频率将数组升序排序
+ *
  * @author : chezj
  * @date : 2022/9/19 17:43
  */
 public class Problem1636 {
-    
+
     public static void main(String[] args) {
         StopWatch stopWatch = new StopWatch();
         stopWatch.start();
         Problem1636 p = new Problem1636();
-        System.out.println(Arrays.toString(p.frequencySort(new int[] {1, 1, 2, 2, 2, 3,3,3})));
+        System.out.println(Arrays.toString(p.frequencySort(new int[]{1, 1, 2, 2, 2, 3, 3, 3})));
         stopWatch.stop();
         System.out.println(stopWatch.getTime() + "毫秒");
     }
-    
-    
+
+
     public int[] frequencySort(int[] nums) {
-        
+
         List<Integer> list = new ArrayList<>();
         HashMap<Integer, Integer> map = new HashMap<>();
-        
+
         for (int i : nums) {
             list.add(i);
             map.put(i, map.getOrDefault(i, 0) + 1);
@@ -42,9 +44,9 @@ public class Problem1636 {
             }
             return i1 - i2;
         });
-        
+
         return list.stream().mapToInt(Integer::intValue).toArray();
-        
+
     }
     
     
@@ -65,5 +67,5 @@ public class Problem1636 {
         }
         return arr;
     }*/
-    
+
 }

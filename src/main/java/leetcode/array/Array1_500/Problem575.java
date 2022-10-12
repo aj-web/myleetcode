@@ -9,21 +9,21 @@ import java.util.Set;
 public class Problem575 {
 
     public static void main(String[] args) {
-        int[] p = new int[]{1,1,2,3};
+        int[] p = new int[]{1, 1, 2, 3};
         System.out.println(distributeCandies1(p));
     }
 
 
     public static int distributeCandies(int[] candyType) {
 
-        int n = candyType.length/2;
+        int n = candyType.length / 2;
         Set<Integer> temp = new HashSet<>(candyType.length);
         for (int i : candyType) {
             temp.add(i);
         }
-        if (n>=temp.size()){
+        if (n >= temp.size()) {
             return temp.size();
-        }else {
+        } else {
             return n;
         }
     }
@@ -31,6 +31,7 @@ public class Problem575 {
 
     /**
      * 有序数组才能使用双指针
+     *
      * @param candyType
      * @return
      */
@@ -38,18 +39,18 @@ public class Problem575 {
 
         int slow = 0;
         int fast = 0;
-        int target = candyType.length/2;
-        while (fast<candyType.length){
-            if (candyType[fast]!=candyType[slow]){
+        int target = candyType.length / 2;
+        while (fast < candyType.length) {
+            if (candyType[fast] != candyType[slow]) {
                 slow++;
                 candyType[slow] = candyType[fast];
             }
             fast++;
-            if (slow+1>=target){
-                return slow+1;
+            if (slow + 1 >= target) {
+                return slow + 1;
             }
         }
-        return slow+1;
+        return slow + 1;
 
     }
 }

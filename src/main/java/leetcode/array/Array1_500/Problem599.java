@@ -28,7 +28,7 @@ public class Problem599 {
             if (map1.containsKey(list2[i])) {
                 int temp = map1.get(list2[i]) + i;
                 if (temp < count) {
-                    count = map1.get(list2[i])+i;
+                    count = map1.get(list2[i]) + i;
                     res.clear();
                     res.add(list2[i]);
                 } else if (temp == count) {

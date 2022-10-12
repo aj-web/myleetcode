@@ -3,6 +3,7 @@ package datastructure.array;
 
 /**
  * 使用数组实现ArrayList
+ *
  * @param <E>
  */
 public class MyArrayList<E> {
@@ -42,14 +43,15 @@ public class MyArrayList<E> {
 
     /**
      * 开始不理解 后面发现这个add方法  124  在 add(2,3)后，会变成1234
+     *
      * @param index
      * @param e
      */
     public void add(int index, E e) {
         checkPositionIndex(index);
         int cap = data.length;
-        if (index==cap){
-            resize(cap<<1);
+        if (index == cap) {
+            resize(cap << 1);
         }
         // 搬移数据 data[index..] -> data[index+1..]
         System.arraycopy(data, index,
@@ -98,7 +100,7 @@ public class MyArrayList<E> {
      * @param newCapacity
      */
     public void resize(int newCapacity) {
-        if (size>newCapacity){
+        if (size > newCapacity) {
             return;
         }
         E[] temp = (E[]) new Object[newCapacity];
@@ -143,7 +145,6 @@ public class MyArrayList<E> {
     private boolean isPositionIndex(int index) {
         return index >= 0 && index <= size;
     }
-
 
 
     public static void main(String[] args) {

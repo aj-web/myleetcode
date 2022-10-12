@@ -10,7 +10,7 @@ public class Problem169 {
 
 
     public static void main(String[] args) {
-        int[] nums =new int[]{2,2,1,1,1,2,2};
+        int[] nums = new int[]{2, 2, 1, 1, 1, 2, 2};
         Problem169 p = new Problem169();
         p.majorityElement1(nums);
     }
@@ -63,9 +63,9 @@ public class Problem169 {
             if (count == 0) {
                 target = num;
                 count++;
-            }else if (num!=target){
+            } else if (num != target) {
                 count--;
-            }else if (num==target){
+            } else if (num == target) {
                 count++;
             }
         }

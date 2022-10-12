@@ -26,11 +26,12 @@
 1. 通过控制slow++和nums[slow] = nums[fast]两行代码的顺讯可以控制数组第一个元素是否被覆盖
 2. 通过快指针对特定某个target进行判断，可以进行数组target去重(只能去除重复target)
 
-
 #### 1.2前后指针之滑动窗口
+
 - 什么时候应该移动 right 扩大窗口？窗口加入字符时，应该更新哪些数据？
 - 什么时候窗口应该暂停扩大，开始移动 left 缩小窗口？从窗口移出字符时，应该更新哪些数据？
 - 我们要的结果应该在扩大窗口时还是缩小窗口时进行更新？
+
 ```
 
 public static String minWindow(String s, String t) {
@@ -77,14 +78,7 @@ public static String minWindow(String s, String t) {
 
 ```
 
-
-
 ### 1.3左右指针
-
-
-
-
-
 
 ## 2.二分查找
 
@@ -222,10 +216,10 @@ public static String minWindow(String s, String t) {
     }
         
 ```
+
 ### 2.1数组中重复的元素
+
 利用数组下标加上正负判断来操作
-
-
 
 ## 3.二维数组处理
 
@@ -234,26 +228,21 @@ public static String minWindow(String s, String t) {
 假设二维数组 int[][] a = new int[m][n]
 二维数组寻址地址： loc = loc_init + (i*m +j)*n
 
-
 ## 4.动态规划解题思路
+
 1. 状态
 2. 选择
 3. 明确dp函数或者dp数组的定义
 4. 明确base case
 
-
-
-
-
 ### 4.1**动态规划特点**
+
 1. 重叠子问题
 2. 状态转移方程
-3. 最优子结构
-   题型：求最值
-   核心：穷举
-   
-   
+3. 最优子结构 题型：求最值 核心：穷举
+
 ### 4.2解题套路
+
 1. 明确状态
 2. 明确选择
 3. 明确DP函数或者DP数组的定义
@@ -265,7 +254,6 @@ public static String minWindow(String s, String t) {
 - 执行状态转移
 - 返回最终的解
 
-函数的参数，或者数组的索引都是会变的一个状态
-利用递归函数进行一个计算，最终做出最优选择
+函数的参数，或者数组的索引都是会变的一个状态 利用递归函数进行一个计算，最终做出最优选择
 
 最简单的情况

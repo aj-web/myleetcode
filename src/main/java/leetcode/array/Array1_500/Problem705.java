@@ -29,14 +29,13 @@ class MyHashSet {
     }
 
     public void remove(int key) {
-        data[key]  =false;
+        data[key] = false;
     }
 
     public boolean contains(int key) {
         return data[key];
     }
 }
-
 
 
 class MyHashSet1 {
@@ -55,7 +54,7 @@ class MyHashSet1 {
         int hash = hash(key);
         Iterator<Integer> iterator = data[hash].iterator();
         while (iterator.hasNext()) {
-            if (iterator.next()==key) {
+            if (iterator.next() == key) {
                 return;
             }
         }
@@ -78,7 +77,7 @@ class MyHashSet1 {
         int hash = hash(key);
         Iterator<Integer> iterator = data[hash].iterator();
         while (iterator.hasNext()) {
-            if (iterator.next()==key){
+            if (iterator.next() == key) {
                 return true;
             }
         }

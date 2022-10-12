@@ -19,20 +19,10 @@ class test {
     }
 
 
-    static Boolean match(String s){
+    static Boolean match(String s) {
         def reg = ~'^\\d{4}-\\d{2}-\\d{2}\$'
         return s ==~ reg
     }
-
-
-
-
-
-
-
-
-
-
 
 
 }

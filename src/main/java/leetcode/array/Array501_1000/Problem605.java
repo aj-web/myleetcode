@@ -7,7 +7,7 @@ public class Problem605 {
 
     public static void main(String[] args) {
 
-        int[] p = new int[]{1,0,0,0,1,0,0};
+        int[] p = new int[]{1, 0, 0, 0, 1, 0, 0};
         System.out.println(canPlaceFlowers(p, 2));
 
     }
@@ -24,7 +24,7 @@ public class Problem605 {
                         n--;
                         i++;
                     }
-                }else if (i == flowerbed.length-1 ){
+                } else if (i == flowerbed.length - 1) {
                     n--;
                     i++;
                 }

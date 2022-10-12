@@ -9,24 +9,24 @@ import java.util.Arrays;
  * LeetCode31：下一个排列 思路很重要
  */
 public class Problem31 {
-    
+
     public static void main(String[] args) {
         StopWatch stopWatch = new StopWatch();
         stopWatch.start();
         Problem31 p = new Problem31();
-        p.nextPermutation1(new int[] {5,4,2,3,1});
+        p.nextPermutation1(new int[]{5, 4, 2, 3, 1});
         stopWatch.stop();
         System.out.println(stopWatch.getTime() + "毫秒");
     }
-    
-    
+
+
     public void nextPermutation(int[] nums) {
         int i = nums.length - 2;
-        
+
         while (i >= 0 && nums[i] >= nums[i + 1]) {
             i--;
         }
-        
+
         if (i >= 0) {
             int j = nums.length - 1;
             while (j > 0 && nums[j] <= nums[i]) {
@@ -34,19 +34,19 @@ public class Problem31 {
             }
             swap(nums, i, j);
         }
-        
+
         reverse(nums, i + 1);
         System.out.println(Arrays.toString(nums));
     }
-    
-    
+
+
     public void swap(int[] nums, int i, int j) {
         int temp = nums[i];
         nums[i] = nums[j];
         nums[j] = temp;
     }
-    
-    
+
+
     public void reverse(int[] nums, int start) {
         int left = start, right = nums.length - 1;
         while (left < right) {
@@ -55,11 +55,11 @@ public class Problem31 {
             right--;
         }
     }
-    
-    
+
+
     public void nextPermutation1(int[] nums) {
         int index = nums.length - 2;
-        while (index >= 0 && nums[index] >= nums[index+1]) {
+        while (index >= 0 && nums[index] >= nums[index + 1]) {
             index--;
         }
         if (index > 0) {
@@ -69,12 +69,12 @@ public class Problem31 {
             }
             swap(nums, index, two);
         }
-        
+
         reverse1(nums, index + 1);
         System.out.println(Arrays.toString(nums));
     }
-    
-    
+
+
     public void reverse1(int[] nums, int start) {
         int left = start;
         int right = nums.length - 1;
@@ -84,6 +84,6 @@ public class Problem31 {
             right--;
         }
     }
-    
-    
+
+
 }

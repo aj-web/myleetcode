@@ -6,8 +6,8 @@ public class ArrayTest {
     public static void main(String[] args) {
         ArrayList<String> arrayList = new ArrayList<>(10);
 //        arrayList.add(0,"a");
-        arrayList.add(1,"b");
-        arrayList.add(3,"a");
+        arrayList.add(1, "b");
+        arrayList.add(3, "a");
 
 /*        int[] a = new int[10];
         a[0] = 1;
