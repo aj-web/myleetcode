@@ -1,34 +1,58 @@
 package DynamicProgramming;
 
+import org.apache.commons.lang3.time.StopWatch;
+
+import java.util.Arrays;
+
 /**
+ * 不同的子序列
+ *
  * @author : chezj
  * @date : 2022/9/3 16:09
  */
 public class Problem115 {
+    
     public static void main(String[] args) {
-        System.out.println(numDistinct("rabbbit", "rabbit"));
+        StopWatch stopWatch = new StopWatch();
+        stopWatch.start();
+        Problem115 p = new Problem115();
+        System.out.println(p.numDistinct("rabbbit", "rabbit"));
+        stopWatch.stop();
+        System.out.println(stopWatch.getTime() + "毫秒");
     }
-
-
-    public static int numDistinct(String s, String t) {
-
-        int len = s.length();
-        int[][] dp = new int[len + 1][len + 1];
-        for (int i = 1; i < s.length(); i++) {
-            innerCycel:
-            for (int j = 1; j <= i; j++) {
-                String sub = s.substring(j - 1, i);
-                for (char c : t.toCharArray()) {
-                    if (!sub.contains(String.valueOf(c))) {
-                        dp[j][i] = dp[j - 1][i];
-                        break innerCycel;
-                    }
-                }
-                dp[j][i] = dp[j][i] + 1;
+    
+    int[][] memo;
+    
+    public int numDistinct(String s, String t) {
+        int m = s.length(), n = t.length();
+        memo = new int[m][n];
+        for (int[] row : memo) {
+            Arrays.fill(row, -1);
+        }
+        return dp(s, 0, t, 0);
+    }
+    
+    public int dp(String s1, int i, String s2, int j) {
+        if (j == s2.length()) {
+            return 1;
+        }
+        if (s1.length() - i < s2.length() - j) {
+            return 0;
+        }
+        if (memo[i][j] != -1) {
+            return memo[i][j];
+        }
+        int res = 0;
+        for (int p = i; p < s1.length(); p++) {
+            if (s1.charAt(p) == s2.charAt(j)) {
+                res += dp(s1, p + 1, s2, j + 1);
             }
         }
-
-
-        return dp.length;
+        // 存入备忘录
+        memo[i][j] = res;
+        return res;
     }
+    
+    
+    
 }

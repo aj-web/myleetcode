@@ -1,6 +1,6 @@
 package DynamicProgramming;
 
-/**
+/**最大子数组和
  * @author : chezj
  * @date : 2022/9/2 17:58
  */
