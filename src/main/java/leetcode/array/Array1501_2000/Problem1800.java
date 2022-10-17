@@ -1,4 +1,4 @@
-package leetcode.array.doing;
+package leetcode.array.Array1501_2000;
 
 /**
  * 最大升序子数组和

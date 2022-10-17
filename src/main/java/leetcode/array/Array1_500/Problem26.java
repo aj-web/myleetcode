@@ -1,5 +1,7 @@
 package leetcode.array.Array1_500;
 
+import org.apache.commons.lang3.time.StopWatch;
+
 /**
  * @author chezhijun
  * @descririon 删除有序数组中的重复项
@@ -8,9 +10,12 @@ package leetcode.array.Array1_500;
  */
 public class Problem26 {
     public static void main(String[] args) {
-        int a[] = new int[]{1, 1, 2};
-        int i = removeDuplicates1(a);
-        System.out.println(i);
+        StopWatch stopWatch = new StopWatch();
+        stopWatch.start();
+        Problem26 p = new Problem26();
+        System.out.println(p.removeDuplicates1(new int[]{1, 1, 2}));
+        stopWatch.stop();
+        System.out.println(stopWatch.getTime() + "毫秒");
     }
 
 
@@ -20,7 +25,7 @@ public class Problem26 {
      * @param nums
      * @return
      */
-    public static int removeDuplicates1(int[] nums) {
+    public int removeDuplicates(int[] nums) {
         if (nums.length == 0) {
             return 0;
         }
@@ -34,6 +39,22 @@ public class Problem26 {
             fast++;
         }
         return slow + 1;
+    }
+
+
+    public int removeDuplicates1(int[] nums) {
+        int fast = 0;
+        int slow = 0;
+
+        while (fast < nums.length) {
+
+            if (nums[fast] != nums[slow]) {
+                slow++;
+                nums[slow] = nums[fast];
+            }
+            fast++;
+        }
+        return slow+1;
     }
 
 }
