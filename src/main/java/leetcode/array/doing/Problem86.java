@@ -65,4 +65,29 @@ public class Problem86 {
             this.next = next;
         }
     }
+
+
+    public ListNode partition1(ListNode head, int x) {
+        ListNode left = new ListNode(0);
+        ListNode right = new ListNode(0);
+        ListNode l1 = left;
+        ListNode l2 = right;
+        ListNode p = head;
+        while (p != null) {
+            if (p.val <= x) {
+                l1.next = p;
+                l1 = l1.next;
+            } else {
+                l2.next = p;
+                l2 = l2.next;
+            }
+            ListNode temp = p.next;
+            p.next = null;
+            p = temp;
+        }
+        left.next = right.next;
+        return left.next;
+    }
+
+
 }
