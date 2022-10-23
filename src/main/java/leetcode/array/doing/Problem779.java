@@ -13,7 +13,7 @@ import org.apache.commons.lang3.time.StopWatch;
  * @date : 2022/10/20 14:56
  */
 public class Problem779 {
-    
+
     public static void main(String[] args) {
         StopWatch stopWatch = new StopWatch();
         stopWatch.start();
@@ -22,14 +22,21 @@ public class Problem779 {
         stopWatch.stop();
         System.out.println(stopWatch.getTime() + "毫秒");
     }
-    
+
     public int kthGrammar(int n, int k) {
-        
-        if (n==0){
-            return 1;
-        }
-        return kthGrammar(n-1,k);
+        return dfs(n, k, 1) == 0 ? 1 : 0;
     }
-    
-    
+
+    public int dfs(int r, int c, int cur) {
+        if (r==1){
+            return cur;
+        }
+        if ((c % 2 == 0 && cur == 0) || (c % 2 == 1 && cur == 1)) {
+            return dfs(r - 1, (c - 1) / 2 + 1, 1);
+        } else {
+            return dfs(r - 1, (c - 1) / 2 + 1, 0);
+        }
+    }
+
+
 }
