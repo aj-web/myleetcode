@@ -3,6 +3,8 @@ package leetcode.array.doing;
 import org.apache.commons.lang3.time.StopWatch;
 
 /**
+ * 合并两个有序链表
+ *
  * @author : chezj
  * @date : 2022/10/13 16:10
  */
@@ -72,5 +74,35 @@ public class Problem21 {
             this.val = val;
             this.next = next;
         }
+    }
+    
+    /**
+     * 第二遍做
+     * @param list1
+     * @param list2
+     * @return
+     */
+    public ListNode mergeTwoLists1(ListNode list1, ListNode list2) {
+        ListNode dummy = new ListNode(-1);
+        ListNode p = dummy;
+        while (list1 != null && list2 != null) {
+            if (list1.val >= list2.val) {
+                p.next = list2;
+                p = p.next;
+                list2 = list2.next;
+            } else {
+                p.next = list1;
+                p = p.next;
+                list1 = list1.next;
+            }
+        }
+        
+        if (null == list1) {
+            p.next = list2;
+        } else {
+            p.next = list1;
+        }
+        
+        return dummy.next;
     }
 }
