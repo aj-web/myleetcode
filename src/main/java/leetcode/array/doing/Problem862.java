@@ -25,6 +25,8 @@ public class Problem862 {
         for (int i = 0; i < len; i++) {
         
         }
+        
+        return 1;
     }
     
 }
