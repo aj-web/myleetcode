@@ -1,4 +1,4 @@
-package leetcode.array.Array1_500;
+package leetcode.LinkedList.LinkedList1_500;
 
 import lombok.ToString;
 import org.apache.commons.lang3.time.StopWatch;
