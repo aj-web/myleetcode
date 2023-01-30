@@ -9,18 +9,18 @@ import org.apache.commons.lang3.time.StopWatch;
  * @date : 2022/11/2 23:47
  */
 public class Problem203 {
-    
+
     public static void main(String[] args) {
         StopWatch stopWatch = new StopWatch();
         stopWatch.start();
         Problem203 p = new Problem203();
         ListNode a = new ListNode(8);
-        
+
         stopWatch.stop();
         System.out.println(stopWatch.getTime() + "毫秒");
     }
-    
-    
+
+
     public ListNode removeElements(ListNode head, int val) {
         ListNode pummy = new ListNode(-1);
         pummy.next = head;
@@ -34,21 +34,21 @@ public class Problem203 {
         }
         return pummy.next;
     }
-    
-    
-    public class ListNode {
-        
+
+
+    public static class ListNode {
+
         int val;
-        
+
         ListNode next;
-        
+
         ListNode() {
         }
-        
+
         ListNode(int val) {
             this.val = val;
         }
-        
+
         ListNode(int val, ListNode next) {
             this.val = val;
             this.next = next;

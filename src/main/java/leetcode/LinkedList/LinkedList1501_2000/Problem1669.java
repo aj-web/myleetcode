@@ -7,12 +7,12 @@ import org.apache.commons.lang3.time.StopWatch;
  * @date : 2023/1/30 11:36
  */
 public class Problem1669 {
-    
+
     public static void main(String[] args) {
         StopWatch stopWatch = new StopWatch();
         stopWatch.start();
         Problem1669 p = new Problem1669();
-        
+
         ListNode a = new ListNode(8);
         ListNode b = new ListNode(4);
         ListNode b1 = new ListNode(1);
@@ -23,51 +23,47 @@ public class Problem1669 {
         b2.next = b3;
         ListNode b4 = new ListNode(5);
         b3.next = b4;
-        
+
         System.out.println(p.mergeInBetween(a, 1, 2, b));
         stopWatch.stop();
         System.out.println(stopWatch.getTime() + "毫秒");
     }
-    
+
     public ListNode mergeInBetween(ListNode list1, int a, int b, ListNode list2) {
-        
-        ListNode pummy = new ListNode(-1);
-        pummy.next = list1;
-        ListNode curr = pummy;
-        
-        ListNode pummy2 = new ListNode(-1);
-        pummy2.next = list2;
-        ListNode curr2 = pummy2;
-        
-        ListNode head2 = curr2.next;
-        ListNode tail2 = new ListNode();
-        while (curr2.next != null) {
-            curr2 = curr2.next;
-            if (curr2.next == null) {
-                tail2 = curr2;
-            }
+
+        ListNode preA = list1;
+        for (int i = 0; i < a - 1; i++) {
+            preA = preA.next;
         }
-        
-        while (curr.next != null) {
-        
+
+        ListNode preB = preA;
+        for (int i = 0; i < b - a + 2; i++) {
+            preB = preB.next;
         }
-        
-        return null;
+
+        preA.next = list2;
+
+        while (list2.next != null) {
+            list2 = list2.next;
+        }
+        list2.next = preB;
+
+        return list1;
     }
-    
+
     public static class ListNode {
-        
+
         int val;
-        
+
         ListNode next;
-        
+
         ListNode() {
         }
-        
+
         ListNode(int val) {
             this.val = val;
         }
-        
+
         ListNode(int val, ListNode next) {
             this.val = val;
             this.next = next;
