@@ -1,4 +1,4 @@
-package leetcode.array.Array1_500;
+package leetcode.LinkedList.LinkedList1_500;
 
 import org.apache.commons.lang3.time.StopWatch;
 
@@ -27,7 +27,13 @@ public class Problem19 {
         System.out.println(stopWatch.getTime() + "毫秒");
     }
 
-    //遍历两次
+    /**
+     * 遍历两次
+     *
+     * @param head
+     * @param n
+     * @return
+     */
     public ListNode removeNthFromEnd(ListNode head, int n) {
         //首先一个head的指针
         ListNode p = head;
@@ -51,7 +57,13 @@ public class Problem19 {
     }
 
 
-    //遍历一次
+    /**
+     * 遍历一次
+     *
+     * @param head
+     * @param n
+     * @return
+     */
     public ListNode removeNthFromEnd1(ListNode head, int n) {
         ListNode dummy = new ListNode(-1, head);
 
@@ -86,4 +98,28 @@ public class Problem19 {
             this.next = next;
         }
     }
+
+
+    /**
+     * 复习
+     */
+    public ListNode removeNthFromEnd2(ListNode head, int n) {
+        //首先一个head的指针
+        ListNode p = head;
+
+        ListNode dummy = new ListNode(-1, head);
+
+        for (int i = 0; i < n; i++) {
+            p = p.next;
+        }
+
+        ListNode curr = dummy;
+        while (p != null) {
+            curr = curr.next;
+            p = p.next;
+        }
+        curr.next = curr.next.next;
+        return dummy.next;
+    }
+
 }
