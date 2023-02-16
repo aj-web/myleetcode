@@ -2,45 +2,47 @@ package datastructure.array;
 
 
 /**
- * 使用数组实现ArrayList
+ * 使用数组实现ArrayList 数组就是指针，但是指针不是数组
  *
  * @param <E>
  */
 public class MyArrayList<E> {
+    
     /**
      * 数据中的元素个数，区别于数组容量
      */
     private int size;
+    
     /**
      * 存储数据的数组
      */
     private E[] data;
-
+    
     private static final int MAX_ARRAY_SIZE = Integer.MAX_VALUE - 8;
-
+    
     /**
      * 默认初始化容量10
      */
     public MyArrayList() {
         this(10);
     }
-
+    
     public MyArrayList(int cacpcity) {
         this.data = (E[]) new Object[cacpcity];
         this.size = 0;
     }
-
+    
     public int getCapacity() {
         return data.length;
     }
-
-
+    
+    
     // 获取数组中的元素个数
     public int getSize() {
         return size;
     }
-
-
+    
+    
     /**
      * 开始不理解 后面发现这个add方法  124  在 add(2,3)后，会变成1234
      *
@@ -54,14 +56,12 @@ public class MyArrayList<E> {
             resize(cap << 1);
         }
         // 搬移数据 data[index..] -> data[index+1..]
-        System.arraycopy(data, index,
-                data, index + 1,
-                size - index);
+        System.arraycopy(data, index, data, index + 1, size - index);
         data[index] = e;
         size++;
     }
-
-
+    
+    
     public E remove(int index) {
         checkElementIndex(index);
         int cap = data.length;
@@ -69,22 +69,20 @@ public class MyArrayList<E> {
             resize(cap / 2);
         }
         E datum = data[index];
-        System.arraycopy(data, index + 1,
-                data, index,
-                size - index - 1);
+        System.arraycopy(data, index + 1, data, index, size - index - 1);
         data[index] = null;
         size--;
         return datum;
     }
-
-
+    
+    
     // 查
     public E get(int index) {
         checkElementIndex(index);
         return data[index];
     }
-
-
+    
+    
     // 查
     public E set(int index, E Element) {
         checkElementIndex(index);
@@ -92,8 +90,8 @@ public class MyArrayList<E> {
         data[index] = Element;
         return datum;
     }
-
-
+    
+    
     /**
      * 扩容
      *
@@ -109,9 +107,9 @@ public class MyArrayList<E> {
         }
         // System.arraycopy(data, 0, temp, 0, size);
         data = temp;
-
+        
     }
-
+    
     /**
      * 检查 index 索引位置是否可以存在元素
      */
@@ -120,7 +118,7 @@ public class MyArrayList<E> {
             throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + size);
         }
     }
-
+    
     /**
      * 检查 index 索引位置是否可以添加元素
      */
@@ -129,13 +127,19 @@ public class MyArrayList<E> {
             throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + size);
         }
     }
-
-
+    
+    
+    /**
+     * 检查是不是数组中的元素
+     *
+     * @param index 下标
+     * @return
+     */
     private boolean isElementIndex(int index) {
         return index >= 0 && index < size;
     }
-
-
+    
+    
     /**
      * 仅针对add方法进行判断
      *
@@ -145,16 +149,16 @@ public class MyArrayList<E> {
     private boolean isPositionIndex(int index) {
         return index >= 0 && index <= size;
     }
-
-
+    
+    
     public static void main(String[] args) {
         MyArrayList<String> myArrayList = new MyArrayList<>(8);
         myArrayList.add(0, "a");
         myArrayList.add(1, "b");
-//        myArrayList.add(2, "c");
-//        myArrayList.add(3, "d");
+        //        myArrayList.add(2, "c");
+        //        myArrayList.add(3, "d");
         myArrayList.remove(1);
         System.out.println("end");
     }
-
+    
 }
