@@ -1,9 +1,7 @@
 package leetcode.LinkedList.LinkedList1_500;
 
+import lombok.ToString;
 import org.apache.commons.lang3.time.StopWatch;
-
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * 旋转链表
@@ -39,33 +37,27 @@ public class Problem61 {
         if (null == head || 0 == k || null == head.next) {
             return head;
         }
-        ListNode pummy = new ListNode();
-        pummy.next = head;
-        ListNode ans = pummy;
-        int count = 0;
-        Map<Integer, ListNode> temp = new HashMap<>();
-        while (head != null) {
+        ListNode tail = head;
+        int count = 1;
+        while (tail.next != null) {
+            tail = tail.next;
             count++;
-            temp.put(count, head);
-            head = head.next;
         }
         //环状求移动路径
-        //int len = (count - k) % count;
-        //
-        int len = count % (k % count);
+        int len = count - (k % count);
         if (len == count) {
             return head;
         }
-        
-        for (int j = 1; j <= count; j++) {
-            ListNode listNode = temp.get(j + len);
-            pummy.next = listNode;
-            pummy = pummy.next;
+        tail.next = head;
+        while (len-- > 0) {
+            tail = tail.next;
         }
-        return ans.next;
+        ListNode ans = tail.next;
+        tail.next = null;
+        return ans;
     }
     
-    
+    @ToString
     public static class ListNode {
         
         int val;
