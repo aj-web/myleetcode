@@ -58,7 +58,7 @@ public class Problem61 {
     }
     
     @ToString
-    public static class ListNode {
+    private static class ListNode {
         
         int val;
         

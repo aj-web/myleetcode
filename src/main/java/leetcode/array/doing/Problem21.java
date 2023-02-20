@@ -57,7 +57,7 @@ public class Problem21 {
     }
     
     
-    public static class ListNode {
+    private static class ListNode {
         
         int val;
         
@@ -78,6 +78,7 @@ public class Problem21 {
     
     /**
      * 第二遍做
+     *
      * @param list1
      * @param list2
      * @return

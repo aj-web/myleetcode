@@ -3,36 +3,32 @@ package leetcode.LinkedList.LinkedList1_500;
 import org.apache.commons.lang3.time.StopWatch;
 
 /**
- * 移除链表元素
+ * 反转链表
  *
  * @author : chezj
- * @date : 2022/11/2 23:47
+ * @date : 2023/2/20 17:41
  */
-public class Problem203 {
+public class Problem206 {
     
     public static void main(String[] args) {
         StopWatch stopWatch = new StopWatch();
         stopWatch.start();
-        Problem203 p = new Problem203();
-        ListNode a = new ListNode(8);
+        Problem206 p = new Problem206();
         
         stopWatch.stop();
         System.out.println(stopWatch.getTime() + "毫秒");
     }
     
     
-    public ListNode removeElements(ListNode head, int val) {
-        ListNode pummy = new ListNode(-1);
-        pummy.next = head;
-        ListNode cur = pummy;
-        while (cur.next != null) {
-            if (cur.next.val == val) {
-                cur.next = cur.next.next;
-            } else {
-                cur = cur.next;
-            }
+    public ListNode reverseList(ListNode head) {
+        if (null == head || null == head.next) {
+            return head;
         }
-        return pummy.next;
+        ListNode lastNode = reverseList(head.next);
+        head.next.next = head;
+        head.next = null;
+        return lastNode;
+        
     }
     
     

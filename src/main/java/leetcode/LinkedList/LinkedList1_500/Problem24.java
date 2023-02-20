@@ -33,7 +33,7 @@ public class Problem24 {
     }
     
     
-    public class ListNode {
+    private class ListNode {
         
         int val;
         

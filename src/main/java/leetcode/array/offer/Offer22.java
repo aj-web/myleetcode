@@ -64,7 +64,7 @@ public class Offer22 {
     }
     
     
-    public static class ListNode {
+    private static class ListNode {
         
         int val;
         
@@ -77,6 +77,7 @@ public class Offer22 {
     
     /**
      * 第二遍做AC
+     *
      * @param head
      * @param k
      * @return

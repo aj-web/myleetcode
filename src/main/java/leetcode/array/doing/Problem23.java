@@ -5,8 +5,7 @@ import org.apache.commons.lang3.time.StopWatch;
 import java.util.PriorityQueue;
 
 /**
- * 合并 k 个有序链表
- * 优先级队列（默认最小堆）
+ * 合并 k 个有序链表 优先级队列（默认最小堆）
  *
  * @author : chezj
  * @date : 2022/10/24 17:07
@@ -54,7 +53,7 @@ public class Problem23 {
     }
     
     
-    class ListNode {
+    private class ListNode {
         
         int val;
         

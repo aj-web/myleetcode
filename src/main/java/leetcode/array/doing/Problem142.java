@@ -7,7 +7,7 @@ import lombok.ToString;
  * @date : 2022/10/19 23:45
  */
 public class Problem142 {
-
+    
     public ListNode detectCycle(ListNode head) {
         ListNode slow = head;
         ListNode fast = head;
@@ -18,29 +18,31 @@ public class Problem142 {
                 break;
             }
         }
-
-        if (fast == null || fast.next == null){
+        
+        if (fast == null || fast.next == null) {
             return null;
         }
-
-        slow =head;
+        
+        slow = head;
         while (slow != fast) {
             fast = fast.next;
             slow = slow.next;
         }
         return slow;
     }
-
-
+    
+    
     @ToString
-    public static class ListNode {
+    private static class ListNode {
+        
         int val;
+        
         ListNode next;
-
+        
         ListNode(int x) {
             val = x;
             next = null;
         }
-
+        
     }
 }

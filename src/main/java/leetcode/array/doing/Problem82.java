@@ -77,7 +77,7 @@ public class Problem82 {
         return deleteDuplicates(head.next);
     }
     
-    public static class ListNode {
+    private static class ListNode {
         
         int val;
         
