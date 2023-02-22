@@ -32,6 +32,7 @@ public class Problem92 {
     ListNode reverseN(ListNode head, int n) {
         if (n == 1) {
             successor = head.next;
+            return head;
         }
         // 以 head.next 为起点，需要反转前 n - 1 个节点
         ListNode last = reverseN(head.next, n - 1);
