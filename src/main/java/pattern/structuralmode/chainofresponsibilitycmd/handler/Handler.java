@@ -1,7 +1,7 @@
-package pattern.chainofresponsibilitycmd.handler;
+package pattern.structuralmode.chainofresponsibilitycmd.handler;
 
-import pattern.chainofresponsibilitycmd.IWomen;
-import pattern.chainofresponsibilitycmd.Women;
+import pattern.structuralmode.chainofresponsibilitycmd.IWomen;
+import pattern.structuralmode.chainofresponsibilitycmd.Women;
 
 /**
  * @author : chezj

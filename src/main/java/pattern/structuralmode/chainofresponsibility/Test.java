@@ -1,6 +1,6 @@
-package pattern.chainofresponsibility;
+package pattern.structuralmode.chainofresponsibility;
 
-import pattern.chainofresponsibility.entity.GManager;
+import pattern.structuralmode.chainofresponsibility.entity.GManager;
 
 /**
  * @author chezhijun

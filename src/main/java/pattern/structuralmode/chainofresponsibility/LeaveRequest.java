@@ -1,4 +1,4 @@
-package pattern.chainofresponsibility;
+package pattern.structuralmode.chainofresponsibility;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

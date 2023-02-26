@@ -1,4 +1,4 @@
-package pattern.chainofresponsibilitycmd;
+package pattern.structuralmode.chainofresponsibilitycmd;
 
 /**
  * @author : chezj

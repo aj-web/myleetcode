@@ -1,9 +1,9 @@
-package pattern.chainofresponsibilitycmd;
+package pattern.structuralmode.chainofresponsibilitycmd;
 
-import pattern.chainofresponsibilitycmd.handler.Father;
-import pattern.chainofresponsibilitycmd.handler.Handler;
-import pattern.chainofresponsibilitycmd.handler.Husband;
-import pattern.chainofresponsibilitycmd.handler.Son;
+import pattern.structuralmode.chainofresponsibilitycmd.handler.Father;
+import pattern.structuralmode.chainofresponsibilitycmd.handler.Handler;
+import pattern.structuralmode.chainofresponsibilitycmd.handler.Husband;
+import pattern.structuralmode.chainofresponsibilitycmd.handler.Son;
 
 import java.util.ArrayList;
 import java.util.Random;

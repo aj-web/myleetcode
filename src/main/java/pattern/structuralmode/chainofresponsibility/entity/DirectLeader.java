@@ -1,6 +1,6 @@
-package pattern.chainofresponsibility.entity;
+package pattern.structuralmode.chainofresponsibility.entity;
 
-import pattern.chainofresponsibility.SpecialRequest;
+import pattern.structuralmode.chainofresponsibility.SpecialRequest;
 
 /**
  * @author chezhijun

@@ -1,4 +1,4 @@
-package pattern.chainofresponsibility;
+package pattern.structuralmode.chainofresponsibility;
 
 /**
  * @author chezhijun

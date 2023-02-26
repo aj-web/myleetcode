@@ -1,4 +1,4 @@
-package pattern.strategypattern;
+package pattern.behaviormode.strategypattern;
 
 /**
  * @Author ninan
