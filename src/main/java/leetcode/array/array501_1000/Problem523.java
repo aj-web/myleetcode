@@ -53,7 +53,6 @@ public class Problem523 {
             }
         }
         return false;
-
     }
 
 }
