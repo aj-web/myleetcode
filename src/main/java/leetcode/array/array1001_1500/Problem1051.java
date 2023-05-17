@@ -9,17 +9,17 @@ import java.util.Arrays;
  * @date : 2022/11/9 22:15
  */
 public class Problem1051 {
-
+    
     public static void main(String[] args) {
         StopWatch stopWatch = new StopWatch();
         stopWatch.start();
         Problem1051 p = new Problem1051();
-        System.out.println(p.heightChecker(new int[]{5, 1, 2, 3, 4}));
+        System.out.println(p.heightChecker(new int[] {5, 1, 2, 3, 4}));
         stopWatch.stop();
         System.out.println(stopWatch.getTime() + "毫秒");
     }
-
-
+    
+    
     /**
      * 待优化
      *
@@ -35,7 +35,7 @@ public class Problem1051 {
                 res++;
             }
         }
-
+        
         return res;
     }
 }

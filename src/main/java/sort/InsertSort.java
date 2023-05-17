@@ -6,14 +6,15 @@ package sort;
  * @date 2022/3/14
  */
 public class InsertSort {
+    
     public static void main(String[] args) {
         long startTime = System.nanoTime();
-        int[] nums = new int[]{1, 3, 2, 4, 5, 67, 4, 6, 3, 5, 34, 4};
+        int[] nums = new int[] {1, 3, 2, 4, 5, 67, 4, 6, 3, 5, 34, 4};
         insertionSort2(nums);
         long costTime = System.nanoTime() - startTime;
         System.out.println(costTime);
     }
-
+    
     public static int[] insertionSort(int[] nums) {
         for (int i = 1; i < nums.length; i++) {
             for (int j = 0; j < i; j++) {
@@ -26,7 +27,7 @@ public class InsertSort {
         }
         return nums;
     }
-
+    
     public static int[] insertionSort2(int[] nums) {
         for (int i = 1; i < nums.length; i++) {
             int j = i;

@@ -9,7 +9,7 @@ import org.apache.commons.lang3.time.StopWatch;
  * @date : 2022/10/19 22:28
  */
 public class Problem1700 {
-
+    
     public static void main(String[] args) {
         StopWatch stopWatch = new StopWatch();
         stopWatch.start();
@@ -17,8 +17,8 @@ public class Problem1700 {
         stopWatch.stop();
         System.out.println(stopWatch.getTime() + "毫秒");
     }
-
-
+    
+    
     public int countStudents(int[] students, int[] sandwiches) {
         int[] count = new int[2];
         for (int i = 0; i < students.length; i++) {

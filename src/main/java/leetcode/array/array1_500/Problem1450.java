@@ -5,7 +5,7 @@ package leetcode.array.array1_500;
  * @date : 2022/8/19 17:13
  */
 public class Problem1450 {
-
+    
     public int busyStudent(int[] startTime, int[] endTime, int queryTime) {
         int n = endTime.length;
         int count = 0;

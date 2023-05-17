@@ -9,16 +9,16 @@ import org.apache.commons.lang3.time.StopWatch;
  * @date : 2022/10/27 10:53
  */
 public class Problem1013 {
-
+    
     public static void main(String[] args) {
         StopWatch stopWatch = new StopWatch();
         stopWatch.start();
         Problem1013 p = new Problem1013();
-
+        
         stopWatch.stop();
         System.out.println(stopWatch.getTime() + "毫秒");
     }
-
+    
     public boolean canThreePartsEqualSum(int[] arr) {
         int len = arr.length;
         int sum = 0;
@@ -44,5 +44,5 @@ public class Problem1013 {
         }
         return false;
     }
-
+    
 }

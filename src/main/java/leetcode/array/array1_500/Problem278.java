@@ -6,18 +6,19 @@ package leetcode.array.array1_500;
  * @date 2021/11/8
  */
 public class Problem278 {
+    
     public static void main(String[] args) {
         System.out.println(1 >> 1);
         int firstBadVersion = firstBadVersion(5);
         System.out.println(firstBadVersion);
     }
-
+    
     public static int firstBadVersion(int n) {
-
+        
         if (isBadVersion(1)) {
             return 1;
         }
-
+        
         int left = 1;
         int right = n;
         int mid;
@@ -29,10 +30,10 @@ public class Problem278 {
                 left = mid + 1;
             }
         }
-
+        
         return left;
     }
-
+    
     /**
      * @param version
      * @return

@@ -1,20 +1,19 @@
 package leetcode.array.array1_500;
 
 /**
- * LeetCode34. 在排序数组中查找元素的第一个和最后一个位置
- * AC
+ * LeetCode34. 在排序数组中查找元素的第一个和最后一个位置 AC
  */
 public class Problem34 {
-
+    
     public static void main(String[] args) {
-        int[] a = new int[]{1};
+        int[] a = new int[] {1};
         searchRange(a, 0);
     }
-
+    
     public static int[] searchRange(int[] nums, int target) {
-        return new int[]{leftBound(nums, target), rightBound(nums, target)};
+        return new int[] {leftBound(nums, target), rightBound(nums, target)};
     }
-
+    
     /**
      * 找左边界
      */
@@ -31,14 +30,14 @@ public class Problem34 {
                 right = mid - 1;
             }
         }
-
+        
         if (left >= nums.length || nums[left] != target) {
             return -1;
         }
         return left;
     }
-
-
+    
+    
     /**
      * 找右边界
      */
@@ -55,13 +54,13 @@ public class Problem34 {
                 left = mid + 1;
             }
         }
-
+        
         if (right < 0 || nums[right] != target) {
             return -1;
         }
-
+        
         return right;
     }
-
-
+    
+    
 }

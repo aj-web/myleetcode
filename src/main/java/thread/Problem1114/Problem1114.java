@@ -9,18 +9,22 @@ import java.util.concurrent.locks.ReentrantLock;
  * @date 2022/1/10
  */
 public class Problem1114 {
+    
     static class Foo {
-
+        
         private final Object obj = new Object();
+        
         Lock lock = new ReentrantLock();
+        
         Boolean firstJob = false;
+        
         Boolean secondJob = false;
-
+        
         public Foo() {
         }
-
+        
         public void first(Runnable printFirst) throws InterruptedException {
-
+            
             synchronized (obj) {
                 // printFirst.run() outputs "first". Do not change or remove this line.
                 for (int i = 0; i < 100; i++) {
@@ -29,10 +33,10 @@ public class Problem1114 {
                 firstJob = true;
                 obj.notifyAll();
             }
-
-
+            
+            
         }
-
+        
         public void second(Runnable printSecond) throws InterruptedException {
             // printSecond.run() outputs "second". Do not change or remove this line.
             synchronized (obj) {
@@ -41,38 +45,38 @@ public class Problem1114 {
                 }
                 for (int i = 0; i < 100; i++) {
                     printSecond.run();
-
+                    
                 }
             }
         }
-
+        
         public void third(Runnable printThird) throws InterruptedException {
-
+            
             // printThird.run() outputs "third". Do not change or remove this line.
             for (int i = 0; i < 100; i++) {
                 printThird.run();
             }
         }
-
-
+        
+        
         public void first() {
             System.out.println("first");
         }
-
+        
         public void second() {
             System.out.println("second");
         }
-
+        
         public void third() {
             System.out.println("third");
         }
-
+        
     }
-
-
+    
+    
     public static void main(String[] args) throws InterruptedException {
         Foo foo = new Foo();
-
+        
         Thread t1 = new Thread(() -> {
             foo.first();
         });
@@ -82,11 +86,10 @@ public class Problem1114 {
         Thread t3 = new Thread(() -> {
             foo.third();
         });
-
-
+        
         foo.first(t1);
         foo.second(t2);
         foo.third(t3);
-
+        
     }
 }

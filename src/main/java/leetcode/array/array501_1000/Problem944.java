@@ -13,16 +13,16 @@ import java.util.concurrent.TimeUnit;
  * @date : 2022/9/5 14:29
  */
 public class Problem944 {
-
+    
     public static void main(String[] args) {
         StopWatch stopWatch = new StopWatch();
         stopWatch.start();
-        System.out.println(minDeletionSize(new String[]{"zyx", "wvu", "tsr"}));
+        System.out.println(minDeletionSize(new String[] {"zyx", "wvu", "tsr"}));
         stopWatch.stop();
         System.out.println(stopWatch.getTime(TimeUnit.MICROSECONDS) + "毫秒");
     }
-
-
+    
+    
     public static int minDeletionSize(String[] strs) {
         int m = strs.length;
         int n = strs[0].length();
@@ -39,8 +39,8 @@ public class Problem944 {
         }
         return ans.size();
     }
-
-
+    
+    
     /**
      * 换一种遍历方法
      *
@@ -51,7 +51,7 @@ public class Problem944 {
         int m = strs.length;
         int n = strs[0].length();
         int res = 0;
-
+        
         for (int i = 0; i < n; i++) {
             for (int j = 1; j < m; j++) {
                 if (strs[j].charAt(i) < strs[j - 1].charAt(i)) {

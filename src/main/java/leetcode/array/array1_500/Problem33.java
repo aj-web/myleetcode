@@ -7,15 +7,13 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * 在部分有序的数组中，我们可以尝试用二分查找优化
- * leetcode33：搜索旋转排序数组数组
- * AC 二分查找在部分有序的数组中，可以尝试构造有序的部分来优化
+ * 在部分有序的数组中，我们可以尝试用二分查找优化 leetcode33：搜索旋转排序数组数组 AC 二分查找在部分有序的数组中，可以尝试构造有序的部分来优化
  */
 public class Problem33 {
-
+    
     public static void main(String[] args) {
         String s = "k1=v1;k2=v2;k3=v3;k4=v41=v42";
-
+        
         Map result = new HashMap();
         String[] split = s.split(";");
         for (String str : split) {
@@ -30,7 +28,7 @@ public class Problem33 {
                 result.put(str.substring(0, i), str.substring(i + 1));
             }
         }
-
+        
     }
 
 
@@ -75,6 +73,6 @@ public class Problem33 {
         }
         return -1;
     }*/
-
-
+    
+    
 }

@@ -4,26 +4,25 @@ package leetcode.array.array1_500;
  * LeetCode66：加一
  */
 public class Problem66 {
-
+    
     public static void main(String[] args) {
         int[] ints = {9, 9, 9, 9, 9, 9, 9};
         plusOne(ints);
     }
-
-
+    
+    
     public static int[] plusOne(int[] digits) {
         if (digits.length == 0) {
             return digits;
         }
         int digit = digits[digits.length - 1];
         int point = digits.length - 1;
-
+        
         if (digit != 9) {
             digits[digits.length - 1] = digit + 1;
             return digits;
         }
-
-
+        
         for (; point >= 0; point--) {
             if (digits[point] != 9) {
                 break;
@@ -40,7 +39,7 @@ public class Problem66 {
             ints[0] = 1;
             return ints;
         }
-
-
+        
+        
     }
 }

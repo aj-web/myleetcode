@@ -6,8 +6,8 @@ package pattern.behaviormode.strategypattern;
  * @Date 2021/7/25
  **/
 public class DotaStratery implements GameStrategy {
-
-
+    
+    
     @Override
     public void mobaStrategy() {
         System.out.println("我玩Dota");

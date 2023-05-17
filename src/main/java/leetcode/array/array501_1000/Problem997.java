@@ -7,7 +7,7 @@ package leetcode.array.array501_1000;
  * @date : 2022/9/13 10:02
  */
 public class Problem997 {
-
+    
     public int findJudge(int n, int[][] trust) {
         int[] inDegrees = new int[n + 1];
         int[] outDegrees = new int[n + 1];
@@ -23,6 +23,6 @@ public class Problem997 {
         }
         return -1;
     }
-
-
+    
+    
 }

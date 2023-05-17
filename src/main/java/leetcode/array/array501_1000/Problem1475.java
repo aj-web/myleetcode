@@ -10,11 +10,11 @@ import java.util.Arrays;
  * @date : 2022/9/3 13:29
  */
 public class Problem1475 {
-
+    
     public static void main(String[] args) {
-        System.out.println(Arrays.toString(finalPrices(new int[]{10, 1, 1, 6})));
+        System.out.println(Arrays.toString(finalPrices(new int[] {10, 1, 1, 6})));
     }
-
+    
     /**
      * 一次遍历
      *
@@ -24,7 +24,7 @@ public class Problem1475 {
     public static int[] finalPrices(int[] prices) {
         int[] res = new int[prices.length];
         res[prices.length - 1] = prices[prices.length - 1];
-
+        
         for (int i = 0; i < prices.length; i++) {
             for (int j = i + 1; j < prices.length; j++) {
                 if (prices[j] <= prices[i]) {
@@ -38,7 +38,7 @@ public class Problem1475 {
         }
         return res;
     }
-
+    
     /**
      * 使用单调栈求解
      *
@@ -57,5 +57,5 @@ public class Problem1475 {
         }
         return res;
     }
-
+    
 }

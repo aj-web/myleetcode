@@ -14,16 +14,16 @@ import java.util.List;
  * @date : 2022/9/15 18:06
  */
 public class Problem989 {
-
+    
     public static void main(String[] args) {
         StopWatch stopWatch = new StopWatch();
         stopWatch.start();
         Problem989 p = new Problem989();
-        System.out.println(p.addToArrayForm1(new int[]{2, 7, 4, 2, 9}, 181));
+        System.out.println(p.addToArrayForm1(new int[] {2, 7, 4, 2, 9}, 181));
         stopWatch.stop();
         System.out.println(stopWatch.getTime() + "毫秒");
     }
-
+    
     /**
      * 数字长度过大
      *
@@ -44,11 +44,11 @@ public class Problem989 {
         }
         return ans;
     }
-
-
+    
+    
     public List<Integer> addToArrayForm1(int[] num, int k) {
         List<Integer> ans = new ArrayList<>();
-
+        
         for (int length = num.length - 1; length >= 0; length--) {
             int sum = num[length] + k % 10;
             k /= 10;
@@ -57,14 +57,14 @@ public class Problem989 {
                 sum -= 10;
             }
             ans.add(sum);
-
+            
         }
-
+        
         for (; k > 0; k /= 10) {
             ans.add(k % 10);
         }
         Collections.reverse(ans);
         return ans;
     }
-
+    
 }

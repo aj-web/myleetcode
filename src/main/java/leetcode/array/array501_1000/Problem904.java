@@ -5,22 +5,24 @@ import org.apache.commons.lang3.time.StopWatch;
 import java.util.HashMap;
 import java.util.Map;
 
-/**水果成篮
+/**
+ * 水果成篮
+ *
  * @author : chezj
  * @date : 2022/10/17 21:00
  */
 public class Problem904 {
-
+    
     public static void main(String[] args) {
         StopWatch stopWatch = new StopWatch();
         stopWatch.start();
         Problem904 p = new Problem904();
-        System.out.println(p.totalFruit(new int[]{1,2,1}));
+        System.out.println(p.totalFruit(new int[] {1, 2, 1}));
         stopWatch.stop();
         System.out.println(stopWatch.getTime() + "毫秒");
     }
-
-
+    
+    
     public int totalFruit(int[] fruits) {
         Map<Integer, Integer> windows = new HashMap<>();
         int left = 0;

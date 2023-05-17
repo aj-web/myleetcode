@@ -9,16 +9,16 @@ import org.apache.commons.lang3.time.StopWatch;
  * @date : 2022/10/27 15:55
  */
 public class Problem1160 {
-
+    
     public static void main(String[] args) {
         StopWatch stopWatch = new StopWatch();
         stopWatch.start();
         Problem1160 p = new Problem1160();
-        System.out.println(p.countCharacters(new String[]{"cat", "bt", "hat", "tree"}, "atach"));
+        System.out.println(p.countCharacters(new String[] {"cat", "bt", "hat", "tree"}, "atach"));
         stopWatch.stop();
         System.out.println(stopWatch.getTime() + "毫秒");
     }
-
+    
     /**
      * 暴力解法
      *
@@ -32,7 +32,7 @@ public class Problem1160 {
             charsInt[c - 'a']++;
         }
         int[] temp = new int[26];
-
+        
         int count = 0;
         for (String word : words) {
             System.arraycopy(charsInt, 0, temp, 0, 26);
@@ -47,6 +47,6 @@ public class Problem1160 {
         }
         return count;
     }
-
-
+    
+    
 }

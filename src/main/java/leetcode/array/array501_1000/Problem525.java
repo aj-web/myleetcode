@@ -5,22 +5,22 @@ import org.apache.commons.lang3.time.StopWatch;
 import java.util.HashMap;
 
 /**
- * 连续数组
- * :前缀和
+ * 连续数组 :前缀和
  *
  * @author : chezj
  * @date : 2023/3/12 15:46
  */
 public class Problem525 {
+    
     public static void main(String[] args) {
         StopWatch stopWatch = new StopWatch();
         stopWatch.start();
         Problem525 p = new Problem525();
-
+        
         stopWatch.stop();
         System.out.println(stopWatch.getTime() + "毫秒");
     }
-
+    
     public int findMaxLength(int[] nums) {
         int n = nums.length;
         int[] preSum = new int[n + 1];
@@ -44,5 +44,5 @@ public class Problem525 {
         }
         return res;
     }
-
+    
 }

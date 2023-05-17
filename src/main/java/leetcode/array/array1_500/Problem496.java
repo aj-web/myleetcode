@@ -5,17 +5,16 @@ import java.util.HashMap;
 import java.util.Stack;
 
 /**
- * 下一个更大元素
- * 单调栈入门问题
+ * 下一个更大元素 单调栈入门问题
  */
 public class Problem496 {
-
+    
     public static void main(String[] args) {
-        int[] num1 = new int[]{4, 1, 2};
-        int[] num2 = new int[]{1, 3, 4, 2};
+        int[] num1 = new int[] {4, 1, 2};
+        int[] num2 = new int[] {1, 3, 4, 2};
         System.out.println(Arrays.toString(nextGreaterElement1(num1, num2)));
     }
-
+    
     /**
      * 暴力解法
      *
@@ -24,9 +23,9 @@ public class Problem496 {
      * @return
      */
     public static int[] nextGreaterElement(int[] nums1, int[] nums2) {
-
+        
         Integer[] res = new Integer[nums1.length];
-
+        
         for (int i = 0; i < nums1.length; i++) {
             for (int j = 0; j < nums2.length; j++) {
                 if (nums2[j] == nums1[i]) {
@@ -48,8 +47,8 @@ public class Problem496 {
         }
         return Arrays.stream(res).mapToInt(Integer::valueOf).toArray();
     }
-
-
+    
+    
     /**
      * 简单隐射处理+单调栈
      *
@@ -69,8 +68,8 @@ public class Problem496 {
         }
         return res;
     }
-
-
+    
+    
     /**
      * 使用单调栈求出 下一个更大的元素
      *
@@ -90,6 +89,6 @@ public class Problem496 {
         }
         return res;
     }
-
-
+    
+    
 }

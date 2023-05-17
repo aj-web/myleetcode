@@ -6,13 +6,14 @@ package leetcode.array;
  * @date 2021/11/9
  */
 public class Problem977 {
+    
     public static void main(String[] args) {
-        int[] a = new int[]{-7, 2, 3, 4, 11};
+        int[] a = new int[] {-7, 2, 3, 4, 11};
         int[] squares = sortedSquares4(a);
         System.out.println(squares);
     }
-
-
+    
+    
     /**
      * 优化1 插入排序
      *
@@ -20,7 +21,7 @@ public class Problem977 {
      * @return
      */
     public static int[] sortedSquares1(int[] nums) {
-
+        
         nums[0] = nums[0] * nums[0];
         //插入排序
         for (int i = 1; i < nums.length; i++) {
@@ -33,14 +34,14 @@ public class Problem977 {
                 } else {
                     break;
                 }
-
+                
             }
         }
-
+        
         return nums;
     }
-
-
+    
+    
     /**
      * 优化2 归并排序 6ms  9.34%
      *
@@ -48,18 +49,17 @@ public class Problem977 {
      * @return
      */
     public static int[] sortedSquares2(int[] nums) {
-
+        
         int[] result = new int[nums.length];
-
+        
         for (int i = 0; i < nums.length; i++) {
             result[i] = nums[i] * nums[i];
         }
-
-
+        
         return mergeSort(result, 0, result.length - 1);
-
+        
     }
-
+    
     /**
      * 归并排序
      *
@@ -109,12 +109,12 @@ public class Problem977 {
             for (int i = start; i <= end; i++) {
                 arr[i] = result[i - start];
             }
-
+            
         }
         return arr;
     }
-
-
+    
+    
     /**
      * 优化3 快速排序
      *
@@ -122,18 +122,18 @@ public class Problem977 {
      * @return
      */
     public static int[] sortedSquares3(int[] nums) {
-
+        
         int[] result = new int[nums.length];
-
+        
         for (int i = 0; i < nums.length; i++) {
             result[i] = nums[i] * nums[i];
         }
-
+        
         quickSort(result, 0, result.length - 1);
         return result;
-
+        
     }
-
+    
     /**
      * 快排
      *
@@ -187,17 +187,17 @@ public class Problem977 {
         quickSort(arr, start, low - 1);
         quickSort(arr, low + 1, end);
     }
-
-
+    
+    
     /**
      * @param nums
      * @return
      * @description 找到正数和负数的分界线
      */
     public static int[] sortedSquares4(int[] nums) {
-
+        
         int[] result = new int[nums.length];
-
+        
         //如果最小的数大于等于0
         if (nums[0] >= 0) {
             for (int i = 0; i < nums.length; i++) {
@@ -205,7 +205,7 @@ public class Problem977 {
             }
             return nums;
         }
-
+        
         //数组里面的数据都小于等于0
         if (nums[nums.length - 1] <= 0) {
             for (int i = 0; i < nums.length; i++) {
@@ -213,12 +213,12 @@ public class Problem977 {
             }
             return nums;
         }
-
+        
         int flag = 0;
-
+        
         int left = 0;
         int right = nums.length - 1;
-
+        
         //有正有负 以0为目标，找0的数组下标位置，不存在0，就返回0的位置,也就是nums[flag]永远大于等于0
         while (left < right) {
             int mid = left + (right - left) / 2;
@@ -237,21 +237,19 @@ public class Problem977 {
                 }
             }
         }
-
+        
         //以返回0的位置为分界线，为整个数组排序,0到flag的位置为负数，flag+1到nums.lengths为正数
         //双指针开始遍历
         int i = flag - 1;
         int j = flag;
         int index = 0;
         while (i >= 0 || j < nums.length) {
-
-
+        
         }
-
-
+        
         return nums;
     }
-
+    
     /**
      * 从两端往中间遍历
      *

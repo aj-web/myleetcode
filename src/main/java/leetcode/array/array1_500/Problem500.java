@@ -5,19 +5,20 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Problem500 {
+    
     public static void main(String[] args) {
-        String[] a = new String[]{"Hello", "Alaska", "Dad", "Peace"};
+        String[] a = new String[] {"Hello", "Alaska", "Dad", "Peace"};
         System.out.println(Arrays.toString(findWords(a)));
     }
-
-
+    
+    
     public static String[] findWords(String[] words) {
-
+        
         String s1 = "qwertyuiopQWERTYUIOP";
         String s2 = "asdfghjklASDFGHJKL";
         String s3 = "zxcvbnmZXCVBNM";
         List<String> res = new ArrayList<>();
-
+        
         for (String word : words) {
             point1:
             if (s1.contains(String.valueOf(word.charAt(0)))) {
@@ -46,9 +47,9 @@ public class Problem500 {
                 }
                 res.add(word);
             }
-
+            
         }
         return res.toArray(new String[res.size()]);
     }
-
+    
 }

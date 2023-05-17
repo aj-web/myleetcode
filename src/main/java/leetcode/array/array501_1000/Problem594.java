@@ -8,6 +8,7 @@ import java.util.Map;
  * leetcode最长和谐子序列
  */
 public class Problem594 {
+    
     /**
      * 排序+滑动窗口
      *
@@ -26,11 +27,11 @@ public class Problem594 {
             if (nums[fast] - nums[slow] == 1) {
                 res = Math.max(res, fast - slow + 1);
             }
-
+            
         }
         return res;
     }
-
+    
     /**
      * 使用map存储个数
      *
@@ -44,7 +45,7 @@ public class Problem594 {
         for (int num : nums) {
             map.put(num, map.getOrDefault(num, 0) + 1);
         }
-
+        
         for (int i : map.keySet()) {
             if (map.containsKey(i + 1)) {
                 res = Math.max(res, map.get(i) + map.get(i + 1));
@@ -52,5 +53,5 @@ public class Problem594 {
         }
         return res;
     }
-
+    
 }

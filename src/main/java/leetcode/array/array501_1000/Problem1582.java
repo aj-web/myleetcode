@@ -7,17 +7,17 @@ package leetcode.array.array501_1000;
  * @date : 2022/9/4 14:33
  */
 public class Problem1582 {
-
-
+    
+    
     public static void main(String[] args) {
-        System.out.println(numSpecial(new int[][]{{1, 0, 0}, {0, 0, 1}, {1, 0, 0}}));
+        System.out.println(numSpecial(new int[][] {{1, 0, 0}, {0, 0, 1}, {1, 0, 0}}));
     }
-
-
+    
+    
     public static int numSpecial(int[][] mat) {
         int m = mat[0].length;
         int n = mat.length;
-
+        
         int res = 0;
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < m; j++) {
@@ -33,13 +33,13 @@ public class Problem1582 {
                         res++;
                     }
                 }
-
+                
             }
         }
         return res;
     }
-
-
+    
+    
     public int numSpecial1(int[][] mat) {
         int m = mat.length;
         int n = mat[0].length;
@@ -63,5 +63,5 @@ public class Problem1582 {
         }
         return ans;
     }
-
+    
 }

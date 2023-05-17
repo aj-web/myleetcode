@@ -13,16 +13,17 @@ import java.util.List;
  * @date : 2022/10/16 14:40
  */
 public class Problem1002 {
+    
     public static void main(String[] args) {
         StopWatch stopWatch = new StopWatch();
         stopWatch.start();
         Problem1002 p = new Problem1002();
-        p.commonChars(new String[]{"bella", "label", "roller"});
+        p.commonChars(new String[] {"bella", "label", "roller"});
         stopWatch.stop();
         System.out.println(stopWatch.getTime() + "毫秒");
     }
-
-
+    
+    
     public List<String> commonChars(String[] words) {
         int[] minfreq = new int[26];
         Arrays.fill(minfreq, Integer.MAX_VALUE);

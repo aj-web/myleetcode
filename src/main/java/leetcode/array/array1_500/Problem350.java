@@ -1,15 +1,20 @@
 package leetcode.array.array1_500;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class Problem350 {
+    
     public static void main(String[] args) {
-        int[] nums1 = new int[]{1, 2, 2, 1};
-        int[] nums2 = new int[]{2, 2};
+        int[] nums1 = new int[] {1, 2, 2, 1};
+        int[] nums2 = new int[] {2, 2};
         System.out.println(intersect(nums1, nums2));
     }
-
-
+    
+    
     /**
      * 两个hash表
      *
@@ -24,11 +29,11 @@ public class Problem350 {
         for (int i : nums1) {
             map1.put(i, map1.getOrDefault(i, 0) + 1);
         }
-
+        
         for (int i : nums2) {
             map2.put(i, map2.getOrDefault(i, 0) + 1);
         }
-
+        
         if (map2.size() >= map1.size()) {
             for (Map.Entry<Integer, Integer> entry : map2.entrySet()) {
                 if (map1.containsKey(entry.getKey())) {
@@ -48,14 +53,13 @@ public class Problem350 {
                 }
             }
         }
-
+        
         return result.stream().mapToInt(Integer::intValue).toArray();
     }
-
-
+    
+    
     /**
-     * 优化版本：使用一个hash
-     * 放弃使用stream操作返回结果
+     * 优化版本：使用一个hash 放弃使用stream操作返回结果
      *
      * @param nums1
      * @param nums2
@@ -68,7 +72,7 @@ public class Problem350 {
             Integer count = map1.getOrDefault(i, 0);
             map1.put(i, count + 1);
         }
-
+        
         for (int i : nums2) {
             if (map1.containsKey(i)) {
                 Integer key = map1.get(i);
@@ -78,16 +82,16 @@ public class Problem350 {
                 }
             }
         }
-
+        
         int[] res = new int[result.size()];
         for (int i = 0; i < result.size(); i++) {
             res[i] = result.get(i);
         }
-//        return result.stream().mapToInt(Integer::intValue).toArray();
+        //        return result.stream().mapToInt(Integer::intValue).toArray();
         return res;
     }
-
-
+    
+    
     /**
      * 进阶，若果两个数组是有序
      *

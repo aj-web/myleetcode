@@ -8,11 +8,11 @@ package leetcode.array.doing;
  * @date : 2022/8/22 17:06
  */
 public class Problem674 {
-
+    
     public static void main(String[] args) {
-        System.out.println(findLengthOfLCIS(new int[]{2, 2, 2, 2, 2}));
+        System.out.println(findLengthOfLCIS(new int[] {2, 2, 2, 2, 2}));
     }
-
+    
     public static int findLengthOfLCIS(int[] nums) {
         if (nums.length == 1) {
             return 1;

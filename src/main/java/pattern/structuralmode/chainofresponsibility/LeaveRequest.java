@@ -15,8 +15,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Builder
 public class LeaveRequest {
-
+    
     private int days;
-
+    
     private String name;
 }

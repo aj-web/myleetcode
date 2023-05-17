@@ -11,16 +11,16 @@ import java.util.List;
  * @date : 2023/2/10 14:24
  */
 public class Problem1233 {
-
+    
     public static void main(String[] args) {
         StopWatch stopWatch = new StopWatch();
         stopWatch.start();
         Problem1233 p = new Problem1233();
-        System.out.println(p.removeSubfolders(new String[]{"/a", "/a/b", "/c/d", "/c/d/e", "/c/f"}));
+        System.out.println(p.removeSubfolders(new String[] {"/a", "/a/b", "/c/d", "/c/d/e", "/c/f"}));
         stopWatch.stop();
         System.out.println(stopWatch.getTime() + "毫秒");
     }
-
+    
     public List<String> removeSubfolders(String[] folder) {
         Arrays.sort(folder);
         List<String> result = new ArrayList<>();

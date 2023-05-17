@@ -4,7 +4,7 @@ package leetcode.array.array1_500;
  * leetcode错误的集合
  */
 public class Problem645 {
-
+    
     public int[] findErrorNums(int[] nums) {
         int dup = 0;
         for (int i = 0; i < nums.length; i++) {
@@ -21,7 +21,7 @@ public class Problem645 {
                 mis = j + 1;
             }
         }
-        return new int[]{dup, mis};
-
+        return new int[] {dup, mis};
+        
     }
 }

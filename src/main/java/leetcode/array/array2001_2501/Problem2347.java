@@ -14,17 +14,17 @@ import java.util.Set;
  * @date : 2023/2/20 14:08
  */
 public class Problem2347 {
-
+    
     public static void main(String[] args) {
         StopWatch stopWatch = new StopWatch();
         stopWatch.start();
         Problem2347 p = new Problem2347();
-
+        
         stopWatch.stop();
         System.out.println(stopWatch.getTime() + "毫秒");
     }
-
-
+    
+    
     public String bestHand(int[] ranks, char[] suits) {
         Set<Character> set = new HashSet<>(suits.length);
         for (char c : suits) {
@@ -33,12 +33,12 @@ public class Problem2347 {
         if (set.size() == 1) {
             return "Flush";
         }
-
+        
         Map<Integer, Integer> map = new HashMap<>(ranks.length);
         for (int i = 0; i < ranks.length; i++) {
             map.put(ranks[i], map.getOrDefault(ranks[i], 0) + 1);
         }
-
+        
         if (map.size() == 5) {
             return "High Card";
         }
@@ -55,5 +55,5 @@ public class Problem2347 {
         }
         return null;
     }
-
+    
 }

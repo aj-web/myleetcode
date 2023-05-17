@@ -7,12 +7,12 @@ import pattern.structuralmode.chainofresponsibilitycmd.IWomen;
  * @date : 2022/8/17 22:20
  */
 public class Son extends Handler {
-
-
+    
+    
     public Son() {
         super(Handler.SON_LEVEL_REQUEST);
     }
-
+    
     @Override
     protected void response(IWomen women) {
         System.out.println("--------母亲向儿子请示-------");

@@ -3,26 +3,23 @@ package leetcode.array.array1_500;
 import java.util.ArrayList;
 
 /**
- * LeetCode392：判断子序列
- * 判断s是否为t的子序列
- * 1.通过快慢指针处理
- * 2.通过二分查找优化
+ * LeetCode392：判断子序列 判断s是否为t的子序列 1.通过快慢指针处理 2.通过二分查找优化
  */
 public class Problem392 {
-
+    
     public static void main(String[] args) {
         String s = "acb";
         String t = "ahbgdc";
         System.out.println(isSubsequence(s, t));
     }
-
+    
     public static boolean isSubsequenceViolent(String s, String t) {
         int slow = 0;
         int fast = 0;
         if (s.length() == 0) {
             return true;
         }
-
+        
         if (t.length() == 0) {
             return false;
         }
@@ -37,11 +34,11 @@ public class Problem392 {
         }
         return false;
     }
-
+    
     public static boolean isSubsequence(String s, String t) {
         int sLength = s.length();
         int tLength = t.length();
-
+        
         //处理数组转化为[a,[1,3,7]]的形式
         ArrayList<Integer>[] index = new ArrayList[256];
         for (int i = 0; i < tLength; i++) {
@@ -51,7 +48,7 @@ public class Problem392 {
             }
             index[c].add(i);
         }
-
+        
         int point = 0;
         for (int i = 0; i < sLength; i++) {
             char j = s.charAt(i);
@@ -66,8 +63,8 @@ public class Problem392 {
         }
         return false;
     }
-
-
+    
+    
     public static int left_bound(ArrayList<Integer> nums, int j) {
         int left = 0;
         int right = nums.size();

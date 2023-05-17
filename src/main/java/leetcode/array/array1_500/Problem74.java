@@ -1,22 +1,20 @@
 package leetcode.array.array1_500;
 
 /**
- * LeetCode74:搜索二维矩阵
- * 二维数组看做一维数组处理
- * AC
+ * LeetCode74:搜索二维矩阵 二维数组看做一维数组处理 AC
  */
 public class Problem74 {
-
+    
     public static void main(String[] args) {
-        int[][] a = new int[][]{{1, 3, 5, 7}, {10, 11, 16, 20}, {23, 30, 34, 60}};
-//        int[] transNum = transNum(a);
-//        int num = getNum(a, 7);
+        int[][] a = new int[][] {{1, 3, 5, 7}, {10, 11, 16, 20}, {23, 30, 34, 60}};
+        //        int[] transNum = transNum(a);
+        //        int num = getNum(a, 7);
         boolean b = searchMatrix(a, 3);
         System.out.println("end");
-
+        
     }
-
-
+    
+    
     /**
      * 用一维数组下标去访问二维数组
      *
@@ -41,13 +39,13 @@ public class Problem74 {
         }
         return false;
     }
-
+    
     public static int getNum(int[][] matrix, int index) {
         int n = matrix[0].length;
         return matrix[index / n][index % n];
     }
-
-
+    
+    
     /**
      * 暴力解法，直接转换一维数组再二分查找
      *
@@ -66,5 +64,5 @@ public class Problem74 {
         }
         return target;
     }
-
+    
 }

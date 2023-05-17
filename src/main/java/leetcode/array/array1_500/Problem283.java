@@ -1,16 +1,15 @@
 package leetcode.array.array1_500;
 
 /**
- * LeetCode283：移动零
- * AC
+ * LeetCode283：移动零 AC
  */
 public class Problem283 {
-
+    
     public static void main(String[] args) {
-        int[] a = new int[]{0, 1, 0, 3, 12};
+        int[] a = new int[] {0, 1, 0, 3, 12};
     }
-
-
+    
+    
     /**
      * 采用快慢指针
      *

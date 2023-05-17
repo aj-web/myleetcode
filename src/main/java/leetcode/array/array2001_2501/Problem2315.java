@@ -7,7 +7,7 @@ import org.apache.commons.lang3.time.StopWatch;
  * @date : 2023/1/29 14:18
  */
 public class Problem2315 {
-
+    
     public static void main(String[] args) {
         StopWatch stopWatch = new StopWatch();
         stopWatch.start();
@@ -16,21 +16,21 @@ public class Problem2315 {
         stopWatch.stop();
         System.out.println(stopWatch.getTime() + "毫秒");
     }
-
+    
     public int countAsterisks(String s) {
         char[] chars = s.toCharArray();
         int res = 0;
         int total = 0;
         for (int i = 0; i < chars.length; i++) {
-
+            
             if (total == 0 && chars[i] == '*') {
                 res++;
             }
-
+            
             if (chars[i] == '|') {
                 total++;
             }
-
+            
             if (total != 0 && (total & 1) == 0) {
                 if (chars[i] == '*') {
                     res++;
@@ -39,7 +39,7 @@ public class Problem2315 {
         }
         return res;
     }
-
+    
     /**
      * 代码优化
      *
@@ -59,8 +59,8 @@ public class Problem2315 {
         }
         return res;
     }
-
-
+    
+    
     /**
      * 空间最优解法
      *
@@ -70,5 +70,5 @@ public class Problem2315 {
     public int countAsterisks2(String s) {
         return s.replaceAll("\\|.*?\\||[^*]", "").length();
     }
-
+    
 }

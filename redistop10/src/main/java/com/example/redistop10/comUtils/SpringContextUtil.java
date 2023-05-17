@@ -12,51 +12,45 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public class SpringContextUtil implements ApplicationContextAware {
+    
     private static ApplicationContext applicationContext;
-
+    
     public static ApplicationContext getApplicationContext() {
         return applicationContext;
     }
-
+    
     @Override
-    public void setApplicationContext(ApplicationContext applicationContext)
-            throws BeansException {
+    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
         SpringContextUtil.applicationContext = applicationContext;
     }
-
-    public static Object getBean(String name)
-            throws BeansException {
+    
+    public static Object getBean(String name) throws BeansException {
         return applicationContext.getBean(name);
     }
-
-    public static Object getBean(String name, Class<?> requiredType)
-            throws BeansException {
-
+    
+    public static Object getBean(String name, Class<?> requiredType) throws BeansException {
+        
         return applicationContext.getBean(name, requiredType);
     }
-
-    public static <T> T getBean(Class<T> clazz)
-            throws BeansException {
+    
+    public static <T> T getBean(Class<T> clazz) throws BeansException {
         return applicationContext.getBean(clazz);
     }
-
+    
     public static boolean containsBean(String name) {
         return applicationContext.containsBean(name);
     }
-
-    public static boolean isSingleton(String name)
-            throws NoSuchBeanDefinitionException {
+    
+    public static boolean isSingleton(String name) throws NoSuchBeanDefinitionException {
         return applicationContext.isSingleton(name);
     }
-
-    public static Class<?> getType(String name)
-            throws NoSuchBeanDefinitionException {
+    
+    public static Class<?> getType(String name) throws NoSuchBeanDefinitionException {
         return applicationContext.getType(name);
     }
-
-    public static String[] getAliases(String name)
-            throws NoSuchBeanDefinitionException {
+    
+    public static String[] getAliases(String name) throws NoSuchBeanDefinitionException {
         return applicationContext.getAliases(name);
     }
-
+    
 }

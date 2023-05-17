@@ -11,11 +11,11 @@ import java.util.List;
  * @date : 2022/8/29 21:38
  */
 public class Problem821 {
-
+    
     public static void main(String[] args) {
         System.out.println(Arrays.toString(shortestToChar("aaab", 'b')));
     }
-
+    
     /**
      * 4ms
      *
@@ -32,7 +32,7 @@ public class Problem821 {
                 res[i] = 0;
                 list.add(i);
             }
-
+            
         }
         for (Integer in : list) {
             for (int i = 0; i < res.length; i++) {
@@ -41,8 +41,8 @@ public class Problem821 {
         }
         return res;
     }
-
-
+    
+    
     /**
      * 两次遍历 @TODO
      *
@@ -53,8 +53,7 @@ public class Problem821 {
     public static int[] shortestToChar1(String s, char c) {
         int[] res = new int[s.length()];
         Arrays.fill(res, s.length());
-
-
+        
         for (int i = 0, j = -1; i < s.length(); i++) {
             if (s.charAt(i) == c) {
                 j = i;
@@ -63,7 +62,7 @@ public class Problem821 {
                 res[i] = i - j;
             }
         }
-
+        
         for (int i = s.length() - 1, j = -1; i >= 0; i--) {
             if (s.charAt(i) == c) {
                 j = i;

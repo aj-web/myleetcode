@@ -6,12 +6,13 @@ import java.util.Arrays;
  * 第三大的数
  */
 public class Problem414 {
+    
     public static void main(String[] args) {
-        int[] a = new int[]{2, 2, 3, 1};
+        int[] a = new int[] {2, 2, 3, 1};
         System.out.println(thirdMax(a));
     }
-
-
+    
+    
     public static int thirdMax(int[] nums) {
         if (nums.length < 3) {
             return nums[nums.length - 1];
@@ -32,9 +33,9 @@ public class Problem414 {
                 return nums[i];
             }
         }
-
+        
         return nums[0];
-
+        
     }
-
+    
 }

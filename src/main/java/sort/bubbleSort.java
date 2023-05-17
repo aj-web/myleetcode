@@ -6,14 +6,14 @@ package sort;
  * @date 2022/4/1
  */
 public class bubbleSort {
-
+    
     public static void main(String[] args) {
-        int[] a = new int[]{1, 3, 5, 6, 7, 4, 22, 104, 33, 35};
+        int[] a = new int[] {1, 3, 5, 6, 7, 4, 22, 104, 33, 35};
         int[] bubbleSort = bubbleSort(a);
         System.out.println(bubbleSort);
     }
-
-
+    
+    
     /**
      * 冒泡排序
      *

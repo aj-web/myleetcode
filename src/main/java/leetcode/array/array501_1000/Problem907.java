@@ -7,7 +7,8 @@ import java.util.Arrays;
 import java.util.Deque;
 
 /**
- * 取模运算也叫取余运算，它们返回的结果都是余数。rem(取余)和mod(取模)唯一的区别在于：当X和Y的正负号一样的时候，两个函数结果是等同的；当X和Y的符号不同时，rem(取余)函数的结果的符号和X的符号一样，而mod(取模)函数的结果符号和Y的符号一样
+ * 取模运算也叫取余运算，它们返回的结果都是余数。rem(取余)和mod(取模)唯一的区别在于：当X和Y的正负号一样的时候，两个函数结果是等同的；当X和Y的符号不同时，rem(取余)函数的结果的符号和X的符号一样，而mod(取模)
+ * 函数的结果符号和Y的符号一样
  * <p>
  * <p>
  * (int)1e9是10的9次方
@@ -59,7 +60,7 @@ public class Problem907 {
             }
             deque.add(i);
         }
-    
+        
         for (int i = 0; i < len; i++) {
             int a = i - l[i];
             int b = r[i] - i;

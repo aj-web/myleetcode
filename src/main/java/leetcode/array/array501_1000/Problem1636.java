@@ -14,27 +14,27 @@ import java.util.List;
  * @date : 2022/9/19 17:43
  */
 public class Problem1636 {
-
+    
     public static void main(String[] args) {
         StopWatch stopWatch = new StopWatch();
         stopWatch.start();
         Problem1636 p = new Problem1636();
-        System.out.println(Arrays.toString(p.frequencySort(new int[]{1, 1, 2, 2, 2, 3, 3, 3})));
+        System.out.println(Arrays.toString(p.frequencySort(new int[] {1, 1, 2, 2, 2, 3, 3, 3})));
         stopWatch.stop();
         System.out.println(stopWatch.getTime() + "毫秒");
     }
-
-
+    
+    
     public int[] frequencySort(int[] nums) {
-
+        
         List<Integer> list = new ArrayList<>();
         HashMap<Integer, Integer> map = new HashMap<>();
-
+        
         for (int i : nums) {
             list.add(i);
             map.put(i, map.getOrDefault(i, 0) + 1);
         }
-
+        
         //重写比较器，比较器结果为0，则不交换，如果为负数则不交换，如果为正数，则需要交换
         list.sort((o1, o2) -> {
             int i1 = map.get(o1);
@@ -44,9 +44,9 @@ public class Problem1636 {
             }
             return i1 - i2;
         });
-
+        
         return list.stream().mapToInt(Integer::intValue).toArray();
-
+        
     }
     
     
@@ -67,5 +67,5 @@ public class Problem1636 {
         }
         return arr;
     }*/
-
+    
 }

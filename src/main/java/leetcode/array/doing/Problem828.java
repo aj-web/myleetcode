@@ -6,19 +6,18 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * 统计子串中的唯一字符
- * TODO
+ * 统计子串中的唯一字符 TODO
  *
  * @author : chezj
  * @date : 2022/9/6 21:47
  */
 public class Problem828 {
-
+    
     public static void main(String[] args) {
-
+    
     }
-
-
+    
+    
     public int uniqueLetterString(String s) {
         Map<Character, List<Integer>> index = new HashMap<>();
         for (int i = 0; i < s.length(); i++) {
@@ -39,5 +38,5 @@ public class Problem828 {
         }
         return res;
     }
-
+    
 }

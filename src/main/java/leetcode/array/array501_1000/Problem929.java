@@ -10,7 +10,7 @@ import java.util.Set;
  * @date : 2022/9/1 17:57
  */
 public class Problem929 {
-
+    
     public int numUniqueEmails(String[] emails) {
         Set<String> emailSet = new HashSet<String>();
         for (String email : emails) {

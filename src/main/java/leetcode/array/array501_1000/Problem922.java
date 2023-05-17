@@ -9,15 +9,15 @@ import java.util.Arrays;
  * @date : 2022/9/1 16:55
  */
 public class Problem922 {
-
+    
     public static void main(String[] args) {
-        System.out.println(Arrays.toString(sortArrayByParityII(new int[]{1, 1, 2, 2})));
+        System.out.println(Arrays.toString(sortArrayByParityII(new int[] {1, 1, 2, 2})));
     }
-
+    
     public static int[] sortArrayByParityII(int[] nums) {
         int p1 = 0;
         int p2 = 1;
-
+        
         //[0,mid],[mid+1,num.length-1]
         int[] ints = new int[nums.length];
         for (int i = 0; i < nums.length; i++) {
@@ -29,7 +29,7 @@ public class Problem922 {
                 p2 += 2;
             }
         }
-
+        
         return ints;
     }
 }

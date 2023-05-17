@@ -12,20 +12,20 @@ import java.util.Arrays;
  * @date : 2023/2/10 15:13
  */
 public class Problem1223 {
-
+    
     static final int MOD = 1000000007;
-
+    
     public static void main(String[] args) {
         StopWatch stopWatch = new StopWatch();
         stopWatch.start();
         Problem1223 p = new Problem1223();
-
+        
         stopWatch.stop();
         System.out.println(stopWatch.getTime() + "毫秒");
     }
-
+    
     public int dieSimulator(int n, int[] rollMax) {
-
+        
         int[][][] d = new int[2][6][16];
         for (int j = 0; j < 6; j++) {
             d[1][j][1] = 1;
@@ -47,7 +47,7 @@ public class Problem1223 {
                 }
             }
         }
-
+        
         int res = 0;
         for (int j = 0; j < 6; j++) {
             for (int k = 1; k <= rollMax[j]; k++) {
@@ -56,6 +56,6 @@ public class Problem1223 {
         }
         return res;
     }
-
-
+    
+    
 }

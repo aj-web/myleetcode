@@ -10,6 +10,7 @@ import java.util.List;
  * @date : 2022/11/7 21:25
  */
 public class Problem816 {
+    
     public static void main(String[] args) {
         StopWatch stopWatch = new StopWatch();
         stopWatch.start();
@@ -18,13 +19,10 @@ public class Problem816 {
         stopWatch.stop();
         System.out.println(stopWatch.getTime() + "毫秒");
     }
-
-
+    
+    
     /**
-     * if (len <= 1) {
-     * return Collections.singletonList("s");
-     * }
-     * 题目保证s.len>=4;
+     * if (len <= 1) { return Collections.singletonList("s"); } 题目保证s.len>=4;
      *
      * @param s
      * @return
@@ -57,7 +55,7 @@ public class Problem816 {
                 break;
             }
         }
-
+        
         //00010003
         for (int i = left + 1; i < right; i++) {
             if (s.charAt(i) == s.charAt(i - 1) && i > 1 && s.charAt(i) == '0') {
@@ -67,14 +65,12 @@ public class Problem816 {
             sb.insert(i, str);
             res.add(sb.toString());
         }
-
+        
         return res;
     }
-
+    
     /**
-     * 获得x轴，然后使用“小数点”分割出【n种】可能的合法数字
-     * 获得y轴，然后使用“小数点”分割出【m种】可能的合法数字
-     * 拼装在最终结果【n*m种】
+     * 获得x轴，然后使用“小数点”分割出【n种】可能的合法数字 获得y轴，然后使用“小数点”分割出【m种】可能的合法数字 拼装在最终结果【n*m种】
      *
      * @param s
      * @return
@@ -91,7 +87,7 @@ public class Problem816 {
         }
         return result;
     }
-
+    
     /**
      * 将num用小数点分割
      */
@@ -116,6 +112,6 @@ public class Problem816 {
         }
         return list;
     }
-
-
+    
+    
 }

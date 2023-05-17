@@ -7,18 +7,18 @@ import java.util.List;
 /**
  * @author chezhijun
  * @descririon 寻找四数之和
- * @date 2021/8/19
- * TODO
+ * @date 2021/8/19 TODO
  */
 public class Problem18 {
+    
     public static void main(String[] args) {
-        int[] a = new int[]{2, 2, 2, 2, 2};
+        int[] a = new int[] {2, 2, 2, 2, 2};
         fourSum(a, 8).stream().forEach(x -> {
             System.out.println(x);
         });
     }
-
-
+    
+    
     public static List<List<Integer>> fourSum(int[] nums, int target) {
         List<List<Integer>> result = new ArrayList<>();
         //1.排除特殊情况
@@ -34,7 +34,7 @@ public class Problem18 {
         //2.排序
         Arrays.sort(nums);
         //3.循环判断
-
+        
         for (int i = 0; i < nums.length; i++) {
             //去掉左指针重复的情况
             if (i > 0 && nums[i - 1] == nums[i]) {
@@ -53,8 +53,12 @@ public class Problem18 {
                         left++;
                     } else {
                         result.add(Arrays.asList(nums[i], nums[j], nums[left], nums[right]));
-                        while (left < right && nums[left] == nums[left + 1]) left++; // 左指针此时指向最后一个重复元素
-                        while (left < right && nums[right] == nums[right - 1]) right--; // 右指针此时指向最后一个重复元素
+                        while (left < right && nums[left] == nums[left + 1]) {
+                            left++; // 左指针此时指向最后一个重复元素
+                        }
+                        while (left < right && nums[right] == nums[right - 1]) {
+                            right--; // 右指针此时指向最后一个重复元素
+                        }
                         left++; // 左指针此时指向区间左侧第一个非重复元素
                         right--; // 右指针此时指向区间右侧第一个非重复元素
                     }

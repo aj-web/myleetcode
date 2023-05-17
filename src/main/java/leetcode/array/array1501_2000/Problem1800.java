@@ -7,13 +7,13 @@ package leetcode.array.array1501_2000;
  * @date : 2022/10/7 21:49
  */
 public class Problem1800 {
-
+    
     public static void main(String[] args) {
         Problem1800 p = new Problem1800();
-        System.out.println(p.maxAscendingSum(new int[]{10, 20, 30, 5, 10, 50}));
+        System.out.println(p.maxAscendingSum(new int[] {10, 20, 30, 5, 10, 50}));
     }
-
-
+    
+    
     public int maxAscendingSum(int[] nums) {
         int res = nums[0];
         int total = res;

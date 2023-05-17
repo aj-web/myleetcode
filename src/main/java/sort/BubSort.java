@@ -6,10 +6,11 @@ package sort;
  * @date 2022/4/5
  */
 public class BubSort {
+    
     public static void main(String[] args) {
         int[] a = new int[10];
     }
-
+    
     public static int[] BubSort(int[] nums) {
         int temp;
         for (int i = 0; i < nums.length; i++) {

@@ -1,19 +1,18 @@
 package dynamicprogramming;
 
 /**
- * 最长重复子数组
- * 注意这题目的隐藏条件 子数组的是连续的
+ * 最长重复子数组 注意这题目的隐藏条件 子数组的是连续的
  *
  * @author : chezj
  * @date : 2022/8/21 12:26
  */
 public class Problem718 {
-
+    
     public static void main(String[] args) {
-        System.out.println(findLength(new int[]{1, 2, 3, 2, 1}, new int[]{3, 2, 1, 4, 7}));
+        System.out.println(findLength(new int[] {1, 2, 3, 2, 1}, new int[] {3, 2, 1, 4, 7}));
     }
-
-
+    
+    
     /**
      * 注意优化 这里的dp[i][j] 是由dp[i-1][j-1]推到来的 如果自底向上会有很多重复情况
      *
@@ -34,8 +33,8 @@ public class Problem718 {
         }
         return res;
     }
-
-
+    
+    
     /**
      * 注意优化 采用倒序自顶向下循环
      *
@@ -54,5 +53,5 @@ public class Problem718 {
         }
         return res;
     }
-
+    
 }

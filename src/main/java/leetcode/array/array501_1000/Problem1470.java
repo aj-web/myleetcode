@@ -9,11 +9,11 @@ import java.util.Arrays;
  * @date : 2022/8/29 15:24
  */
 public class Problem1470 {
-
+    
     public static void main(String[] args) {
-        System.out.println(Arrays.toString(shuffle(new int[]{2, 5, 1, 3, 4, 7}, 3)));
+        System.out.println(Arrays.toString(shuffle(new int[] {2, 5, 1, 3, 4, 7}, 3)));
     }
-
+    
     public static int[] shuffle(int[] nums, int n) {
         int[] res = new int[nums.length];
         int index = 0;
@@ -27,11 +27,11 @@ public class Problem1470 {
                 right += 2;
             }
         }
-
+        
         return res;
     }
-
-
+    
+    
     public static int[] shuffle1(int[] nums, int n) {
         int[] res = new int[nums.length];
         int index = 0;
@@ -41,5 +41,5 @@ public class Problem1470 {
         }
         return res;
     }
-
+    
 }

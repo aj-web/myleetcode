@@ -14,16 +14,16 @@ import java.util.Map;
  * @date : 2023/2/16 11:33
  */
 public class Problem2341 {
-
+    
     public static void main(String[] args) {
         StopWatch stopWatch = new StopWatch();
         stopWatch.start();
         Problem2341 p = new Problem2341();
-        System.out.println(Arrays.toString(p.numberOfPairs(new int[]{1, 3, 2, 1, 3, 2, 2})));
+        System.out.println(Arrays.toString(p.numberOfPairs(new int[] {1, 3, 2, 1, 3, 2, 2})));
         stopWatch.stop();
         System.out.println(stopWatch.getTime() + "毫秒");
     }
-
+    
     /**
      * 写的有些复杂了 不用在乎数量直接用奇偶判断即可 也就是 Map<Integer,Boolean>
      *
@@ -31,7 +31,7 @@ public class Problem2341 {
      * @return
      */
     public int[] numberOfPairs(int[] nums) {
-        int[] ans = new int[]{0, 1};
+        int[] ans = new int[] {0, 1};
         int length = nums.length;
         if (length == 1) {
             return ans;
@@ -56,12 +56,12 @@ public class Problem2341 {
                 ans[0] += i;
                 ans[1] += 1;
             }
-
+            
         });
-
+        
         return ans;
     }
-
+    
     public int[] numberOfPairs1(int[] nums) {
         Map<Integer, Boolean> cnt = new HashMap<>();
         int res = 0;
@@ -71,7 +71,7 @@ public class Problem2341 {
                 res++;
             }
         }
-        return new int[]{res, nums.length - 2 * res};
+        return new int[] {res, nums.length - 2 * res};
     }
-
+    
 }

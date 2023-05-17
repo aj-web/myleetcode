@@ -13,7 +13,9 @@
 1. 数组类和普通的类是不同的。普通的类从class文件中加载，但是数组类由Java虚拟机在运行时生成。数组的类名是左方括号([)+数组元素的类型描述符；数组类型描述符就是类名本身。例如int[]的类名是[I，int[][]的类名是[[
    I，Object[]的类名是[Ljava/lang/Object;，String[][]的类名是[[Ljava/lang/String;，等等。
 2.
+
 创建数组的方式和创建普通对象的方式不同。普通对象由new指令创建，然后由构造函数初始化。基本类型数组由newarray指令创建；引用类型数组由anewarray指令创建；另外还有一个专门的multianewarray指令用于创建多维数组。
+
 3. 数组和普通对象存放的数据叶不同。普通对象中存放的是实例变量，通过putfield和各条field指令存取。数组对象中存放的则是数组元素，通过<t>aload和<t>astore系列指令按索引存取。其中<t>
    可以是a、b、c、d、f、i、l或者s。分别用于存取引用、byte、char、double、float、int、long或short类型的数组。
 

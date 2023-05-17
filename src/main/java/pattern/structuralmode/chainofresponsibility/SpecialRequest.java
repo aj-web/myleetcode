@@ -6,5 +6,6 @@ package pattern.structuralmode.chainofresponsibility;
  * @Date 2021/11/15
  **/
 public interface SpecialRequest {
+    
     public void SpecialRequest();
 }

@@ -6,22 +6,23 @@ package leetcode.array.array1_500;
  * @date 2021/11/8
  */
 public class Problem35 {
+    
     public static void main(String[] args) {
-        int[] a = new int[]{-1, 3, 5, 6};
+        int[] a = new int[] {-1, 3, 5, 6};
         int searchInsert = searchInsert(a, 0);
         System.out.println(searchInsert);
     }
-
+    
     public static int searchInsert(int[] nums, int target) {
-
+        
         if (nums[0] >= target) {
             return 0;
         }
-
+        
         if (nums[nums.length - 1] == target) {
             return nums.length - 1;
         }
-
+        
         if (nums.length == 1) {
             if (target > nums[0]) {
                 return 1;
@@ -29,10 +30,10 @@ public class Problem35 {
                 return 0;
             }
         }
-
+        
         int left = 0;
         int right = nums.length - 1;
-
+        
         while (left < right) {
             int mid = left + (right - left) / 2;
             if (nums[mid] > target) {

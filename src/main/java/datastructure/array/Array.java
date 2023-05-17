@@ -1,22 +1,22 @@
 package datastructure.array;
 
 /**
- * 本来想自己实现数组
- * 最终发现数组是个很特别的对象，由native方法支撑
- * 核心就是数组初始化    (E[])new Object(capacity)
+ * 本来想自己实现数组 最终发现数组是个很特别的对象，由native方法支撑 核心就是数组初始化    (E[])new Object(capacity)
  */
 public class Array<E> {
+    
     private int size;
+    
     private E[] data;
-
-
-    int[] a = new int[]{};
-
+    
+    
+    int[] a = new int[] {};
+    
     public Array() {
         this.size = 10;
     }
-
-
+    
+    
     //数组初始化，注意这里是创建了一个指定大小的:Object[capacity]
     public Array(int capacity) {
         E[] e = (E[]) new Object[capacity];
@@ -51,6 +51,6 @@ public class Array<E> {
     public void remove(int index) {
 
     }*/
-
-
+    
+    
 }

@@ -17,16 +17,17 @@ import java.io.Serializable;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ComDto implements Serializable {
+    
     private static final long serialVersionUID = 1L;
-
+    
     /**
      * 值
      */
     private String value;
-
+    
     /**
      * 分数
      */
     private Double score;
-
+    
 }

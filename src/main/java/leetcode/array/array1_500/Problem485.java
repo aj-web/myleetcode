@@ -7,12 +7,13 @@ import java.util.List;
  * 最大连续1的数
  */
 public class Problem485 {
+    
     public static void main(String[] args) {
-        int[] nums = new int[]{1, 1, 0, 1, 1, 1};
+        int[] nums = new int[] {1, 1, 0, 1, 1, 1};
         System.out.println(findMaxConsecutiveOnes(nums));
     }
-
-
+    
+    
     public static int findMaxConsecutiveOnes(int[] nums) {
         List<Integer> list = new ArrayList<>();
         int count = 0;

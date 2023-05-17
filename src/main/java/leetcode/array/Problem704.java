@@ -6,30 +6,30 @@ package leetcode.array;
  * @date 2021/11/8
  */
 public class Problem704 {
-
+    
     public static void main(String[] args) {
-        int[] a = new int[]{-1, 0, 3, 5, 9, 12};
+        int[] a = new int[] {-1, 0, 3, 5, 9, 12};
         int search = search(a, 0);
         System.out.println(search);
     }
-
-
+    
+    
     public static int search(int[] nums, int target) {
-
+        
         if (nums.length == 0) {
             return -1;
         }
-
+        
         if (nums[0] == target) {
             return 0;
         }
-
+        
         if (nums[nums.length - 1] == target) {
             return nums.length - 1;
         }
         int left = 0;
         int right = nums.length - 1;
-
+        
         while (left < right) {
             int mid = left + (right - left) / 2;
             if (nums[mid] < target) {
@@ -40,11 +40,11 @@ public class Problem704 {
                 return mid;
             }
         }
-
+        
         return -1;
     }
-
-
+    
+    
     /**
      * 二分查找查找最左边界 ：注意查找范围为[left，right)
      *
@@ -53,7 +53,9 @@ public class Problem704 {
      * @return
      */
     public static int binarySearchLeft(int[] nums, int target) {
-        if (nums.length == 0) return -1;
+        if (nums.length == 0) {
+            return -1;
+        }
         int left = 0;
         int right = nums.length; // 注意
         while (left < right) {
@@ -66,11 +68,11 @@ public class Problem704 {
                 right = mid;
             }
         }
-
+        
         return left;
     }
-
-
+    
+    
     /**
      * 二分查找查找最左边界 ：注意查找范围为[left，right]
      *
@@ -79,7 +81,9 @@ public class Problem704 {
      * @return
      */
     public static int binarySearchLeftUnite(int[] nums, int target) {
-        if (nums.length == 0) return -1;
+        if (nums.length == 0) {
+            return -1;
+        }
         int left = 0;
         int right = nums.length - 1; // 注意
         while (left <= right) {
@@ -92,11 +96,11 @@ public class Problem704 {
                 right = mid - 1;
             }
         }
-
+        
         return left;
     }
-
-
+    
+    
     /**
      * 二分查找查找最右边界 ：注意查找范围为[left，right)
      *
@@ -105,7 +109,9 @@ public class Problem704 {
      * @return
      */
     public static int binarySearchRight(int[] nums, int target) {
-        if (nums.length == 0) return -1;
+        if (nums.length == 0) {
+            return -1;
+        }
         int left = 0;
         int right = nums.length; // 注意
         while (left < right) {
@@ -121,8 +127,8 @@ public class Problem704 {
         }
         return left;
     }
-
-
+    
+    
     /**
      * 二分查找查找最右边界 ：注意查找范围为[left，right]
      *
@@ -131,7 +137,9 @@ public class Problem704 {
      * @return
      */
     public static int binarySearchRightUnite(int[] nums, int target) {
-        if (nums.length == 0) return -1;
+        if (nums.length == 0) {
+            return -1;
+        }
         int left = 0;
         int right = nums.length - 1; // 注意
         while (left < right) {
@@ -147,4 +155,6 @@ public class Problem704 {
         }
         return left;
     }
+    
+    
 }

@@ -9,16 +9,16 @@ import java.util.Arrays;
  * @date : 2022/11/15 22:33
  */
 public class Problem1701 {
-
+    
     public static void main(String[] args) {
         StopWatch stopWatch = new StopWatch();
         stopWatch.start();
         Problem1701 p = new Problem1701();
-        System.out.println(p.maximumUnits(new int[][]{{5, 10}, {2, 5}, {4, 7}, {3, 9}}, 10));
+        System.out.println(p.maximumUnits(new int[][] {{5, 10}, {2, 5}, {4, 7}, {3, 9}}, 10));
         stopWatch.stop();
         System.out.println(stopWatch.getTime() + "毫秒");
     }
-
+    
     /**
      * @param boxTypes
      * @param truckSize
@@ -26,9 +26,9 @@ public class Problem1701 {
      */
     public int maximumUnits(int[][] boxTypes, int truckSize) {
         int m = boxTypes.length;
-
+        
         Arrays.sort(boxTypes, (o1, o2) -> o2[1] - o1[1]);
-
+        
         int box = 0;
         int per = 0;
         int index = 0;
@@ -46,15 +46,14 @@ public class Problem1701 {
             }
             index++;
         }
-
-
+        
         return per;
     }
-
+    
     public int maximumUnits1(int[][] boxTypes, int truckSize) {
         Arrays.sort(boxTypes, (o1, o2) -> o2[1] - o1[1]);
         int res = 0;
-
+        
         for (int[] boxType : boxTypes) {
             int numberOfBoxes = boxType[0];
             int numberOfUnitsPerBox = boxType[1];

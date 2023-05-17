@@ -10,16 +10,16 @@ import java.util.Map;
  * @date : 2022/9/5 17:22
  */
 public class Problem953 {
-
+    
     public static void main(String[] args) {
         StopWatch stopWatch = new StopWatch();
         stopWatch.start();
-        System.out.println(isAlienSorted(new String[]{"hello", "leetcode"}, "hlabcdefgijkmnopqrstuvwxyz"));
+        System.out.println(isAlienSorted(new String[] {"hello", "leetcode"}, "hlabcdefgijkmnopqrstuvwxyz"));
         stopWatch.stop();
         System.out.println(stopWatch.getTime() + "毫秒");
     }
-
-
+    
+    
     public static boolean isAlienSorted(String[] words, String order) {
         Map<Character, Integer> map = new HashMap<>();
         for (int i = 0; i < order.length(); i++) {
@@ -40,5 +40,5 @@ public class Problem953 {
         }
         return true;
     }
-
+    
 }

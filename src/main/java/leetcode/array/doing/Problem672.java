@@ -7,7 +7,7 @@ import org.apache.commons.lang3.time.StopWatch;
  * @date : 2022/9/15 16:56
  */
 public class Problem672 {
-
+    
     public static void main(String[] args) {
         StopWatch stopWatch = new StopWatch();
         stopWatch.start();
@@ -16,7 +16,7 @@ public class Problem672 {
         stopWatch.stop();
         System.out.println(stopWatch.getTime() + "毫秒");
     }
-
+    
     /**
      * 找规律
      *
@@ -41,5 +41,5 @@ public class Problem672 {
             return presses == 1 ? 4 : presses == 2 ? 7 : 8;
         }
     }
-
+    
 }

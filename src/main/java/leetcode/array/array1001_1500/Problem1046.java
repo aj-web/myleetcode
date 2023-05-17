@@ -12,16 +12,16 @@ import java.util.PriorityQueue;
  * @date : 2022/10/27 14:37
  */
 public class Problem1046 {
-
+    
     public static void main(String[] args) {
         StopWatch stopWatch = new StopWatch();
         stopWatch.start();
         Problem1046 p = new Problem1046();
-        p.lastStoneWeight(new int[]{1, 1});
+        p.lastStoneWeight(new int[] {1, 1});
         stopWatch.stop();
         System.out.println(stopWatch.getTime() + "毫秒");
     }
-
+    
     public int lastStoneWeight(int[] stones) {
         if (stones.length == 1) {
             return stones[0];
@@ -29,7 +29,7 @@ public class Problem1046 {
         int[] ints = lastStone(stones);
         return ints[0];
     }
-
+    
     public int[] lastStone(int[] ints) {
         Arrays.sort(ints);
         if (ints.length < 2) {
@@ -40,7 +40,7 @@ public class Problem1046 {
         System.arraycopy(ints, 0, temp, 0, ints.length - 1);
         return lastStone(temp);
     }
-
+    
     /**
      * 使用堆排序
      *

@@ -4,7 +4,7 @@ package leetcode.array.array1_500;
  * leetcode682. 棒球比赛
  */
 public class Problem682 {
-
+    
     public int calPoints(String[] ops) {
         int[] arr = new int[ops.length];
         int i = 0;
@@ -27,7 +27,7 @@ public class Problem682 {
                     i++;
             }
         }
-
+        
         int sum = 0;
         for (int j = 0; j < arr.length; j++) {
             sum += arr[j];

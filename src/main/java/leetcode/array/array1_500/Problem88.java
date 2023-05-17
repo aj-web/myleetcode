@@ -4,24 +4,23 @@ import java.util.Arrays;
 
 /**
  * @Author ninan
- * @description 合并两个有序数组
- * 思路1：直接将两个数组合并，然后重新排序
+ * @description 合并两个有序数组 思路1：直接将两个数组合并，然后重新排序
  * @Date 2021/8/3
  **/
 public class Problem88 {
-
+    
     public static void main(String[] args) {
-        int[] a1 = new int[]{1, 2, 3, 0, 0, 0};
-        int[] a2 = new int[]{2, 5, 6};
+        int[] a1 = new int[] {1, 2, 3, 0, 0, 0};
+        int[] a2 = new int[] {2, 5, 6};
         merge(a1, 3, a2, 3);
     }
-
-
+    
+    
     public static void merge(int[] nums1, int m, int[] nums2, int n) {
         System.arraycopy(nums2, 0, nums1, m, n);
         Arrays.sort(nums2);
     }
-
+    
     /**
      * @Author ninan
      * @Description 使用指针进行比较
@@ -42,15 +41,15 @@ public class Problem88 {
             } else {
                 current = nums2[p2++];
             }
-
+            
             sort[p1 + p2 - 1] = current;
         }
-
+        
         for (int i = 0; i < m + n; i++) {
             nums1[i] = sort[i];
         }
     }
-
+    
     /**
      * @Author ninan
      * @Description
@@ -73,6 +72,6 @@ public class Problem88 {
             }
             nums1[tail--] = current;
         }
-
+        
     }
 }

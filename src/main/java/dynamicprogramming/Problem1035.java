@@ -7,12 +7,12 @@ package dynamicprogramming;
  * @date : 2022/8/27 21:11
  */
 public class Problem1035 {
-
+    
     public static void main(String[] args) {
-        System.out.println(maxUncrossedLines(new int[]{1, 4, 2}, new int[]{1, 2, 4}));
+        System.out.println(maxUncrossedLines(new int[] {1, 4, 2}, new int[] {1, 2, 4}));
     }
-
-
+    
+    
     public static int maxUncrossedLines(int[] nums1, int[] nums2) {
         int m = nums1.length;
         int n = nums2.length;
@@ -23,10 +23,10 @@ public class Problem1035 {
                 if (nums1[i - 1] == nums2[j - 1]) {
                     dp[i][j] = Math.max(1 + dp[i - 1][j - 1], dp[i][j]);
                 }
-
+                
             }
         }
-
+        
         return dp[m][n];
     }
 }

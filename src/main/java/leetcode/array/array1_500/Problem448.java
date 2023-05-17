@@ -8,12 +8,13 @@ import java.util.List;
  * leetcode:找到所以数组中消失的数字
  */
 public class Problem448 {
+    
     public static void main(String[] args) {
-        int[] nums = new int[]{4, 3, 2, 7, 8, 2, 3, 1};
+        int[] nums = new int[] {4, 3, 2, 7, 8, 2, 3, 1};
         findDisappearedNumbers1(nums);
     }
-
-
+    
+    
     /**
      * 暴力解法
      *
@@ -26,16 +27,16 @@ public class Problem448 {
         for (int i : nums) {
             set.add(i);
         }
-
+        
         for (int i = 1; i <= nums.length; i++) {
             if (!set.contains(i)) {
                 list.add(i);
             }
         }
-
+        
         return list;
     }
-
+    
     /**
      * 暴力解法
      *
@@ -50,7 +51,7 @@ public class Problem448 {
                 nums[i1] = -nums[i1];
             }
         }
-
+        
         for (int i = 0; i < nums.length; i++) {
             if (nums[i] > 0) {
                 list.add(i + 1);
@@ -58,5 +59,5 @@ public class Problem448 {
         }
         return list;
     }
-
+    
 }

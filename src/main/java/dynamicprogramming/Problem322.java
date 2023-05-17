@@ -4,10 +4,10 @@ package dynamicprogramming;
  * leet322 零钱兑换
  */
 public class Problem322 {
-
-
+    
+    
     public int coinChange(int[] coins, int amount) {
-
+        
         if (amount == 0) {
             return 0;
         }
@@ -22,8 +22,8 @@ public class Problem322 {
             }
             res = Math.min(result + 1, res);
         }
-
+        
         return res == Integer.MAX_VALUE ? -1 : res;
     }
-
+    
 }

@@ -5,7 +5,9 @@ import org.apache.commons.lang3.time.StopWatch;
 import java.util.ArrayDeque;
 import java.util.Deque;
 
-/**最多能完成排序的块
+/**
+ * 最多能完成排序的块
+ *
  * @author : chezj
  * @date : 2022/10/13 10:08
  */
@@ -23,6 +25,7 @@ public class Problem769 {
     
     /**
      * 要点：单调栈中存储块，对下一个值判断是否是同一个块，不是放入下一个块
+     *
      * @param arr
      * @return
      */

@@ -20,8 +20,8 @@ public class Problem862 {
     
     public int shortestSubarray(int[] nums, int k) {
         int len = nums.length;
-        int[][] dp = new int[len +1][len +1];
-    
+        int[][] dp = new int[len + 1][len + 1];
+        
         for (int i = 0; i < len; i++) {
         
         }

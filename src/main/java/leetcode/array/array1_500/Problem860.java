@@ -5,16 +5,17 @@ package leetcode.array.array1_500;
  * @date : 2022/8/29 23:17
  */
 public class Problem860 {
+    
     public static void main(String[] args) {
-
+    
     }
-
+    
     public boolean lemonadeChange(int[] bills) {
         int five = 0;
         int ten = 0;
-
+        
         for (int bill : bills) {
-
+            
             if (bill == 5) {
                 five++;
             } else if (bill == 10) {
@@ -23,7 +24,7 @@ public class Problem860 {
                 }
                 five--;
                 ten++;
-
+                
             } else if (bill == 20) {
                 if (five > 0 && ten > 0) {
                     five--;
@@ -33,11 +34,11 @@ public class Problem860 {
                 } else {
                     return false;
                 }
-
+                
             }
-
+            
         }
-
+        
         return true;
     }
 }

@@ -6,11 +6,12 @@ package sort;
  * @date 2021/11/11
  */
 public class MergeSort {
+    
     public static void main(String[] args) {
-        int[] a = new int[]{3, 1, 6, 100, 22, 33, 2, 4, 7, 99, 88, 77};
+        int[] a = new int[] {3, 1, 6, 100, 22, 33, 2, 4, 7, 99, 88, 77};
         mergeSort(a, 0, a.length - 1);
     }
-
+    
     /**
      * 归并排序
      *
@@ -36,7 +37,7 @@ public class MergeSort {
                 }
                 index++;
             }
-
+            
             //把左边剩余数和右边剩余数移入数组
             while (left <= start + (end - start) / 2 || right <= end) {
                 if (left <= (start + end) / 2) {
@@ -48,13 +49,13 @@ public class MergeSort {
                 }
                 index++;
             }
-
+            
             //最后将新的数据赋值给原来的列表，并且是对应分块后的下标。
             for (int i = start; i <= end; i++) {
                 arr[i] = result[i - start];
             }
         }
     }
-
-
+    
+    
 }

@@ -7,11 +7,12 @@ package leetcode.array.array501_1000;
  * @date : 2022/8/30 23:30
  */
 public class Problem896 {
+    
     public static void main(String[] args) {
-
+    
     }
-
-
+    
+    
     public boolean isMonotonic(int[] nums) {
         if (nums.length <= 2) {
             return true;

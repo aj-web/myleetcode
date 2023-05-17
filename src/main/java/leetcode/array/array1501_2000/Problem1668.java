@@ -7,7 +7,7 @@ import org.apache.commons.lang3.time.StopWatch;
  * @date : 2022/11/3 17:15
  */
 public class Problem1668 {
-
+    
     public static void main(String[] args) {
         StopWatch stopWatch = new StopWatch();
         stopWatch.start();
@@ -16,7 +16,7 @@ public class Problem1668 {
         stopWatch.stop();
         System.out.println(stopWatch.getTime() + "毫秒");
     }
-
+    
     public int maxRepeating(String sequence, String word) {
         int len = sequence.length();
         int s = word.length();
@@ -34,5 +34,5 @@ public class Problem1668 {
         }
         return ans;
     }
-
+    
 }

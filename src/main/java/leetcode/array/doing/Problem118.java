@@ -11,10 +11,11 @@ import java.util.List;
  * @TODO
  */
 public class Problem118 {
+    
     public static void main(String[] args) {
-
+    
     }
-
+    
     public List<List<Integer>> generate(int numRows) {
         List<List<Integer>> result = new ArrayList<>();
         if (numRows == 0) {
@@ -27,7 +28,7 @@ public class Problem118 {
             }
         }
         return result;
-
+        
     }
-
+    
 }

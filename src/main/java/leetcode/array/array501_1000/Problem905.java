@@ -10,6 +10,7 @@ import java.util.List;
  * @date : 2022/8/31 17:06
  */
 public class Problem905 {
+    
     public int[] sortArrayByParity(int[] nums) {
         List<Integer> list = new ArrayList<>();
         List<Integer> list2 = new ArrayList<>();
@@ -23,7 +24,7 @@ public class Problem905 {
         list.addAll(list2);
         return list.stream().mapToInt(Integer::valueOf).toArray();
     }
-
+    
     /**
      * 两遍遍历，追加结果
      *

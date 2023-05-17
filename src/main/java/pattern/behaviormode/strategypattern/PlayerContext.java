@@ -6,21 +6,21 @@ package pattern.behaviormode.strategypattern;
  * @Date 2021/7/25
  **/
 public class PlayerContext {
-
-
+    
+    
     GameStrategy gameStrategy;
-
-
+    
+    
     public void setGameStrategy(GameStrategy Strategy) {
         this.gameStrategy = Strategy;
     }
-
-
+    
+    
     public static void main(String[] args) {
         PlayerContext playerContext = new PlayerContext();
         playerContext.setGameStrategy(new DotaStratery());
         playerContext.gameStrategy.mobaStrategy();
-
+        
         playerContext.setGameStrategy(new LolStrategy());
         playerContext.gameStrategy.mobaStrategy();
     }

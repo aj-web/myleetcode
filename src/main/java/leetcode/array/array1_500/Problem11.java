@@ -7,12 +7,12 @@ package leetcode.array.array1_500;
  * @AC
  */
 public class Problem11 {
-
+    
     public static void main(String[] args) {
-        int[] t = new int[]{1, 8, 6, 2, 5, 4, 8, 3, 7};
+        int[] t = new int[] {1, 8, 6, 2, 5, 4, 8, 3, 7};
         System.out.println(findWaterMax(t));
     }
-
+    
     /**
      * 核心就是求面积，那么就转化为长乘宽的问题；
      *
@@ -33,7 +33,7 @@ public class Problem11 {
         }
         return maxArea;
     }
-
+    
     /**
      * 对上面的方式进行优化，第二个for循环从数组尾部开始，这样可以跳过一些情况 跳过on情况
      *
@@ -58,10 +58,10 @@ public class Problem11 {
             }
         }
         return maxArea;
-
+        
     }
-
-
+    
+    
     /**
      * 再次优化那么在第一个for循环的时候就反向遍历 直接可以跳过 on2钟情况
      *
@@ -72,7 +72,7 @@ public class Problem11 {
         int maxArea = 0;
         int y = 0;
         int x = 0;
-
+        
         for (int i = height.length - 1; i > 0; i--) {
             if (i != height.length - 1 && height[i] < height[i + 1]) {
                 continue;
@@ -88,11 +88,9 @@ public class Problem11 {
         }
         return maxArea;
     }
-
+    
     /**
-     * 思想很重要 面积=两个指针指向的数字中较小值∗指针之间的距离
-     * 那么我们直接把距离拉到最大，跳过“两个指针指向的数字中较小值”，采用双指针跳过左右中小的，因为水桶效应，
-     * 最小的数影响最大，所以跳过，
+     * 思想很重要 面积=两个指针指向的数字中较小值∗指针之间的距离 那么我们直接把距离拉到最大，跳过“两个指针指向的数字中较小值”，采用双指针跳过左右中小的，因为水桶效应， 最小的数影响最大，所以跳过，
      *
      * @param height
      * @return
@@ -101,7 +99,7 @@ public class Problem11 {
         int p1 = 0;
         int p2 = height.length - 1;
         int tar = 0;
-
+        
         while (p1 != p2) {
             if (height[p1] < height[p2]) {
                 if ((p2 - p1) * height[p1] > tar) {
@@ -115,9 +113,9 @@ public class Problem11 {
                 p2--;
             }
         }
-
+        
         return tar;
     }
-
-
+    
+    
 }

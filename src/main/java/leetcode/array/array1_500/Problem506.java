@@ -9,12 +9,13 @@ import java.util.Map;
  * 相对名次
  */
 public class Problem506 {
+    
     public static void main(String[] args) {
-        int[] num = new int[]{5, 4, 3, 2, 1};
+        int[] num = new int[] {5, 4, 3, 2, 1};
         System.out.println(Arrays.toString(findRelativeRanks1(num)));
     }
-
-
+    
+    
     /**
      * 暴力解法 167ms
      *
@@ -43,8 +44,8 @@ public class Problem506 {
         }
         return answer;
     }
-
-
+    
+    
     /**
      * 排序解法
      *

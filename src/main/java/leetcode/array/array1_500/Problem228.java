@@ -4,16 +4,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * leetcode228：汇总区间
- * AC
+ * leetcode228：汇总区间 AC
  */
 public class Problem228 {
-
+    
     public static void main(String[] args) {
-        int[] nums = new int[]{0, 2, 3, 4, 6, 8, 9};
+        int[] nums = new int[] {0, 2, 3, 4, 6, 8, 9};
         System.out.println(summaryRanges1(nums));
     }
-
+    
     public static List<String> summaryRanges(int[] nums) {
         List<String> result = new ArrayList<>();
         if (nums.length == 0) {
@@ -23,7 +22,7 @@ public class Problem228 {
             result.add(String.valueOf(nums[0]));
             return result;
         }
-
+        
         int left = 0;
         int right = 1;
         for (; right < nums.length; right++) {
@@ -44,8 +43,8 @@ public class Problem228 {
         }
         return result;
     }
-
-
+    
+    
     public static List<String> summaryRanges1(int[] nums) {
         List<String> result = new ArrayList<>();
         if (nums.length == 0) {
@@ -55,16 +54,16 @@ public class Problem228 {
             result.add(String.valueOf(nums[0]));
             return result;
         }
-
+        
         int left = 0;
         int right = 0;
-
+        
         while (right < nums.length) {
             right++;
             while (right < nums.length && nums[right - 1] + 1 == nums[right]) {
                 right++;
             }
-
+            
             StringBuffer temp = new StringBuffer(Integer.toString(nums[left]));
             if (left < right - 1) {
                 temp.append("->");
@@ -72,7 +71,7 @@ public class Problem228 {
             }
             result.add(temp.toString());
             left = right;
-
+            
         }
         return result;
     }

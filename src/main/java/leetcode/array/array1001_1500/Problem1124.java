@@ -10,17 +10,17 @@ import java.util.Map;
  * @date : 2023/2/15 22:58
  */
 public class Problem1124 {
-
+    
     public static void main(String[] args) {
         StopWatch stopWatch = new StopWatch();
         stopWatch.start();
         Problem1124 p = new Problem1124();
-        System.out.println(p.longestWPI(new int[]{9, 9, 6, 0, 6, 6, 9}));
+        System.out.println(p.longestWPI(new int[] {9, 9, 6, 0, 6, 6, 9}));
         stopWatch.stop();
         System.out.println(stopWatch.getTime() + "毫秒");
     }
-
-
+    
+    
     public int longestWPI(int[] hours) {
         Map<Integer, Integer> map = new HashMap<>();
         int s = 0, res = 0;
@@ -36,7 +36,7 @@ public class Problem1124 {
             if (!map.containsKey(s)) {
                 map.put(s, i);
             }
-
+            
         }
         return res;
     }
