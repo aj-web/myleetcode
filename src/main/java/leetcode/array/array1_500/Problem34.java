@@ -1,23 +1,33 @@
 package leetcode.array.array1_500;
 
+import org.apache.commons.lang3.time.StopWatch;
+
+import java.util.Arrays;
+
 /**
  * LeetCode34. 在排序数组中查找元素的第一个和最后一个位置 AC
  */
 public class Problem34 {
-    
+
     public static void main(String[] args) {
-        int[] a = new int[] {1};
-        searchRange(a, 0);
+        StopWatch stopWatch = new StopWatch();
+        stopWatch.start();
+        Problem34 p = new Problem34();
+
+        int[] a = new int[]{1};
+        System.out.println(Arrays.toString(p.searchRange(a, 0)));
+        stopWatch.stop();
+        System.out.println(stopWatch.getTime() + "毫秒");
     }
-    
-    public static int[] searchRange(int[] nums, int target) {
-        return new int[] {leftBound(nums, target), rightBound(nums, target)};
+
+    public int[] searchRange(int[] nums, int target) {
+        return new int[]{leftBound(nums, target), rightBound(nums, target)};
     }
-    
+
     /**
      * 找左边界
      */
-    public static int leftBound(int[] nums, int target) {
+    public int leftBound(int[] nums, int target) {
         int left = 0;
         int right = nums.length - 1;
         while (left <= right) {
@@ -30,18 +40,17 @@ public class Problem34 {
                 right = mid - 1;
             }
         }
-        
         if (left >= nums.length || nums[left] != target) {
             return -1;
         }
         return left;
     }
-    
-    
+
+
     /**
      * 找右边界
      */
-    public static int rightBound(int[] nums, int target) {
+    public int rightBound(int[] nums, int target) {
         int left = 0;
         int right = nums.length - 1;
         while (left <= right) {
@@ -54,13 +63,11 @@ public class Problem34 {
                 left = mid + 1;
             }
         }
-        
         if (right < 0 || nums[right] != target) {
             return -1;
         }
-        
         return right;
     }
-    
-    
+
+
 }

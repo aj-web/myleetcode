@@ -86,6 +86,9 @@ public static String minWindow(String s, String t) {
 /**
     
     * 二分查找基础班，直接返回mid，查找区间[lefy,right]
+     *注意当时完整区间的时候
+     *while (left <= right) 要使用 <= ，因为left == right是有意义的，所以使用 <=
+     *if (nums[middle] > target) right 要赋值为 middle - 1，因为当前这个nums[middle]一定不是target，那么接下来要查找的左区间结束下标位置就是 middle - 1 
      *
      * @param nums
      * @param target
@@ -109,12 +112,36 @@ public static String minWindow(String s, String t) {
     }
 
 
-     当然二分查找基础版也有开区间版本，但是一般都是闭区间
-     为了篇幅过长，这里就不写了
-
-
-     * 二分查找查找最左边界 ：注意查找范围为[left，right)
+     当然二分查找基础版也有开区间版本
+      * 二分查找 ：查找范围为[left，right)
      *
+     * @param nums
+     * @param target
+     * @return
+     */
+    class Solution {
+        public int search(int[] nums, int target) {
+            int left = 0, right = nums.length;
+            while (left < right) {
+                int mid = left + ((right - left) >> 1);
+                if (nums[mid] == target)
+                    return mid;
+                else if (nums[mid] < target)
+                    left = mid + 1;
+                else if (nums[mid] > target)
+                    right = mid;
+            }
+            return -1;
+        }
+    }    
+        
+
+      **尤其注意，左闭右开时，nums[mid] < target后面的处理不一定为left = mid + 1**
+      二分查找算法的关键是根据你的问题需求去决定 left 和 right 指针的移动方式，而不是完全依赖于数组是递增还是递减。具体的，这两种情况应该这样理解：
+left = mid + 1：这意味着你可以确认索引在 mid 及其左边的元素都不是你在查找的目标。例如，在一个递增的数组中查找目标值，如果 mid 的元素小于目标，那么你可以确定目标只可能出现在 mid 的右侧，因此，更新 left = mid + 1。
+right = mid：这意味着你可以确认索引在 mid 及其右边的元素都不是你在查找的目标。例如，在一个递减的数组中查找第一个负数，如果 mid 的元素是负数，那么你可以确定所有在 mid 右侧的元素都是负数，你需要继续查找 mid 的左侧，因此，更新 right = mid。
+     * 二分查找查找最左边界 ：注意查找范围为[left，right)
+     *注意这里是可以化简的，
      * @param nums
      * @param target
      * @return
