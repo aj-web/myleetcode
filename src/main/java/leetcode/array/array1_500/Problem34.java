@@ -26,6 +26,7 @@ public class Problem34 {
 
     /**
      * 找左边界
+     * 从这里我开始懂了的为什么要补上最后的if判断因为左闭右开的区间，最终退出循环的条件是left=right 所以还需要补漏判断一下left或者right
      */
     public int leftBound(int[] nums, int target) {
         int left = 0;
@@ -69,5 +70,5 @@ public class Problem34 {
         return right;
     }
 
-
+    
 }

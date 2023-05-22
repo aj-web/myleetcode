@@ -135,6 +135,11 @@ public static String minWindow(String s, String t) {
         }
     }    
         
+while(left <= right) 的终止条件是 left == right + 1，写成区间的形式就是 [right + 1, right]，或者带个具体的数字进去 [3, 2]，可见这时候区间为空，因为没有数字既大于等于 3 又小于等于 2 的吧。所以这时候 while 循环终止是正确的，直接返回 -1 即可。
+
+while(left < right) 的终止条件是 left == right，写成区间的形式就是 [right, right]，或者带个具体的数字进去 [2, 2]，这时候区间非空，还有一个数 2，但此时 while 循环终止了。也就是说区间 [2, 2] 被漏掉了，索引 2 没有被搜索，如果这时候直接返回 -1 就是错误的。
+
+
 
       **尤其注意，左闭右开时，nums[mid] < target后面的处理不一定为left = mid + 1**
       二分查找算法的关键是根据你的问题需求去决定 left 和 right 指针的移动方式，而不是完全依赖于数组是递增还是递减。具体的，这两种情况应该这样理解：
