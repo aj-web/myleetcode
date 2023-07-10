@@ -205,8 +205,4 @@ public class MyLinkedListDouble<E> {
     }
     
     
-    public static void main(String[] args) {
-    
-    }
-    
 }
