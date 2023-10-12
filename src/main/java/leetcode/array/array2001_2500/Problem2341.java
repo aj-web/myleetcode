@@ -1,4 +1,4 @@
-package leetcode.array.array2001_2501;
+package leetcode.array.array2001_2500;
 
 import org.apache.commons.lang3.time.StopWatch;
 
