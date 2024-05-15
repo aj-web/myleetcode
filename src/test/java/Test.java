@@ -1,8 +1,7 @@
-import java.util.concurrent.locks.Condition;
-import java.util.concurrent.locks.ReentrantLock;
 import java.util.ArrayList;
 import java.util.List;
-import org.apache.commons.lang3.time.StopWatch;
+import java.util.concurrent.locks.Condition;
+import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * @author : chezj
@@ -40,83 +39,83 @@ public class Test {
         a.start();
         b.start();
         c.start();*/
-        
-        Condition a = reentrantLock.newCondition();
-        Condition b = reentrantLock.newCondition();
-        Condition c = reentrantLock.newCondition();
-        
-        Thread A = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                for (int i = 0; i < 100; i++) {
-                    reentrantLock.lock();
-                    try {
-                        if (state % 3 != 0) {
-                            a.await();
-                        }
-                        System.out.println("a");
-                        state++;
-                        b.signal();
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    } finally {
-                        reentrantLock.unlock();
+    
+    Condition a = reentrantLock.newCondition();
+    
+    Condition b = reentrantLock.newCondition();
+    
+    Condition c = reentrantLock.newCondition();
+    
+    Thread A = new Thread(new Runnable() {
+        @Override
+        public void run() {
+            for (int i = 0; i < 100; i++) {
+                reentrantLock.lock();
+                try {
+                    if (state % 3 != 0) {
+                        a.await();
                     }
+                    System.out.println("a");
+                    state++;
+                    b.signal();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                } finally {
+                    reentrantLock.unlock();
                 }
-                
             }
-        });
-        
-        Thread B = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                for (int i = 0; i < 100; i++) {
-                    reentrantLock.lock();
-                    try {
-                        if (state % 3 != 1) {
-                            b.await();
-                            
-                        }
-                        System.out.println("b");
-                        state++;
-                        c.signal();
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    } finally {
-                        reentrantLock.unlock();
+            
+        }
+    });
+    
+    Thread B = new Thread(new Runnable() {
+        @Override
+        public void run() {
+            for (int i = 0; i < 100; i++) {
+                reentrantLock.lock();
+                try {
+                    if (state % 3 != 1) {
+                        b.await();
+                        
                     }
+                    System.out.println("b");
+                    state++;
+                    c.signal();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                } finally {
+                    reentrantLock.unlock();
                 }
-                
             }
-        });
-        
-        Thread C = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                for (int i = 0; i < 100; i++) {
-                    reentrantLock.lock();
-                    try {
-                        if (state % 3 != 2) {
-                            c.await();
-                        }
-                        System.out.println("c");
-                        state++;
-                        a.signal();
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    } finally {
-                        reentrantLock.unlock();
+            
+        }
+    });
+    
+    Thread C = new Thread(new Runnable() {
+        @Override
+        public void run() {
+            for (int i = 0; i < 100; i++) {
+                reentrantLock.lock();
+                try {
+                    if (state % 3 != 2) {
+                        c.await();
                     }
+                    System.out.println("c");
+                    state++;
+                    a.signal();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                } finally {
+                    reentrantLock.unlock();
                 }
-                
             }
-        });
+            
+        }
+    });
         
         A.start();
         B.start();
         C.start();
-        
-    }
     
     
     public int[] LIS(int[] arr) {
@@ -143,7 +142,6 @@ public class Test {
                 max = integers.size();
             }
         }
-        
         
         for (List<Integer> integers : list) {
             if (integers.size() == max) {
