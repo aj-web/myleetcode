@@ -1,5 +1,8 @@
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
+import java.util.ArrayList;
+import java.util.List;
+import org.apache.commons.lang3.time.StopWatch;
 
 /**
  * @author : chezj
@@ -11,7 +14,7 @@ public class Test {
     
     static ReentrantLock reentrantLock = new ReentrantLock();
     
-    public static void main(String[] args) {
+    
 
         /*        Thread a = new Thread(() -> System.out.println("a"));
         
@@ -116,4 +119,42 @@ public class Test {
     }
     
     
+    public int[] LIS(int[] arr) {
+        // write code here
+        int[] res = new int[0];
+        
+        List<List<Integer>> list = new ArrayList<>();
+        
+        for (int i = 0; i < arr.length; i++) {
+            int temp = arr[i];
+            ArrayList<Integer> arrayList = new ArrayList<>();
+            arrayList.add(temp);
+            for (int j = i + 1; j < arr.length; j++) {
+                if (arr[j] > arrayList.get(arrayList.size() - 1)) {
+                    arrayList.add(arr[j]);
+                }
+            }
+            list.add(arrayList);
+        }
+        
+        int max = 0;
+        for (List<Integer> integers : list) {
+            if (integers.size() > max) {
+                max = integers.size();
+            }
+        }
+        
+        
+        for (List<Integer> integers : list) {
+            if (integers.size() == max) {
+                res = new int[integers.size()];
+                for (int i = 0; i < integers.size(); i++) {
+                    res[i] = integers.get(i);
+                }
+                return res;
+            }
+        }
+        
+        return res;
+    }
 }
