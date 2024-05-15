@@ -1,4 +1,4 @@
-package leetcode.LinkedList.linkedlist1_500;
+package leetcode.linkedlist.linkedlist1_500;
 
 import org.apache.commons.lang3.time.StopWatch;
 

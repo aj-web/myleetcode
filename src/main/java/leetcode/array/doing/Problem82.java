@@ -3,7 +3,7 @@ package leetcode.array.doing;
 import org.apache.commons.lang3.time.StopWatch;
 
 /**
- * 删除排序链表中的重复元素 II
+ * 删除排序链表中的重复元素 II 对比I来说，他的思路就是新创建一个链表，然后一个指针遍历取值，一个指针组装
  *
  * @author : chezj
  * @date : 2022/10/25 16:29
@@ -75,6 +75,31 @@ public class Problem82 {
         }
         // 直接返回那个不重复节点开头的链表的去重结果，就把重复节点删掉了
         return deleteDuplicates(head.next);
+    }
+    
+    
+    public ListNode deleteDuplicates20240515(ListNode head) {
+        ListNode dummy = new ListNode(-1);
+        //创建两个指正
+        ListNode p = dummy;
+        ListNode q = head;
+        //开始遍历和组装
+        while (q != null) {
+            if (q.next != null && q.val == q.next.val) {
+                while (q.next != null && q.val == q.next.val) {
+                    q = q.next;
+                }
+                q = q.next;
+                if (q == null) {
+                    p.next = null;
+                }
+            } else {
+                p.next = q;
+                q = q.next;
+                p = p.next;
+            }
+        }
+        return dummy.next;
     }
     
     private static class ListNode {

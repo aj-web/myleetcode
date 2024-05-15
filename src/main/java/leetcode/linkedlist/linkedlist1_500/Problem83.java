@@ -1,5 +1,6 @@
 package leetcode.linkedlist.linkedlist1_500;
 
+
 import org.apache.commons.lang3.time.StopWatch;
 
 /**
@@ -40,6 +41,24 @@ public class Problem83 {
             fast = fast.next;
         }
         //特殊情况全是重复
+        slow.next = null;
+        return head;
+    }
+    
+    public ListNode deleteDuplicates20240514(ListNode head) {
+        if (null == head) {
+            return null;
+        }
+        ListNode fast = head;
+        ListNode slow = head;
+        while (fast != null) {
+            if (fast.val != slow.val) {
+                slow.next = fast;
+                slow = slow.next;
+                
+            }
+            fast = fast.next;
+        }
         slow.next = null;
         return head;
     }

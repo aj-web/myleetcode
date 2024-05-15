@@ -1,5 +1,7 @@
 package leetcode.array.array1_500;
 
+import org.apache.commons.lang3.time.StopWatch;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -14,13 +16,16 @@ import java.util.List;
  */
 public class Problem15 {
     
-    public static void main(String[] args) {
-        int[] a = new int[] {-1, 0, 1, 2, -1, -4, -2, -3, 3, 0, 4};
-        List tar = threeSum(a);
-        for (int i = 0; i < tar.size(); i++) {
-            System.out.println(tar.get(i));
-        }
+    public static void main(String[] args) throws InterruptedException {
+        StopWatch stopWatch = new StopWatch();
+        stopWatch.start();
+        Problem15 p = new Problem15();
+        List<List<Integer>> lists = p.threeSum20240401(new int[] {1, -1, -1, 0}, 0);
+        Thread.sleep(1000);
+        stopWatch.stop();
+        System.out.println(stopWatch.getTime() + "毫秒");
     }
+    
     
     /**
      * @Author ninan
@@ -91,45 +96,159 @@ public class Problem15 {
         return ls;
     }
     
-    class Solution {
-        
-        public List<List<Integer>> threeSum(int[] nums) {
-            List<List<Integer>> result = new ArrayList<>();
-            if (nums == null || nums.length < 3) {
-                return result;
+    /**
+     * @param nums
+     * @return
+     */
+    public List<List<Integer>> threeSum20240401(int[] nums, int target) {
+        Arrays.sort(nums);
+        int n = nums.length;
+        List<List<Integer>> res = new ArrayList<>();
+        for (int i = 0; i < nums.length; i++) {
+            List<List<Integer>> tuples = twoSumTarget(nums, i + 1, target - nums[i]);
+            for (List<Integer> tuple : tuples) {
+                tuple.add(nums[i]);
+                res.add(tuple);
             }
-            Arrays.sort(nums);
-            int len = nums.length;
-            int left;
-            int right;
-            List<Integer> res = new ArrayList<>();
-            for (int i = 0; i < len; i++) {
-                left = i + 1;
-                right = len - 1;
-                if (i >= 1 && nums[i] == nums[i - 1]) {
-                    continue;
+            while (i < n - 1 && nums[i] == nums[i + 1]) {
+                i++;
+            }
+        }
+        return res;
+        
+    }
+    
+    
+    public List<List<Integer>> fourSum(int[] nums, int target) {
+        Arrays.sort(nums);
+        int n = nums.length;
+        List<List<Integer>> res = new ArrayList<>();
+        // 穷举 fourSum 的第一个数
+        for (int i = 0; i < n; i++) {
+            // 对 target - nums[i] 计算 threeSum
+            List<List<Integer>> triples = threeSumTarget(nums, i + 1, target - nums[i]);
+            // 如果存在满足条件的三元组，再加上 nums[i] 就是结果四元组
+            for (List<Integer> triple : triples) {
+                triple.add(nums[i]);
+                res.add(triple);
+            }
+            // fourSum 的第一个数不能重复
+            while (i < n - 1 && nums[i] == nums[i + 1]) {
+                i++;
+            }
+        }
+        return res;
+    }
+    
+    
+    public List<List<Integer>> threeSumTarget(int[] nums, int start, int target) {
+        int n = nums.length;
+        List<List<Integer>> res = new ArrayList<>();
+        // i 从 start 开始穷举，其他都不变
+        for (int i = start; i < n; i++) {
+            List<List<Integer>> tuples = twoSumTarget(nums, i + 1, target - nums[i]);
+            for (List<Integer> tuple : tuples) {
+                tuple.add(nums[i]);
+                res.add(tuple);
+            }
+            while (i < n - 1 && nums[i] == nums[i + 1]) {
+                i++;
+            }
+        }
+        return res;
+    }
+    
+    
+    /**
+     * 先写一个通用的求两数之和的方法
+     */
+    public List<List<Integer>> twoSumTarget(int[] nums, int start, int target) {
+        int lo = start;
+        int hi = nums.length - 1;
+        List<List<Integer>> res = new ArrayList<>();
+        List<Integer> temp = new ArrayList<>();
+        
+        while (lo < hi) {
+            int sum = nums[lo] + nums[hi];
+            int left = nums[lo], right = nums[hi];
+            if (sum < target) {
+                while (lo < hi && left == nums[lo]) {
+                    lo++;
                 }
-                while (left < right) {
-                    if (nums[left] + nums[right] + nums[i] == 0) {
-                        res = Arrays.asList(nums[i], nums[left], nums[right]);
-                        result.add(res);
-                        left++;
-                        right--;
-                        while (left < right && nums[left] == nums[left - 1]) {
-                            left++;
-                        }
-                        while (left < right && nums[right] == nums[right + 1]) {
-                            right--;
-                        }
-                    } else if (nums[left] + nums[right] + nums[i] > 0) {
-                        right--;
-                    } else {
-                        left++;
-                    }
+            } else if (sum > target) {
+                while (lo < hi && nums[hi] == right) {
+                    hi--;
+                }
+            } else {
+                //                res.add(new ArrayList<>(Arrays.asList(left, right)));
+                temp.add(left);
+                temp.add(right);
+                while (lo < hi && nums[lo] == left) {
+                    lo++;
+                }
+                while (lo < hi && nums[hi] == right) {
+                    hi--;
+                }
+            }
+            
+        }
+        res.add(temp);
+        return res;
+    }
+    
+    
+    public List<List<Integer>> twoSumTarget20240414(int[] nums, int start, int target) {
+        int lo = start;
+        int hi = nums.length - 1;
+        List<List<Integer>> res = new ArrayList<>();
+        List<Integer> temp = new ArrayList<>();
+        while (lo < hi) {
+            int sum = nums[lo] + nums[hi];
+            int left = nums[lo];
+            int right = nums[hi];
+            if (sum < target) {
+                while (lo < hi && left == nums[lo]) {
+                    lo++;
+                }
+            } else if (sum > target) {
+                while (lo < hi && right == nums[hi]) {
+                    hi--;
+                }
+                
+            } else {
+                res.add(new ArrayList<>(Arrays.asList(left, right)));
+                while (lo < hi && left == nums[lo]) {
+                    lo++;
+                }
+                while (lo < hi && nums[hi] == right) {
+                    hi--;
                 }
                 
             }
-            return result;
+            
+            
         }
+        return res;
     }
+    
+    public List<List<Integer>> threeSumTarget20240414(int[] nums, int start, int target) {
+        
+        Arrays.sort(nums);
+        List<List<Integer>> res = new ArrayList<>();
+        for (int i = 0; i < nums.length; i++) {
+            List<List<Integer>> twoSumTarget = twoSumTarget20240414(nums, i + 1, target - nums[i]);
+            for (List<Integer> list : twoSumTarget) {
+                list.add(nums[i]);
+                res.add(list);
+            }
+            while (i < nums.length && nums[i] == nums[i + 1]) {
+                i++;
+            }
+            
+        }
+        
+        return res;
+    }
+    
+    
 }

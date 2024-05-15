@@ -57,6 +57,30 @@ public class Problem61 {
         return ans;
     }
     
+    
+    public ListNode rotateRight20240515(ListNode head, int k) {
+        if (head == null || head.next == null || k == 0) {
+            return head;
+        }
+        int count = 1;
+        ListNode index = head;
+        while (index.next != null) {
+            count++;
+            index = index.next;
+        }
+        int move = count - (k % count);
+        //注意这里index已经遍历到尾部了，直接连接头部形成环形链表，然后切割。
+        index.next = head;
+        while (move-- > 0) {
+            index = index.next;
+        }
+        //注意断开环形链表的时候要取到答案的头结点。
+        ListNode ans = index.next;
+        index.next = null;
+        return ans;
+    }
+    
+    
     @ToString
     private static class ListNode {
         
